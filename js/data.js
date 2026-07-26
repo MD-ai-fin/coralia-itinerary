@@ -7,10 +7,10 @@ const ITINERARY = {
     },
     traveler: {
       en: "2 tourists · Non-spicy · Low stamina · September",
-      zh: "2 位美国游客 · 不吃辣 · 少爬坡 · 9 月出行",
+      zh: "2 位游客 · 不吃辣 · 少爬坡 · 9 月出行",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26cc",
+    build: "2026-07-26cd",
     budget: {
       total: { cny: 9179, usd: 1355.74 },
       cap: { cny: 9820, usd: 1449.41 },
