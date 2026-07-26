@@ -37,7 +37,7 @@
     document.getElementById("traveler-info").textContent = t(ITINERARY.meta.traveler);
     const badge = document.getElementById("build-badge");
     if (badge && ITINERARY.meta.build) {
-      badge.textContent = `✨ ${ITINERARY.meta.build}`;
+      badge.textContent = ITINERARY.meta.build;
     }
     document.title = t(ITINERARY.meta.title) + " · Coralia";
   }
@@ -46,8 +46,8 @@
     const u = ui();
     const greeting =
       lang === "zh"
-        ? "🌸 欢迎你，Coralia！熊猫之旅从这里开始！"
-        : "🌸 Welcome, Coralia! Your panda adventure begins here!";
+        ? "欢迎你，Coralia！熊猫之旅从这里开始！"
+        : "Welcome, Coralia! Your panda adventure begins here!";
 
     document.getElementById("hero-greeting").textContent = greeting;
 
@@ -200,9 +200,7 @@
         </a>
         <div class="highlight-body">
           <div class="highlight-city">📍 ${t(spot.city)}</div>
-          <div class="highlight-name">
-            <a class="highlight-name-link" href="${spot.reviewUrl}" target="_blank" rel="noopener noreferrer">${t(spot.name)} ↗</a>
-          </div>
+          <div class="highlight-name">${t(spot.name)}</div>
           ${renderHighlightTicket(spot, u)}
           <p class="highlight-tagline">${t(spot.tagline)}</p>
           <a class="highlight-review-link" href="${spot.reviewUrl}" target="_blank" rel="noopener noreferrer">${u.viewReviews} ↗</a>
