@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Wulong shuttle bus">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F3DC"/>
+      <stop offset="100%" stop-color="#B0D197"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8FB86E"/>
+      <stop offset="100%" stop-color="#6A9B4E"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="18" fill="url(#sky)"/>
+  <path d="M0 78 L28 58 L52 68 L78 48 L120 66 L120 120 L0 120 Z" fill="url(#mountain)" opacity="0.85"/>
+  <rect x="18" y="52" width="74" height="34" rx="8" fill="#fff" stroke="#6A9B4E" stroke-width="2.5"/>
+  <rect x="24" y="58" width="18" height="14" rx="3" fill="#D4EBC0"/>
+  <rect x="46" y="58" width="18" height="14" rx="3" fill="#D4EBC0"/>
+  <rect x="68" y="58" width="18" height="14" rx="3" fill="#D4EBC0"/>
+  <rect x="24" y="74" width="62" height="6" rx="2" fill="#E8F3DC"/>
+  <circle cx="34" cy="88" r="7" fill="#3d5038"/>
+  <circle cx="34" cy="88" r="3" fill="#fff"/>
+  <circle cx="78" cy="88" r="7" fill="#3d5038"/>
+  <circle cx="78" cy="88" r="3" fill="#fff"/>
+  <rect x="86" y="62" width="4" height="10" rx="1" fill="#FFD966"/>
+  <text x="60" y="38" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="11" font-weight="700" fill="#3d5038">Wulong</text>
+</svg>
