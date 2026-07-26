@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Coralia's Panda Adventure · 熊猫之旅</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260726bu">
+</head>
+<body>
+  <div class="panda-watermark" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <img class="panda-icon" src="images/panda-bamboo.png" alt="" aria-hidden="true">
+        <div>
+          <h1 id="page-title"></h1>
+          <p id="page-subtitle" class="subtitle"></p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <p id="traveler-info" class="traveler-badge"></p>
+        <button id="lang-toggle" class="lang-btn" aria-label="Switch language">
+          <span class="lang-en">中文</span>
+          <span class="lang-zh">EN</span>
+        </button>
+        <span class="build-badge" id="build-badge" title="Page version"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero -->
+    <section class="hero card">
+      <div class="hero-content">
+        <div class="hero-intro">
+          <div class="hero-panda">
+            <img class="panda-img" src="images/panda-wave.png" alt="" aria-hidden="true">
+          </div>
+          <div class="hero-copy">
+            <p id="hero-greeting" class="hero-greeting"></p>
+            <div class="budget-pills" id="budget-pills"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="section" id="highlights-section">
+      <div class="section-header">
+        <h2 id="highlights-title"></h2>
+        <p id="highlights-hint" class="section-desc"></p>
+      </div>
+      <div class="highlights-grid" id="highlights-grid"></div>
+    </section>
+
+    <!-- Hotels -->
+    <section class="section" id="hotels-section">
+      <h2 id="hotels-title"></h2>
+      <div class="hotels-grid" id="hotels-grid"></div>
+    </section>
+
+    <!-- Itinerary -->
+    <section class="section" id="days-section">
+      <div class="section-header">
+        <h2 id="days-title"></h2>
+        <p id="drill-hint" class="section-desc"></p>
+      </div>
+      <div class="days-list" id="days-list"></div>
+    </section>
+
+    <!-- Budget Breakdown -->
+    <section class="section" id="budget-section">
+      <div class="budget-panels" id="budget-panels"></div>
+    </section>
+
+    <!-- Tips -->
+    <section class="section" id="tips-section">
+      <div class="section-header">
+        <h2 id="tips-title"></h2>
+        <p id="tips-hint" class="section-desc"></p>
+      </div>
+      <div class="tips-grid" id="tips-grid"></div>
+    </section>
+  </main>
+
+  <!-- Activity Detail Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content card">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p id="footer-tagline">🎋 <span id="footer-tagline-text"></span> <img class="footer-panda" src="images/panda-wave.png" alt="" aria-hidden="true"></p>
+    <p class="exchange-rate" id="exchange-rate"></p>
+  </footer>
+
+  <script src="js/data.js?v=20260726bu"></script>
+  <script src="js/app.js?v=20260726bu"></script>
+</body>
+</html>
