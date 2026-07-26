@@ -572,9 +572,11 @@
           .map(
             ({ group, item }) => `
           <article class="download-card card">
-            <span class="download-category-badge">${t(group.title)}</span>
-            <div class="download-card-title">${t(item.title)}</div>
-            <p class="download-card-desc">${t(item.desc)}</p>
+            <div class="download-card-body">
+              <span class="download-category-badge">${t(group.title)}</span>
+              <div class="download-card-title">${t(item.title)}</div>
+              <p class="download-card-desc">${t(item.desc)}</p>
+            </div>
             <a class="download-btn" href="${item.file[lang] || item.file.en}" download>
               <span class="download-btn-icon" aria-hidden="true">📥</span>
               ${u.downloadBtn}

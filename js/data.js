@@ -10,7 +10,7 @@ const ITINERARY = {
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26dh",
+    build: "2026-07-26dl",
     budget: {
       total: { cny: 9179, usd: 1355.74 },
       cap: { cny: 9820, usd: 1449.41 },

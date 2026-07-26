@@ -23,6 +23,7 @@
   --content-max: 1100px;
   --spot-nav-w: 76px;
   --header-h: 88px;
+  --tip-bar-min-height: calc(36px + 1.1rem * 1.6);
 }
 
 * {
@@ -325,26 +326,42 @@ body[lang="en"] .hero-greeting {
 }
 
 .download-card {
-  padding: 20px;
+  padding: 18px 20px;
+  min-height: var(--tip-bar-min-height);
+  height: var(--tip-bar-min-height);
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
   transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
 }
 
 .download-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
 }
 
+.download-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
 .download-category-badge {
-  align-self: flex-start;
-  font-size: 0.7rem;
+  flex-shrink: 0;
+  align-self: center;
+  font-size: 0.65rem;
   font-weight: 800;
-  padding: 4px 10px;
+  padding: 2px 8px;
   border-radius: 999px;
   background: var(--yellow);
   color: var(--text);
+  line-height: 1.2;
 }
 
 .download-lang-badge {
@@ -358,33 +375,38 @@ body[lang="en"] .hero-greeting {
 }
 
 .download-card-title {
+  flex: 1;
+  min-width: 0;
   font-weight: 800;
-  font-size: 1rem;
-  line-height: 1.35;
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .download-card-desc {
-  flex: 1;
-  font-size: 0.88rem;
-  color: var(--text-light);
-  line-height: 1.5;
+  display: none;
 }
 
 .download-btn {
+  flex-shrink: 0;
+  align-self: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 4px;
-  padding: 11px 16px;
-  border-radius: var(--radius-sm);
+  gap: 6px;
+  margin-top: 0;
+  padding: 6px 12px;
+  border-radius: 12px;
   background: linear-gradient(135deg, var(--mint), var(--bamboo-light));
   border: 2px solid rgba(106, 155, 78, 0.35);
   color: var(--text);
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   text-decoration: none;
+  white-space: nowrap;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -396,7 +418,7 @@ body[lang="en"] .hero-greeting {
 }
 
 .download-btn-icon {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1;
 }
 
@@ -1334,6 +1356,8 @@ body[lang="en"] .hero-greeting {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-height: var(--tip-bar-min-height);
+  box-sizing: border-box;
   padding: 18px 20px;
   cursor: pointer;
   user-select: none;
