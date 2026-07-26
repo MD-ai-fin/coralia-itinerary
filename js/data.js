@@ -10,7 +10,7 @@ const ITINERARY = {
       zh: "2 位游客 · 不吃辣 · 少爬坡 · 9 月出行",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26cd",
+    build: "2026-07-26cg",
     budget: {
       total: { cny: 9179, usd: 1355.74 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -1303,6 +1303,39 @@ const ITINERARY = {
     },
   },
 
+  downloads: {
+    groups: [
+      {
+        id: "itinerary",
+        title: { en: "Itinerary Document", zh: "行程 Word 文档" },
+        items: [
+          {
+            file: { zh: "downloads/itinerary-zh.docx", en: "downloads/itinerary-en.docx" },
+            title: { en: "10-Day Sichuan-Chongqing Itinerary", zh: "10 天 9 晚川渝熊猫主题行程" },
+            desc: {
+              en: "Full daily schedule, hotels, budget & tips",
+              zh: "含每日安排、酒店、预算与出行提示",
+            },
+          },
+        ],
+      },
+      {
+        id: "visa",
+        title: { en: "Visa Guide", zh: "签证指南" },
+        items: [
+          {
+            file: { zh: "downloads/visa-l-timing-zh.docx", en: "downloads/visa-l-timing-en.docx" },
+            title: { en: "China L Visa Timing Guide", zh: "中国旅游 L 签证办理时间" },
+            desc: {
+              en: "When to apply & required documents",
+              zh: "最佳办理时间与材料清单",
+            },
+          },
+        ],
+      },
+    ],
+  },
+
   ui: {
     en: {
       appsTitle: "Essential Travel Apps",
@@ -1345,6 +1378,9 @@ const ITINERARY = {
       stars: "stars",
       nights: "nights",
       footerTagline: "Made with care for Coralia · Have a wonderful trip",
+      downloadsTitle: "Download Word Documents",
+      downloadsHint: "Itinerary & visa guides for offline reading and printing",
+      downloadBtn: "Download .docx",
     },
     zh: {
       appsTitle: "必备旅行 APP",
@@ -1387,6 +1423,9 @@ const ITINERARY = {
       stars: "星",
       nights: "晚",
       footerTagline: "Coralia 专属旅程 · 愿一路皆美好",
+      downloadsTitle: "下载 Word 行程 / 签证指南",
+      downloadsHint: "完整 Word 文档，可离线阅读与打印",
+      downloadBtn: "下载 .docx",
     },
   },
 };

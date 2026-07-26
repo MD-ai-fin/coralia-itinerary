@@ -27,6 +27,7 @@
     renderSpotNav();
     renderBudgetBreakdown();
     renderTips();
+    renderDownloads();
     renderFooter();
   }
 
@@ -296,7 +297,7 @@
                   title="${t(act.title)} · ${u.spotNavHint}"
                   aria-label="${dayPrefix}${day} · ${t(act.title)}">
             <img src="${getSpotNavImage(act)}" alt="" loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=120&q=80'">
+                 onerror="${imgOnErrorHandler(getSpotNavImage(act))}">
           </button>
         `;
       })
@@ -368,6 +369,23 @@
   }
 
   const DIDI_ICON = "images/didi.png";
+  const IMAGE_FALLBACKS = {
+    "images/wulong-shuttle.jpg": "images/wulong-shuttle.svg",
+  };
+  const GENERIC_IMAGE_FALLBACK =
+    "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=200&q=80";
+
+  function imgOnErrorHandler(primarySrc, size) {
+    const fallback = IMAGE_FALLBACKS[primarySrc];
+    const generic =
+      size === "large"
+        ? "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=800&q=80"
+        : GENERIC_IMAGE_FALLBACK;
+    if (!fallback) {
+      return `this.src='${generic}'`;
+    }
+    return `if(this.dataset.fallbackApplied!=='1'){this.dataset.fallbackApplied='1';this.src='${fallback}';}else{this.src='${generic}';}`;
+  }
 
   function isTaxiActivity(act) {
     if (act.type !== "transport") return false;
@@ -431,7 +449,7 @@
       <div class="timeline-item" id="act-d${dayNum}-${actIndex}" data-day="${dayNum}" data-act-index="${actIndex}" role="button" tabindex="0" aria-label="${t(act.title)}">
         <div class="timeline-time">${act.time}</div>
         <img class="${thumbClass}" src="${imgSrc}" alt="" loading="lazy"
-             onerror="this.src='https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=200&q=80'">
+             onerror="${imgOnErrorHandler(imgSrc)}">
         <div class="timeline-content">
           <span class="timeline-type type-${act.type}">${typeLabel}</span>
           ${renderActivityTitle(act)}
@@ -539,6 +557,36 @@
     document.getElementById("footer-tagline-text").textContent = ui().footerTagline;
     const build = ITINERARY.meta.build ? ` · Build ${ITINERARY.meta.build}` : "";
     document.getElementById("exchange-rate").textContent = ITINERARY.meta.exchangeRate + build;
+  }
+
+  function renderDownloads() {
+    const u = ui();
+    document.getElementById("downloads-title").textContent = u.downloadsTitle;
+    document.getElementById("downloads-hint").textContent = u.downloadsHint;
+
+    const cards = ITINERARY.downloads.groups.flatMap((group) =>
+      group.items.map((item) => ({ group, item }))
+    );
+
+    document.getElementById("downloads-groups").innerHTML = `
+      <div class="downloads-grid">
+        ${cards
+          .map(
+            ({ group, item }) => `
+          <article class="download-card card">
+            <span class="download-category-badge">${t(group.title)}</span>
+            <div class="download-card-title">${t(item.title)}</div>
+            <p class="download-card-desc">${t(item.desc)}</p>
+            <a class="download-btn" href="${item.file[lang] || item.file.en}" download>
+              <span class="download-btn-icon" aria-hidden="true">📥</span>
+              ${u.downloadBtn}
+            </a>
+          </article>
+        `
+          )
+          .join("")}
+      </div>
+    `;
   }
 
   function bindEvents() {
@@ -675,7 +723,7 @@
     const imgSrc = getActivityImage(act);
     if (imgSrc) {
       const mediaClass = isTaxiActivity(act) ? "modal-media modal-media-didi" : "modal-media";
-      mediaHtml = `<img class="${mediaClass}" src="${imgSrc}" alt="${t(act.title)}">`;
+      mediaHtml = `<img class="${mediaClass}" src="${imgSrc}" alt="${t(act.title)}" onerror="${imgOnErrorHandler(imgSrc, 'large')}">`;
     }
 
     document.getElementById("modal-body").innerHTML = `
