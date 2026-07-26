@@ -274,6 +274,93 @@ body[lang="en"] .hero-greeting {
 .budget-pill.cap { background: var(--lavender); }
 .budget-pill.remaining { background: var(--yellow); }
 
+/* Word downloads */
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.download-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.download-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.download-category-badge {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--text);
+}
+
+.download-lang-badge {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--text);
+}
+
+.download-card-title {
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.download-card-desc {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--mint), var(--bamboo-light));
+  border: 2px solid rgba(106, 155, 78, 0.35);
+  color: var(--text);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.download-btn:hover,
+.download-btn:focus-visible {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+  outline: none;
+}
+
+.download-btn-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+#downloads-section h2::before {
+  content: "📥";
+}
+
 /* Sections */
 .section {
   margin-bottom: 40px;
@@ -1621,6 +1708,10 @@ body[lang="en"] .hero-greeting {
 
   .timeline-item {
     flex-wrap: wrap;
+  }
+
+  .downloads-grid {
+    grid-template-columns: 1fr;
   }
 
   .timeline-time {
