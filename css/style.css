@@ -20,6 +20,9 @@
   --shadow-hover: 0 12px 40px rgba(106, 155, 78, 0.24);
   --radius: 24px;
   --radius-sm: 16px;
+  --content-max: 1100px;
+  --spot-nav-w: 76px;
+  --header-h: 88px;
 }
 
 * {
@@ -1396,16 +1399,15 @@ body[lang="en"] .hero-greeting {
 /* Left spot navigation */
 .spot-nav {
   position: fixed;
-  left: 0;
-  top: 50%;
+  /* Vertically centered in the viewport area below the page header */
+  top: calc(var(--header-h) + (100vh - var(--header-h)) / 2);
   transform: translateY(-50%);
-  width: 76px;
-  max-height: min(88vh, 920px);
+  width: var(--spot-nav-w);
+  max-height: calc(100vh - var(--header-h) - 32px);
   z-index: 90;
   background: rgba(244, 250, 239, 0.94);
   border: 2px solid rgba(176, 209, 151, 0.55);
-  border-left: none;
-  border-radius: 0 18px 18px 0;
+  border-radius: 18px;
   backdrop-filter: blur(10px);
   overflow: hidden;
   display: flex;
@@ -1500,9 +1502,9 @@ body[lang="en"] .hero-greeting {
 }
 
 @media (min-width: 900px) {
-  body.has-spot-nav {
-    padding-left: 76px;
-    transition: padding-left 0.2s ease;
+  .spot-nav {
+    /* Horizontal center of the left gutter beside the 1100px content column */
+    left: max(10px, calc((100vw - var(--content-max)) / 4 - var(--spot-nav-w) / 2));
   }
 }
 
