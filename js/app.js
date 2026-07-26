@@ -46,8 +46,8 @@
     const u = ui();
     const greeting =
       lang === "zh"
-        ? "🌸 欢迎 Coralia！一起开启川渝熊猫甜蜜之旅吧～"
-        : "🌸 Welcome Coralia! Let's start your sweet panda adventure~";
+        ? "🌸 欢迎你，Coralia！熊猫之旅从这里开始！"
+        : "🌸 Welcome, Coralia! Your panda adventure begins here!";
 
     document.getElementById("hero-greeting").textContent = greeting;
 

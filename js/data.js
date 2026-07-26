@@ -3,14 +3,14 @@ const ITINERARY = {
     title: { en: "Coralia's Panda Adventure", zh: "Coralia 的熊猫之旅" },
     subtitle: {
       en: "10 Days · 9 Nights · Sichuan & Chongqing",
-      zh: "10 天 9 晚 · 川渝熊猫主题定制游",
+      zh: "10 天 9 晚 · 四川与重庆",
     },
     traveler: {
-      en: "2 tourists · Non-spicy · Low stamina · September",
-      zh: "2 位游客 · 不吃辣 · 少爬坡 · 9 月出行",
+      en: "An unforgettable journey for two · Mild flavors · Easy pace · September",
+      zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26cg",
+    build: "2026-07-26ck",
     budget: {
       total: { cny: 9179, usd: 1355.74 },
       cap: { cny: 9820, usd: 1449.41 },
