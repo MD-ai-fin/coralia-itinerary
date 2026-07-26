@@ -6,6 +6,8 @@
   let expandedBudgetDay = null;
   let expandedBudgetPanel = null;
   let expandedTipSection = null;
+  let spotNavOpen = false;
+  let spotlightTimer = null;
 
   const t = (obj) => (typeof obj === "object" && obj !== null ? obj[lang] || obj.en : obj);
   const ui = () => ITINERARY.ui[lang];
@@ -22,6 +24,7 @@
     renderHighlights();
     renderHotels();
     renderDays();
+    renderSpotNav();
     renderBudgetBreakdown();
     renderTips();
     renderFooter();
@@ -238,6 +241,99 @@
       .join("");
   }
 
+  function isSpotNavExcluded(act) {
+    if (act.type !== "attraction" && act.type !== "food") return true;
+    const titleEn = (act.title?.en || "").toLowerCase();
+    const titleZh = act.title?.zh || "";
+    if (/hotel breakfast|breakfast & departure|breakfast and departure/.test(titleEn)) return true;
+    if (/酒店早餐|早餐出发/.test(titleZh)) return true;
+    return false;
+  }
+
+  function getSpotNavItems() {
+    const items = [];
+    ITINERARY.days.forEach((day) => {
+      day.activities.forEach((act, actIndex) => {
+        if (isSpotNavExcluded(act)) return;
+        items.push({ day: day.day, actIndex, act });
+      });
+    });
+    return items;
+  }
+
+  function getSpotNavImage(act) {
+    if (act.image) return act.image;
+    return act.type === "food"
+      ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Crect fill='%23D4EBC0' width='48' height='48' rx='12'/%3E%3Ctext x='24' y='32' text-anchor='middle' font-size='22'%3E🍜%3C/text%3E%3C/svg%3E"
+      : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Crect fill='%23E8F3DC' width='48' height='48' rx='12'/%3E%3Ctext x='24' y='32' text-anchor='middle' font-size='22'%3E🏛%3C/text%3E%3C/svg%3E";
+  }
+
+  function renderSpotNav() {
+    const u = ui();
+    const titleEl = document.getElementById("spot-nav-title");
+    const listEl = document.getElementById("spot-nav-list");
+    const navEl = document.getElementById("spot-nav");
+    if (!titleEl || !listEl || !navEl) return;
+
+    titleEl.textContent = u.spotNavTitle;
+    navEl.setAttribute("aria-label", u.spotNavTitle);
+
+    const dayPrefix = lang === "zh" ? "D" : "Day ";
+    let lastDay = null;
+
+    listEl.innerHTML = getSpotNavItems()
+      .map(({ day, actIndex, act }) => {
+        const dayMarker =
+          day !== lastDay
+            ? `<div class="spot-nav-day">${dayPrefix}${day}</div>`
+            : "";
+        lastDay = day;
+        const typeClass = act.type === "food" ? "spot-nav-food" : "spot-nav-attraction";
+        return `
+          ${dayMarker}
+          <button type="button" class="spot-nav-item ${typeClass}"
+                  data-day="${day}" data-act-index="${actIndex}"
+                  title="${t(act.title)} · ${u.spotNavHint}"
+                  aria-label="${dayPrefix}${day} · ${t(act.title)}">
+            <img src="${getSpotNavImage(act)}" alt="" loading="lazy"
+                 onerror="this.src='https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=120&q=80'">
+          </button>
+        `;
+      })
+      .join("");
+
+    document.body.classList.add("has-spot-nav");
+    navEl.classList.toggle("open", spotNavOpen);
+    const toggle = document.getElementById("spot-nav-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", spotNavOpen ? "true" : "false");
+  }
+
+  function jumpToActivity(dayNum, actIndex) {
+    expandedDay = dayNum;
+    renderDays();
+    renderSpotNav();
+
+    requestAnimationFrame(() => {
+      const el = document.getElementById(`act-d${dayNum}-${actIndex}`);
+      if (!el) return;
+
+      document.getElementById("days-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.add("timeline-item-spotlight");
+        if (spotlightTimer) window.clearTimeout(spotlightTimer);
+        spotlightTimer = window.setTimeout(() => {
+          el.classList.remove("timeline-item-spotlight");
+        }, 2200);
+      }, 280);
+    });
+
+    if (window.matchMedia("(max-width: 899px)").matches) {
+      spotNavOpen = false;
+      renderSpotNav();
+    }
+  }
+
   function renderDays() {
     document.getElementById("days-title").textContent = ui().daysTitle;
     document.getElementById("drill-hint").textContent = ui().drillHint;
@@ -332,7 +428,7 @@
     const thumbClass = isTaxiActivity(act) ? "timeline-thumb timeline-thumb-didi" : "timeline-thumb";
 
     return `
-      <div class="timeline-item" data-day="${dayNum}" data-act-index="${actIndex}" role="button" tabindex="0" aria-label="${t(act.title)}">
+      <div class="timeline-item" id="act-d${dayNum}-${actIndex}" data-day="${dayNum}" data-act-index="${actIndex}" role="button" tabindex="0" aria-label="${t(act.title)}">
         <div class="timeline-time">${act.time}</div>
         <img class="${thumbClass}" src="${imgSrc}" alt="" loading="lazy"
              onerror="this.src='https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=200&q=80'">
@@ -447,6 +543,24 @@
 
   function bindEvents() {
     document.getElementById("lang-toggle").addEventListener("click", toggleLang);
+
+    document.getElementById("spot-nav-list")?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".spot-nav-item");
+      if (!btn) return;
+      jumpToActivity(parseInt(btn.dataset.day, 10), parseInt(btn.dataset.actIndex, 10));
+    });
+
+    document.getElementById("spot-nav-toggle")?.addEventListener("click", () => {
+      spotNavOpen = !spotNavOpen;
+      renderSpotNav();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!spotNavOpen) return;
+      if (e.target.closest("#spot-nav, #spot-nav-toggle")) return;
+      spotNavOpen = false;
+      renderSpotNav();
+    });
 
     document.getElementById("budget-panels").addEventListener("click", (e) => {
       const panelHeader = e.target.closest(".budget-panel-header");
