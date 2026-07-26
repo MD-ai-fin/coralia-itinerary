@@ -10,11 +10,11 @@ const ITINERARY = {
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26dn",
+    build: "2026-07-26dp",
     budget: {
-      total: { cny: 9179, usd: 1355.74 },
+      total: { cny: 9177, usd: 1355.43 },
       cap: { cny: 9820, usd: 1449.41 },
-      remaining: { cny: 641, usd: 93.67 },
+      remaining: { cny: 643, usd: 93.98 },
     },
   },
 
@@ -482,7 +482,7 @@ const ITINERARY = {
       city: { en: "Chengdu", zh: "成都" },
       theme: { en: "Alleys + Jinsha + Sichuan Opera", zh: "宽窄巷子 + 金沙 + 川剧变脸" },
       hotel: "panda-sleepy",
-      subtotal: { cny: 866, usd: 127.91 },
+      subtotal: { cny: 864, usd: 127.60 },
       summary: {
         en: "Wide & Narrow Alleys → Jinsha Museum → Face-Changing Opera",
         zh: "宽窄巷子 → 金沙遗址 → 川剧变脸",
@@ -522,17 +522,6 @@ const ITINERARY = {
           image: "https://d.ifengimg.com/w827_h1104_ablur_q90_webp/x0.ifengimg.com/ucms/2025_25/4F58CAC4A0CCBBC9F8C90EA45ACA463234D408BE_size203_w827_h1104.jpg",
         },
         {
-          time: "13:30",
-          type: "food",
-          title: { en: "Long Chaoshou (Kuanzhai Branch)", zh: "龙抄手（宽窄巷子分店）" },
-          desc: {
-            en: "13:30 5-min walk to Heming Teahouse in People's Park. Long Chaoshou branch beside alleys: 25CNY/3.69USD per person clear soup wonton. Watch local square dancing & Tibetan circle dances by the lake.",
-            zh: "13:30 步行 5 分钟至人民公园鹤鸣茶社，打卡宽窄巷子龙抄手分店，清汤抄手 25CNY/3.69USD/人，湖边可观赏本地广场舞、锅庄舞。",
-          },
-          cost: { cny: 25, usd: 3.69, note: { en: "per person", zh: "人均" } },
-          image: "https://pimg.1px.tw/bluehero/1377524829-57389938.jpg",
-        },
-        {
           time: "15:00",
           type: "transport",
           title: { en: "Taxi: People's Park → Jinsha", zh: "打车：人民公园 → 金沙遗址" },
@@ -557,24 +546,24 @@ const ITINERARY = {
         {
           time: "18:30",
           type: "transport",
-          title: { en: "Metro Back to Chunxi Road", zh: "地铁返回春熙路" },
+          title: { en: "Metro Line 7: Jinsha → Wenshu Monastery", zh: "地铁 7 号线：金沙博物馆 → 文殊院" },
           desc: {
-            en: "18:30 metro back to Chunxi Road. 2CNY/0.30USD per person.",
-            zh: "18:30 地铁返回春熙路，2CNY/0.30USD/人。",
+            en: "18:30 Metro Line 7 from Jinsha Site Museum to Wenshu Monastery. 2CNY/0.30USD per person.",
+            zh: "18:30 地铁 7 号线金沙博物馆站 → 文殊院站，2CNY/0.30USD/人。",
           },
           cost: { cny: 2, usd: 0.3, note: { en: "per person", zh: "单人" } },
           image: "images/chengdu-metro.png",
         },
         {
-          time: "19:30",
-          type: "transport",
-          title: { en: "Metro Line 1 to Wenshu Monastery", zh: "地铁 1 号线至文殊院" },
+          time: "19:00",
+          type: "food",
+          title: { en: "Long Chaoshou (Wenshu Branch)", zh: "龙抄手（文殊院分店）" },
           desc: {
-            en: "19:30 Metro Line 1 from Chunxi Road to Wenshu Monastery. 2CNY/0.30USD per person.",
-            zh: "19:30 地铁 1 号线春熙路 → 文殊院，2CNY/0.30USD/人。",
+            en: "19:00 Long Chaoshou Wenshu Monastery branch. Clear soup wontons 25CNY/3.69USD per person.",
+            zh: "19:00 文殊院龙抄手分店，清汤抄手 25CNY/3.69USD/人。",
           },
-          cost: { cny: 2, usd: 0.3, note: { en: "per person", zh: "单人" } },
-          image: "images/chengdu-metro.png",
+          cost: { cny: 25, usd: 3.69, note: { en: "per person", zh: "人均" } },
+          image: "https://pimg.1px.tw/bluehero/1377524829-57389938.jpg",
         },
         {
           time: "20:00–21:10",
@@ -1142,15 +1131,15 @@ const ITINERARY = {
         day: 2,
         label: { en: "Day 2 · Chengdu", zh: "D2 成都" },
         items: [
-          { label: { en: "Metro fares", zh: "地铁" }, cny: 6, usd: 0.89 },
+          { label: { en: "Metro fares", zh: "地铁" }, cny: 4, usd: 0.59 },
           { label: { en: "Panda creative banquet", zh: "宽窄巷子双人熊猫创意宴" }, cny: 200, usd: 29.54 },
-          { label: { en: "Long Chaoshou for two", zh: "龙抄手双人" }, cny: 50, usd: 7.39 },
+          { label: { en: "Long Chaoshou for two (Wenshu)", zh: "文殊院龙抄手双人" }, cny: 50, usd: 7.39 },
           { label: { en: "Taxi to Jinsha Museum", zh: "打车至金沙遗址" }, cny: 11, usd: 1.62 },
           { label: { en: "Jinsha ticket + audio guide (×2)", zh: "金沙门票+英文讲解（×2）" }, cny: 200, usd: 29.54 },
           { label: { en: "Sichuan Opera two-person ticket", zh: "川剧变脸双人套票" }, cny: 99, usd: 14.61 },
           { label: { en: "Panda Sleepy daily split", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
         ],
-        subtotal: { cny: 866, usd: 127.91 },
+        subtotal: { cny: 864, usd: 127.60 },
       },
       {
         day: 3,
@@ -1446,7 +1435,7 @@ const ACTIVITY_REVIEWS = {
     "https://www.tripadvisor.com/Attraction_Review-g297463-d9757726-Reviews-Anshun_Bridge_Dongmen_Bridge-Chengdu_Sichuan.html",
   "Wide & Narrow Alleys":
     "https://www.tripadvisor.com/Attraction_Review-g297463-d1832089-Reviews-Kuanzhai_Alley-Chengdu_Sichuan.html",
-  "Long Chaoshou (Kuanzhai Branch)":
+  "Long Chaoshou (Wenshu Branch)":
     "https://www.tripadvisor.com/Restaurant_Review-g297463-d1217812-Reviews-Longchaoshou-Chengdu_Sichuan.html",
   "Jinsha Site Museum":
     "https://www.tripadvisor.com/Attraction_Review-g297463-d1769021-Reviews-Jinsha_Site_Museum-Chengdu_Sichuan.html",
