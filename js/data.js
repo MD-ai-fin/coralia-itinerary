@@ -6,11 +6,11 @@ const ITINERARY = {
       zh: "10 天 9 晚 · 川渝熊猫主题定制游",
     },
     traveler: {
-      en: "2 US tourists · Non-spicy · Low stamina · September",
+      en: "2 tourists · Non-spicy · Low stamina · September",
       zh: "2 位美国游客 · 不吃辣 · 少爬坡 · 9 月出行",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26ca",
+    build: "2026-07-26cc",
     budget: {
       total: { cny: 9179, usd: 1355.74 },
       cap: { cny: 9820, usd: 1449.41 },
