@@ -402,6 +402,108 @@
     return [];
   }
 
+  function stripPricesFromDesc(text) {
+    if (!text) return "";
+    const isShoppingGuide = /Pop Panda Factory|泡泡熊猫工厂/.test(text);
+
+    const stripLine = (line) => {
+      if (/租金|押金|Rental:|deposit|\/ 台|per unit|导览器|导览眼镜|智慧语音|MR 沉浸式|Smart audio guide|MR immersive|Languages:|语言：|时长：|Hours:|Highlight:|特色：|^可租/i.test(line)) return line.trim();
+      if (isShoppingGuide) return line.trim();
+
+      const logisticsLine = /酒店|早餐|配套|amenities|停止入园|停运|included|内含|complimentary|藏服|换拍照|breakfast for|photosho/i.test(line);
+      const priceOnlyPatterns = [
+        /\d+(?:\.\d+)?\s*CNY\s*\/\s*\d+(?:\.\d+)?\s*USD(?:\s*\/\s*人|\s*per person|\s*one-way|\s*round-trip|\s*\([^)]*\))?/gi,
+        /\d+(?:\.\d+)?\s*CNY(?:\s*\/\s*人|\s*\/人|\s*per person)?/gi,
+        /\d+(?:\.\d+)?\s*USD(?:\s*\/\s*人|\s*per person|\s*one-way|\s*round-trip)?/gi,
+        /(?:约?\s*\d+(?:\.\d+)?\s*元\/人(?:\/天)?)/g,
+      ];
+
+      if (logisticsLine) {
+        let s = line;
+        for (const re of priceOnlyPatterns) s = s.replace(re, "");
+        s = s.replace(/[，,;；]\s*$/g, "").replace(/、\s*$/g, "").replace(/\s{2,}/g, " ").trim();
+        if (s === "." || s === "。" || s === "、") return "";
+        return s;
+      }
+
+      let s = line;
+      const patterns = [
+        /\d+(?:\.\d+)?\s*CNY\s*\/\s*\d+(?:\.\d+)?\s*USD(?:\s*\/\s*人|\s*per person|\s*one-way|\s*round-trip|\s*\([^)]*\))?/gi,
+        /\d+(?:\.\d+)?\s*CNY(?:\s*\/\s*人|\s*\/人|\s*per person)?/gi,
+        /\d+(?:\.\d+)?\s*USD(?:\s*\/\s*人|\s*per person|\s*one-way|\s*round-trip)?/gi,
+        /(?:约?\s*\d+(?:\.\d+)?\s*元\/人(?:\/day)?)/g,
+        /(?:One-way fare per person|One-way|Second-class seat|Second-class|Set price for two|Set for two|Ticket set for two|Cost for two|Daily room split|Daily split|Room rate|Average second-class|Combined entrance ticket|Entrance ticket|Combo ticket|Ticket)\s*[^.;\n]*/gi,
+        /(?:Round-trip)\s+(?:\d|fare|ticket|per person|CNY|USD)/gi,
+        /(?:单人|人均|双人|套餐|单日分摊|房价|合计|二等座|英文讲解器|地缝门票|含百龙天梯)[^，,;；.\n]*/g,
+        /(?:English audio guide)[^，,;；.\n]*/gi,
+        /(?:mandatory in-park shuttle bus)[^，,;；.\n]*/gi,
+        /(?:园区观光车必购)[^，,;；.\n]*/g,
+      ];
+      for (const re of patterns) s = s.replace(re, "");
+      s = s.replace(/\s*[，,;；]\s*[，,;；]+/g, "，");
+      s = s.replace(/[，,;；]\s*$/g, "").replace(/^\s*[，,;；]\s*/g, "");
+      s = s.replace(/、\s*$/g, "");
+      s = s.replace(/\(\s*\)/g, "").replace(/\s{2,}/g, " ").trim();
+      if (s === "." || s === "。" || s === "、") return "";
+      return s;
+    };
+
+    return text.split("\n").map(stripLine).filter(Boolean).join("\n").trim();
+  }
+
+  function stripLeadingTimeFromDesc(text, actTime) {
+    if (!text) return "";
+
+    const stripFromLine = (line) => {
+      let result = line;
+      if (actTime) {
+        const flexTime = actTime
+          .trim()
+          .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+          .replace(/\\-/g, "[\\u2013\\u2014\\-~]");
+        result = result.replace(new RegExp(`^${flexTime}\\s*[.·]?\\s*`, "u"), "");
+      }
+      result = result.replace(/^visit\.\s*/i, "");
+      result = result.replace(/^游览[。.]?\s*/, "");
+      if (actTime && /^[A-Za-z]/.test(actTime)) {
+        result = result.replace(new RegExp(`^${actTime.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*[.·:-]?\\s*`, "i"), "");
+      }
+      return result.trim();
+    };
+
+    const lines = text.split("\n");
+    lines[0] = stripFromLine(lines[0]);
+    return lines.join("\n").trim();
+  }
+
+  function formatActivityDesc(act) {
+    return stripLeadingTimeFromDesc(stripPricesFromDesc(t(act.desc)), act.time);
+  }
+
+  function renderActivityDescHtml(act, variant = "timeline") {
+    const text = formatActivityDesc(act);
+    if (!text) return "";
+    if (variant === "modal") {
+      return `<p class="modal-desc">${text}</p>`;
+    }
+    return `<div class="timeline-desc">${text}</div>`;
+  }
+
+  function renderActivityOverview(act, variant = "timeline") {
+    if (!act.overview) return "";
+    const label = ui().activityOverview;
+    const text = t(act.overview);
+    if (variant === "modal") {
+      return `
+        <div class="modal-overview">
+          <div class="overview-label">${label}</div>
+          <p class="modal-overview-text">${text}</p>
+        </div>
+      `;
+    }
+    return `<div class="timeline-overview"><span class="overview-label">${label} · </span>${text}</div>`;
+  }
+
   function renderActivityTitle(act) {
     const title = t(act.title);
     const reviews = getActivityReviews(act);
@@ -451,7 +553,8 @@
         <div class="timeline-content">
           <span class="timeline-type type-${act.type}">${typeLabel}</span>
           ${renderActivityTitle(act)}
-          <div class="timeline-desc">${t(act.desc)}</div>
+          ${renderActivityOverview(act)}
+          ${renderActivityDescHtml(act)}
           ${costStr ? `<div class="timeline-cost">${costStr}</div>` : ""}
         </div>
         <span class="timeline-arrow">›</span>
@@ -732,7 +835,8 @@
       <div class="modal-time">⏰ ${act.time}</div>
       <h3 class="modal-title">${t(act.title)}</h3>
       ${renderReviewLinksHtml(act)}
-      <p class="modal-desc">${t(act.desc)}</p>
+      ${renderActivityOverview(act, "modal")}
+      ${renderActivityDescHtml(act, "modal")}
       ${costStr ? `<div class="modal-cost-box">${u.cost}: ${costStr}</div>` : ""}
     `;
 

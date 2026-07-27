@@ -1015,6 +1015,23 @@ body[lang="en"] .hero-greeting {
   margin: 8px 0 12px;
 }
 
+.timeline-overview {
+  font-size: 0.76rem;
+  color: var(--text);
+  line-height: 1.45;
+  margin: 2px 0 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.timeline-overview .overview-label,
+.modal-overview .overview-label {
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
 .timeline-desc {
   font-size: 0.78rem;
   color: var(--text-light);
@@ -1529,6 +1546,20 @@ body[lang="en"] .hero-greeting {
   font-size: 1.3rem;
   font-weight: 800;
   margin: 8px 0;
+}
+
+.modal-overview {
+  background: linear-gradient(135deg, rgba(232, 243, 220, 0.85), rgba(255, 248, 220, 0.75));
+  border-left: 3px solid var(--green);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  margin: 0 0 14px;
+}
+
+.modal-overview-text {
+  margin: 6px 0 0;
+  color: var(--text);
+  line-height: 1.65;
 }
 
 .modal-desc {
