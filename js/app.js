@@ -375,6 +375,13 @@
     "images/wulong-shuttle.jpg": SHUTTLE_ICON,
     "images/jiuzhaigou-shuttle.jpg": SHUTTLE_ICON,
     "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg": HSR_ICON,
+    "https://dw-media.dotdotnews.com/dams/share/image/202201/01/61d02b38e4b05b0b57d274eb.jpg": "images/panda-panoramic-restaurant.jpg",
+    "https://www.ifsresidences.com/files/chengduifs01.jpg": "images/ifs-chengdu.jpg",
+    "https://d.ifengimg.com/w827_h1104_ablur_q90_webp/x0.ifengimg.com/ucms/2025_25/4F58CAC4A0CCBBC9F8C90EA45ACA463234D408BE_size203_w827_h1104.jpg": "images/tingxiang-restaurant.webp",
+    "https://www.jinshasitemuseum.com/steponview/files/20220119/1642561079089.jpg": "images/jinsha-museum.jpg",
+    "https://www.hlhbsc.org/upload/download/Spot_pic/Spot_picfile_000877_New.jpg": "images/sanxingdui-museum.jpg",
+    "https://www.cityhui.com/uploads/allimg/190416/1-1Z4161419460-L.jpg": "images/huashi-wanza-noodles.jpg",
+    "https://www.wlkst.com/u/cms/www/202404/0516275744f6.jpg": "images/longshui-gorge.jpg",
   };
   const GENERIC_IMAGE_FALLBACK =
     "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=200&q=80";

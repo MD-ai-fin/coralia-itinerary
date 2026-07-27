@@ -10,7 +10,7 @@ const ITINERARY = {
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-27d",
+    build: "2026-07-27e",
     budget: {
       total: { cny: 9190, usd: 1357.39 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -220,7 +220,7 @@ const ITINERARY = {
       city: { en: "Chengdu", zh: "成都" },
       name: { en: "Jinsha Site Museum", zh: "金沙遗址博物馆" },
       tagline: { en: "3,000-year-old Shu civilization & golden sunbird", zh: "三千年古蜀文明 · 太阳神鸟" },
-      image: "https://www.jinshasitemuseum.com/steponview/files/20220119/1642561079089.jpg",
+      image: "images/jinsha-museum.jpg",
       reviewKey: "Jinsha Site Museum",
       ticket: { cny: 100, usd: 14.77, note: { en: "ticket + audio guide / person", zh: "门票+讲解器/人" } },
     },
@@ -230,7 +230,7 @@ const ITINERARY = {
       city: { en: "Guanghan", zh: "广汉" },
       name: { en: "Sanxingdui Museum", zh: "三星堆博物馆" },
       tagline: { en: "Bronze masks & mysterious ancient Shu kingdom", zh: "青铜面具 · 神秘古蜀王国" },
-      image: "https://www.hlhbsc.org/upload/download/Spot_pic/Spot_picfile_000877_New.jpg",
+      image: "images/sanxingdui-museum.jpg",
       reviewKey: "Sanxingdui Museum",
       ticket: { cny: 102, usd: 15.06, note: { en: "ticket + audio guide / person", zh: "门票+讲解器/人" } },
     },
@@ -290,7 +290,7 @@ const ITINERARY = {
       city: { en: "Wulong", zh: "武隆" },
       name: { en: "Longshui Gorge", zh: "龙水峡地缝" },
       tagline: { en: "Elevator to valley floor · gentle downhill walk", zh: "电梯下谷底 · 平缓下坡栈道" },
-      image: "https://www.wlkst.com/u/cms/www/202404/0516275744f6.jpg",
+      image: "images/longshui-gorge.jpg",
       reviewKey: "Longshui Gorge",
       ticket: { cny: 116, usd: 17.13, note: { en: "entrance / person", zh: "门票/人" } },
     },
@@ -379,7 +379,7 @@ const ITINERARY = {
             zh: "",
           },
           cost: { cny: 60, usd: 8.86, note: { en: "per person", zh: "人均" } },
-          image: "https://dw-media.dotdotnews.com/dams/share/image/202201/01/61d02b38e4b05b0b57d274eb.jpg",
+          image: "images/panda-panoramic-restaurant.jpg",
         },
         {
           time: "13:30",
@@ -412,7 +412,7 @@ const ITINERARY = {
             zh: "伴手礼自费。\n导航：IFS 外墙巨型熊猫屁股，斜对面波司登侧边小巷进入时代广场 A 座，电梯分低层 / 高层分开乘坐。\n1）15 楼｜泡泡熊猫工厂（低层电梯）\n主打平价小文创：1.2 元熊猫发箍、1.5 元冰箱贴、针织小包、全套熊猫文具，60 + 款免费纪念印章，小件伴手礼首选。\n2）28 楼｜一川二蜀熊猫特产（高层电梯）\n店面最大，正版花花公仔、熊猫盲盒、摆件齐全，同时售卖四川本地特产（无辣牛肉、糕点、茶叶），一站式买文创 + 美食伴手礼。\n3）30 楼｜福福 / 故屿熊猫（高层电梯）\n低价盲盒、三星堆联名熊猫周边、纪念币，满额可免费邮寄回国，适合大量采购送人。\n• 核心优势：街边景区同款价格仅 1/3，一件也按批发价；店内有座椅可歇脚，明码标价无宰客，支持微信 / 支付宝。",
           },
           cost: null,
-          image: "https://www.ifsresidences.com/files/chengduifs01.jpg",
+          image: "images/ifs-chengdu.jpg",
         },
         {
           time: "18:00",
@@ -541,7 +541,7 @@ const ITINERARY = {
             zh: "",
           },
           cost: { cny: 200, usd: 29.54, note: { en: "set for two", zh: "双人套餐" } },
-          image: "https://d.ifengimg.com/w827_h1104_ablur_q90_webp/x0.ifengimg.com/ucms/2025_25/4F58CAC4A0CCBBC9F8C90EA45ACA463234D408BE_size203_w827_h1104.jpg",
+          image: "images/tingxiang-restaurant.webp",
         },
         {
           time: "15:00",
@@ -552,7 +552,7 @@ const ITINERARY = {
             zh: "打车：宽窄巷子 → 金沙遗址博物馆。",
           },
           cost: { cny: 20, usd: 2.95, note: { en: "one-way", zh: "单程" } },
-          image: "https://www.jinshasitemuseum.com/steponview/files/20220119/1642561079089.jpg",
+          image: "images/jinsha-museum.jpg",
         },
         {
           time: "15:20–18:00",
@@ -563,7 +563,7 @@ const ITINERARY = {
             zh: "可租",
           },
           cost: { cny: 70, usd: 10.34, note: { en: "ticket/person + 30 audio", zh: "门票/人 + 讲解 30" } },
-          image: "https://www.jinshasitemuseum.com/steponview/files/20220119/1642561079089.jpg",
+          image: "images/jinsha-museum.jpg",
         },
         {
           time: "18:30",
@@ -650,7 +650,7 @@ const ITINERARY = {
             zh: "可租：\n1. 智慧语音导览器（推荐双人使用）\n租金：30CNY / 4.43USD / 台，押金 200CNY（归还全额退还）\n语言：含英语、中文、日语等多语种，文物自动感应讲解\n时长：08:30–17:00，续航 4 小时，足够全天游览\n2. MR 沉浸式导览眼镜（蜀国秘镜）\n租金：38CNY / 5.61USD / 台\n特色：AR 动画还原古蜀场景，适合喜欢沉浸式体验游客",
           },
           cost: { cny: 72, usd: 10.63, note: { en: "ticket/person + 30 audio", zh: "门票/人 + 讲解 30" } },
-          image: "https://www.hlhbsc.org/upload/download/Spot_pic/Spot_picfile_000877_New.jpg",
+          image: "images/sanxingdui-museum.jpg",
         },
         {
           time: "16:30",
@@ -872,7 +872,7 @@ const ITINERARY = {
             zh: "从酒店步行 5 分钟（自费，不计入固定花费），两碗干溜豌杂面不要辣、各加溏心煎蛋",
           },
           cost: null,
-          image: "https://www.cityhui.com/uploads/allimg/190416/1-1Z4161419460-L.jpg",
+          image: "images/huashi-wanza-noodles.jpg",
         },
         {
           time: "19:00",
@@ -926,7 +926,7 @@ const ITINERARY = {
             zh: "从中转车前往，完整游览 1.5–2 小时",
           },
           cost: { cny: 116, usd: 17.13, note: { en: "per person", zh: "人均" } },
-          image: "https://www.wlkst.com/u/cms/www/202404/0516275744f6.jpg",
+          image: "images/longshui-gorge.jpg",
         },
         {
           time: "17:00",
