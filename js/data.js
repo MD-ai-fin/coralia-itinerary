@@ -10,7 +10,7 @@ const ITINERARY = {
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-27c",
+    build: "2026-07-27d",
     budget: {
       total: { cny: 9190, usd: 1357.39 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -401,7 +401,7 @@ const ITINERARY = {
             zh: "",
           },
           cost: { cny: 260, usd: 38.4, note: { en: "set for two", zh: "双人套餐" } },
-          image: "https://dw-media.dotdotnews.com/dams/share/image/202201/01/61d02b38e4b05b0b57d274eb.jpg",
+          image: "images/sunset-bistro.jpg",
         },
         {
           time: "16:00",
