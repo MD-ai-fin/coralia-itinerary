@@ -716,8 +716,8 @@
             <input type="text" name="name" required autocomplete="name" placeholder="${u.contactNamePlaceholder}">
           </label>
           <label class="contact-field">
-            <span class="contact-label">${u.contactPhone} <span class="contact-required" aria-hidden="true">*</span></span>
-            <input type="tel" name="phone" required autocomplete="tel" placeholder="${u.contactPhonePlaceholder}">
+            <span class="contact-label">${u.contactPhone}</span>
+            <input type="tel" name="phone" autocomplete="tel" placeholder="${u.contactPhonePlaceholder}">
           </label>
           <label class="contact-field contact-field-full">
             <span class="contact-label">${u.contactEmail} <span class="contact-required" aria-hidden="true">*</span></span>

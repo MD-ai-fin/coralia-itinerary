@@ -10,11 +10,11 @@ const ITINERARY = {
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-27e",
+    build: "2026-07-27g",
     budget: {
-      total: { cny: 9190, usd: 1357.39 },
+      total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
-      remaining: { cny: 630, usd: 92.02 },
+      remaining: { cny: 430, usd: 62.49 },
     },
   },
 
@@ -192,7 +192,7 @@ const ITINERARY = {
       tagline: { en: "Moon cub nursery & giant pandas up close", zh: "月亮产房 · 近距离看国宝" },
       image: "https://vega.enanyang.my/sites/default/files/2024-01/heye2.jpg",
       reviewKey: "Chengdu Panda Breeding Base",
-      ticket: { cny: 55, usd: 8.12 },
+      ticket: { cny: 85, usd: 12.55, note: { en: "ticket + shuttle / person", zh: "门票+观光车/人" } },
     },
     {
       id: "jinli",
@@ -222,7 +222,7 @@ const ITINERARY = {
       tagline: { en: "3,000-year-old Shu civilization & golden sunbird", zh: "三千年古蜀文明 · 太阳神鸟" },
       image: "images/jinsha-museum.jpg",
       reviewKey: "Jinsha Site Museum",
-      ticket: { cny: 100, usd: 14.77, note: { en: "ticket + audio guide / person", zh: "门票+讲解器/人" } },
+      ticket: { cny: 100, usd: 14.77, note: { en: "ticket 70 + audio guide / person", zh: "门票70+讲解器/人" } },
     },
     {
       id: "sanxingdui",
@@ -232,7 +232,7 @@ const ITINERARY = {
       tagline: { en: "Bronze masks & mysterious ancient Shu kingdom", zh: "青铜面具 · 神秘古蜀王国" },
       image: "images/sanxingdui-museum.jpg",
       reviewKey: "Sanxingdui Museum",
-      ticket: { cny: 102, usd: 15.06, note: { en: "ticket + audio guide / person", zh: "门票+讲解器/人" } },
+      ticket: { cny: 102, usd: 15.06, note: { en: "ticket 72 + audio guide / person", zh: "门票72+讲解器/人" } },
     },
     {
       id: "jiuzhaigou",
@@ -292,7 +292,7 @@ const ITINERARY = {
       tagline: { en: "Elevator to valley floor · gentle downhill walk", zh: "电梯下谷底 · 平缓下坡栈道" },
       image: "images/longshui-gorge.jpg",
       reviewKey: "Longshui Gorge",
-      ticket: { cny: 116, usd: 17.13, note: { en: "entrance / person", zh: "门票/人" } },
+      ticket: { cny: 105, usd: 15.51, note: { en: "incl. shuttle + elevator / person", zh: "含中转车+电梯/人" } },
     },
     {
       id: "liziba",
@@ -312,7 +312,7 @@ const ITINERARY = {
       tagline: { en: "Iconic river crossing with skyline views", zh: "横跨长江 · 山城天际线" },
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E9%87%8D%E5%BA%86_%E9%95%BF%E6%B1%9F%E4%B8%8A%E7%9A%84%E6%B8%A1%E6%B1%9F%E7%B4%A2%E9%81%931_-_panoramio.jpg/960px-%E9%87%8D%E5%BA%86_%E9%95%BF%E6%B1%9F%E4%B8%8A%E7%9A%84%E6%B8%A1%E6%B1%9F%E7%B4%A2%E9%81%931_-_panoramio.jpg",
       reviewKey: "Yangtze River Cableway",
-      ticket: { cny: 20, usd: 2.95, note: { en: "round-trip / person", zh: "往返/人" } },
+      ticket: { cny: 50, usd: 7.39, note: { en: "round-trip / person", zh: "往返/人" } },
     },
     {
       id: "xiahaoli",
@@ -332,7 +332,7 @@ const ITINERARY = {
       tagline: { en: "Avatar pillars · cableways & Bailong Elevator", zh: "阿凡达石林 · 索道电梯全覆盖" },
       image: "https://img3.chinadaily.com.cn/images/202212/14/63998f71a3102ada7c81badd.jpeg",
       reviewKey: "Wulingyuan National Forest Park",
-      ticket: { cny: 230, usd: 33.97, note: { en: "incl. Bailong Elevator 65 / person", zh: "含百龙天梯 65/人" } },
+      ticket: { cny: 301, usd: 44.46, note: { en: "park+eco bus combo + Bailong Elevator / person", zh: "门票+环保车联票+百龙天梯/人" } },
     },
   ],
 
@@ -342,7 +342,7 @@ const ITINERARY = {
       city: { en: "Chengdu", zh: "成都" },
       theme: { en: "Full-Day Panda Tour", zh: "全天熊猫主题游览" },
       hotel: "panda-sleepy",
-      subtotal: { cny: 1198, usd: 176.94 },
+      subtotal: { cny: 1218, usd: 179.9 },
       summary: {
         en: "Panda Base → IFS Afternoon Tea → Jinli → Jiuyan Bridge",
         zh: "熊猫基地 → IFS 下午茶 → 锦里 → 九眼桥",
@@ -367,7 +367,7 @@ const ITINERARY = {
             en: "Mandatory in-park shuttle required.",
             zh: "园区观光车必购。",
           },
-          cost: { cny: 75, usd: 11.07, note: { en: "55 ticket + shuttle / person", zh: "55 门票+观光车/人" } },
+          cost: { cny: 85, usd: 12.55, note: { en: "55 ticket + shuttle / person", zh: "55 门票+观光车/人" } },
           image: "https://vega.enanyang.my/sites/default/files/2024-01/heye2.jpg",
         },
         {
@@ -649,7 +649,7 @@ const ITINERARY = {
             en: "Available for rent:\n1. Smart audio guide (recommended for two sharing one device)\nRental: 30CNY / 4.43USD per unit; deposit 200CNY (fully refunded on return)\nLanguages: English, Chinese, Japanese & more; auto-triggered exhibit narration\nHours: 08:30–17:00; 4-hour battery — enough for a full-day visit\n2. MR immersive guide glasses (Shu Kingdom Secret Mirror)\nRental: 38CNY / 5.61USD per unit\nHighlight: AR animations recreate ancient Shu scenes — ideal for immersive experience seekers",
             zh: "可租：\n1. 智慧语音导览器（推荐双人使用）\n租金：30CNY / 4.43USD / 台，押金 200CNY（归还全额退还）\n语言：含英语、中文、日语等多语种，文物自动感应讲解\n时长：08:30–17:00，续航 4 小时，足够全天游览\n2. MR 沉浸式导览眼镜（蜀国秘镜）\n租金：38CNY / 5.61USD / 台\n特色：AR 动画还原古蜀场景，适合喜欢沉浸式体验游客",
           },
-          cost: { cny: 72, usd: 10.63, note: { en: "ticket/person + 30 audio", zh: "门票/人 + 讲解 30" } },
+          cost: { cny: 102, usd: 15.06, note: { en: "ticket 72 + 30 audio / person", zh: "门票 72 + 讲解 30/人" } },
           image: "images/sanxingdui-museum.jpg",
         },
         {
@@ -892,7 +892,7 @@ const ITINERARY = {
       city: { en: "Chongqing", zh: "重庆" },
       theme: { en: "Wulong Day Trip", zh: "武隆一日游" },
       hotel: "kaiyuan",
-      subtotal: { cny: 1190, usd: 175.77 },
+      subtotal: { cny: 1168, usd: 172.52 },
       summary: { en: "Three Natural Bridges + Longshui Gorge", zh: "天生三桥 + 龙水峡地缝" },
       activities: [
         {
@@ -925,7 +925,7 @@ const ITINERARY = {
             en: "Transfer bus from bridges area; full tour 1.5–2 hours.",
             zh: "从中转车前往，完整游览 1.5–2 小时",
           },
-          cost: { cny: 116, usd: 17.13, note: { en: "per person", zh: "人均" } },
+          cost: { cny: 105, usd: 15.51, note: { en: "per person", zh: "人均" } },
           image: "images/longshui-gorge.jpg",
         },
         {
@@ -946,7 +946,7 @@ const ITINERARY = {
       city: { en: "Chongqing", zh: "重庆" },
       theme: { en: "Mountain City Highlights", zh: "山城打卡" },
       hotel: "kaiyuan",
-      subtotal: { cny: 440, usd: 64.99 },
+      subtotal: { cny: 500, usd: 73.85 },
       summary: { en: "Panda Light Rail → Cableway → Nanbin Road", zh: "熊猫轻轨 → 索道 → 南滨路" },
       activities: [
         {
@@ -979,7 +979,7 @@ const ITINERARY = {
             en: "",
             zh: "",
           },
-          cost: { cny: 20, usd: 2.95, note: { en: "per person", zh: "单人" } },
+          cost: { cny: 50, usd: 7.39, note: { en: "round-trip / person", zh: "往返/人" } },
           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E9%87%8D%E5%BA%86_%E9%95%BF%E6%B1%9F%E4%B8%8A%E7%9A%84%E6%B8%A1%E6%B1%9F%E7%B4%A2%E9%81%931_-_panoramio.jpg/960px-%E9%87%8D%E5%BA%86_%E9%95%BF%E6%B1%9F%E4%B8%8A%E7%9A%84%E6%B8%A1%E6%B1%9F%E7%B4%A2%E9%81%931_-_panoramio.jpg",
         },
         {
@@ -1033,7 +1033,7 @@ const ITINERARY = {
       city: { en: "Chongqing", zh: "重庆" },
       theme: { en: "Wulingyuan National Forest Park", zh: "武陵源国家森林公园" },
       hotel: "kaiyuan",
-      subtotal: { cny: 1887, usd: 278.72 },
+      subtotal: { cny: 2029, usd: 299.68 },
       summary: { en: "Zhangjiajie Wulingyuan full day", zh: "张家界武陵源全天游览" },
       activities: [
         {
@@ -1088,7 +1088,7 @@ const ITINERARY = {
             en: "Last admission 17:00; in-park shuttles stop at 18:00.",
             zh: "17:00 停止入园，18:00 园内观光车停运。",
           },
-          cost: { cny: 230, usd: 33.97, note: { en: "incl. Bailong Elevator 65/person", zh: "含百龙天梯 65/人" } },
+          cost: { cny: 301, usd: 44.46, note: { en: "236 park+eco combo + 65 Bailong / person", zh: "236 门票环保车联票+百龙天梯 65/人" } },
           image: "https://img3.chinadaily.com.cn/images/202212/14/63998f71a3102ada7c81badd.jpeg",
         },
         {
@@ -1141,13 +1141,13 @@ const ITINERARY = {
         items: [
           { label: { en: "IFS round-trip Panda Base shuttle", zh: "IFS 往返熊猫基地直通车" }, cny: 40, usd: 5.91 },
           { label: { en: "Panda Base entrance (×2)", zh: "熊猫基地门票（×2）" }, cny: 110, usd: 16.25 },
-          { label: { en: "Panda Base internal shuttle (×2)", zh: "熊猫基地观光车（×2）" }, cny: 40, usd: 5.91 },
+          { label: { en: "Panda Base internal shuttle (×2)", zh: "熊猫基地观光车（×2）" }, cny: 60, usd: 8.86 },
           { label: { en: "Panda Base lunch for two", zh: "熊猫基地双人午餐" }, cny: 120, usd: 17.72 },
           { label: { en: "IFS panda afternoon tea set", zh: "IFS 双人熊猫下午茶" }, cny: 260, usd: 38.4 },
           { label: { en: "Taxis (hotel→Jinli→Jiuyan→hotel)", zh: "打车（酒店→锦里→九眼桥→酒店）" }, cny: 28, usd: 4.14 },
           { label: { en: "Panda Sleepy 2-night split", zh: "熊猫很困两晚分摊房价" }, cny: 600, usd: 88.62 },
         ],
-        subtotal: { cny: 1198, usd: 176.94 },
+        subtotal: { cny: 1218, usd: 179.9 },
       },
       {
         day: 2,
@@ -1220,21 +1220,21 @@ const ITINERARY = {
         items: [
           { label: { en: "Wulong round-trip shuttle (×2)", zh: "武隆往返直通车（×2）" }, cny: 260, usd: 38.4 },
           { label: { en: "Three Natural Bridges combo (×2)", zh: "天生三桥套票（×2）" }, cny: 310, usd: 45.79 },
-          { label: { en: "Longshui Gorge ticket (×2)", zh: "龙水峡地缝门票（×2）" }, cny: 232, usd: 34.27 },
+          { label: { en: "Longshui Gorge ticket (×2)", zh: "龙水峡地缝门票（×2）" }, cny: 210, usd: 31.02 },
           { label: { en: "Kaiyuan Mingting daily split", zh: "开元名庭单日分摊房价" }, cny: 388, usd: 57.31 },
         ],
-        subtotal: { cny: 1190, usd: 175.77 },
+        subtotal: { cny: 1168, usd: 172.52 },
       },
       {
         day: 9,
         label: { en: "Day 9 · Chongqing", zh: "D9 重庆山城打卡" },
         items: [
           { label: { en: "Metro Jiefangbei–Liziba (×2)", zh: "地铁解放碑→李子坝（×2）" }, cny: 4, usd: 0.59 },
-          { label: { en: "Yangtze Cableway round-trip (×2)", zh: "长江索道往返（×2）" }, cny: 40, usd: 5.91 },
+          { label: { en: "Yangtze Cableway round-trip (×2)", zh: "长江索道往返（×2）" }, cny: 100, usd: 14.77 },
           { label: { en: "Taxi Jiefangbei → Nanbin Road", zh: "打车：解放碑→南滨路" }, cny: 8, usd: 1.18 },
           { label: { en: "Kaiyuan Mingting daily split", zh: "开元名庭单日分摊房价" }, cny: 388, usd: 57.31 },
         ],
-        subtotal: { cny: 440, usd: 64.99 },
+        subtotal: { cny: 500, usd: 73.85 },
       },
       {
         day: 10,
@@ -1243,16 +1243,16 @@ const ITINERARY = {
           { label: { en: "Taxi Jiefangbei → Chongqing East", zh: "打车：解放碑→重庆东" }, cny: 15, usd: 2.22 },
           { label: { en: "HSR Chongqing East–Zhangjiajie West (×2)", zh: "重庆东→张家界西高铁（×2）" }, cny: 452, usd: 66.76 },
           { label: { en: "Shuttle to Wulingyuan gate (×2)", zh: "张家界西→武陵源专线（×2）" }, cny: 80, usd: 11.82 },
-          { label: { en: "Wulingyuan ticket + Bailong Elevator (×2)", zh: "武陵源门票+百龙天梯（×2）" }, cny: 460, usd: 67.94 },
+          { label: { en: "Wulingyuan ticket + eco bus + Bailong (×2)", zh: "武陵源门票+环保车+百龙天梯（×2）" }, cny: 602, usd: 88.9 },
           { label: { en: "Shuttle to Zhangjiajie West (×2)", zh: "武陵源→张家界西专线（×2）" }, cny: 80, usd: 11.82 },
           { label: { en: "HSR Zhangjiajie West–Chongqing East (×2)", zh: "张家界西→重庆东高铁（×2）" }, cny: 412, usd: 60.85 },
           { label: { en: "Kaiyuan Mingting 2-night split", zh: "开元名庭两晚分摊房价" }, cny: 388, usd: 57.31 },
         ],
-        subtotal: { cny: 1887, usd: 278.72 },
+        subtotal: { cny: 2029, usd: 299.68 },
       },
     ],
     optional: {
-      title: { en: "Optional Self-Paid (not in 9190 CNY)", zh: "自费可选（不计入 9190 CNY）" },
+      title: { en: "Optional Self-Paid (not in 9390 CNY)", zh: "自费可选（不计入 9390 CNY）" },
       items: [
         { en: "D1 Times Square Block A panda souvenirs & gifts", zh: "D1 时代广场A座熊猫文创伴手礼" },
         { en: "D1 Jiuyan Bridge bar drinks (extra beyond fixed cover)", zh: "D1 九眼桥清吧酒水" },
@@ -1396,7 +1396,7 @@ const ITINERARY = {
       contactTitle: "Questions About This Trip?",
       contactHint: "Leave a message — we'll reply by email. Your details stay private and are only used to answer your inquiry.",
       contactName: "Name",
-      contactPhone: "Phone",
+      contactPhone: "Phone (optional)",
       contactEmail: "Email",
       contactMessage: "Message",
       contactSubmit: "Send Message",
@@ -1458,7 +1458,7 @@ const ITINERARY = {
       contactTitle: "对行程有疑问？",
       contactHint: "欢迎留言，我们会通过邮件回复。您的信息仅用于回复咨询，不会公开或用于其他用途。",
       contactName: "姓名",
-      contactPhone: "电话",
+      contactPhone: "电话（选填）",
       contactEmail: "邮箱",
       contactMessage: "留言内容",
       contactSubmit: "发送留言",
