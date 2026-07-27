@@ -28,6 +28,7 @@
     renderBudgetBreakdown();
     renderTips();
     renderDownloads();
+    renderContact();
     renderFooter();
   }
 
@@ -694,6 +695,95 @@
       .join("");
   }
 
+  function renderContact() {
+    const u = ui();
+    document.getElementById("contact-title").textContent = u.contactTitle;
+    document.getElementById("contact-hint").textContent = u.contactHint;
+
+    document.getElementById("contact-form-wrap").innerHTML = `
+      <form id="contact-form" class="contact-form" novalidate>
+        <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="contact-grid">
+          <label class="contact-field">
+            <span class="contact-label">${u.contactName} <span class="contact-required" aria-hidden="true">*</span></span>
+            <input type="text" name="name" required autocomplete="name" placeholder="${u.contactNamePlaceholder}">
+          </label>
+          <label class="contact-field">
+            <span class="contact-label">${u.contactPhone} <span class="contact-required" aria-hidden="true">*</span></span>
+            <input type="tel" name="phone" required autocomplete="tel" placeholder="${u.contactPhonePlaceholder}">
+          </label>
+          <label class="contact-field contact-field-full">
+            <span class="contact-label">${u.contactEmail} <span class="contact-required" aria-hidden="true">*</span></span>
+            <input type="email" name="email" required autocomplete="email" placeholder="${u.contactEmailPlaceholder}">
+          </label>
+          <label class="contact-field contact-field-full">
+            <span class="contact-label">${u.contactMessage} <span class="contact-required" aria-hidden="true">*</span></span>
+            <textarea name="message" required rows="5" placeholder="${u.contactMessagePlaceholder}"></textarea>
+          </label>
+        </div>
+        <p class="contact-privacy">${u.contactPrivacy}</p>
+        <div class="contact-actions">
+          <button type="submit" class="contact-submit">${u.contactSubmit}</button>
+        </div>
+        <p id="contact-status" class="contact-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    `;
+  }
+
+  function showContactStatus(type, message) {
+    const status = document.getElementById("contact-status");
+    if (!status) return;
+    status.hidden = false;
+    status.textContent = message;
+    status.className = `contact-status contact-status-${type}`;
+  }
+
+  async function handleContactSubmit(e) {
+    const form = e.target.closest("#contact-form");
+    if (!form) return;
+    e.preventDefault();
+
+    const u = ui();
+    const formId = ITINERARY.contact?.formspreeFormId;
+    if (!formId || formId === "YOUR_FORMSPREE_FORM_ID") {
+      showContactStatus("error", u.contactNotConfigured);
+      return;
+    }
+
+    if (!form.reportValidity()) return;
+
+    const submitBtn = form.querySelector(".contact-submit");
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = u.contactSending;
+
+    const status = document.getElementById("contact-status");
+    if (status) {
+      status.hidden = true;
+      status.className = "contact-status";
+    }
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formId}`, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        form.reset();
+        showContactStatus("success", u.contactSuccess);
+      } else {
+        showContactStatus("error", u.contactError);
+      }
+    } catch {
+      showContactStatus("error", u.contactError);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  }
+
   function renderFooter() {
     document.getElementById("footer-tagline-text").textContent = ui().footerTagline;
     const build = ITINERARY.meta.build ? ` · Build ${ITINERARY.meta.build}` : "";
@@ -733,6 +823,8 @@
   }
 
   function bindEvents() {
+    document.getElementById("contact-section")?.addEventListener("submit", handleContactSubmit);
+
     document.getElementById("lang-toggle").addEventListener("click", toggleLang);
 
     document.getElementById("spot-nav-list")?.addEventListener("click", (e) => {
