@@ -933,13 +933,14 @@ body[lang="en"] .hero-greeting {
 }
 
 .timeline-thumb[src*="chengdu-metro"],
-.timeline-thumb-didi {
+.timeline-thumb[src*="chongqing-metro"],
+.timeline-thumb-icon {
   object-fit: contain;
   background: transparent;
   padding: 4px;
 }
 
-.modal-media-didi {
+.modal-media-icon {
   object-fit: contain;
   background: var(--cream);
   padding: 1rem;

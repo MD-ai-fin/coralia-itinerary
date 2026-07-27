@@ -10,7 +10,7 @@ const ITINERARY = {
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
-    build: "2026-07-26dz",
+    build: "2026-07-26g",
     budget: {
       total: { cny: 9190, usd: 1357.39 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -352,7 +352,7 @@ const ITINERARY = {
             zh: "IFS 古迹广场 iPanda 直通车前往大熊猫繁育基地，车程 40 分钟",
           },
           cost: { cny: 10, usd: 1.48, note: { en: "per person one-way", zh: "单人单程" } },
-          image: "https://www.ifsresidences.com/files/chengduifs01.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "08:40–12:00",
@@ -385,7 +385,7 @@ const ITINERARY = {
             zh: "原车直通车返回 IFS",
           },
           cost: { cny: 10, usd: 1.48, note: { en: "per person one-way", zh: "单人单程" } },
-          image: "https://www.ifsresidences.com/files/chengduifs01.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "14:00",
@@ -396,7 +396,7 @@ const ITINERARY = {
             zh: "",
           },
           cost: { cny: 260, usd: 38.4, note: { en: "set for two", zh: "双人套餐" } },
-          image: "https://www.ifsresidences.com/files/chengduifs01.jpg",
+          image: "https://dw-media.dotdotnews.com/dams/share/image/202201/01/61d02b38e4b05b0b57d274eb.jpg",
         },
         {
           time: "16:00",
@@ -634,7 +634,7 @@ const ITINERARY = {
             zh: "IFS 定点直通车直达三星堆博物馆，车程 70 分钟，每日 8:00/10:30 发车",
           },
           cost: { cny: 33, usd: 4.87, note: { en: "one-way/person", zh: "单人单程" } },
-          image: "https://www.ifsresidences.com/files/chengduifs01.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "10:00–16:00",
@@ -656,7 +656,7 @@ const ITINERARY = {
             zh: "16:30 直通车返程春熙路。晚间自由采购伴手礼，酒店免费寄存大件行李，整理九寨沟出行物资。",
           },
           cost: null,
-          image: "https://www.ifsresidences.com/files/chengduifs01.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "19:00",
@@ -688,7 +688,7 @@ const ITINERARY = {
             zh: "推荐早班 C5782：06:45 成都东站发车，08:24 抵达黄龙九寨站，备选 08:12/10:06/11:46/15:45/18:36，1 小时 39 分",
           },
           cost: { cny: 135, usd: 19.94, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg",
+          image: "images/hsr-train.jpg",
         },
         {
           time: "09:00",
@@ -699,7 +699,7 @@ const ITINERARY = {
             zh: "出站换乘景区直通接驳大巴直达九寨沟口，滚动发车，车程 2 小时",
           },
           cost: { cny: 51, usd: 7.53, note: { en: "per person", zh: "单人" } },
-          image: "images/jiuzhaigou-shuttle.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "11:00",
@@ -752,7 +752,7 @@ const ITINERARY = {
             zh: "九寨沟口接驳大巴返回黄龙九寨高铁站",
           },
           cost: { cny: 51, usd: 7.53, note: { en: "per person", zh: "单人" } },
-          image: "images/jiuzhaigou-shuttle.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "Midday",
@@ -763,7 +763,7 @@ const ITINERARY = {
             zh: "午间高铁返回成都东站，晚间抵达春熙路，整理行李，准备次日前往重庆",
           },
           cost: { cny: 135, usd: 19.94, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg",
+          image: "images/hsr-train.jpg",
         },
         {
           time: "Evening",
@@ -842,7 +842,7 @@ const ITINERARY = {
             zh: "成都东 → 重庆西熊猫涂装高铁，车程 1 小时 20 分",
           },
           cost: { cny: 148, usd: 21.86, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "https://scontent-ord5-3.xx.fbcdn.net/v/t39.30808-6/485729861_1081663570672065_4040875253893617965_n.jpg?stp=dst-jpg_tt6&cstp=mx900x675&ctp=s590x590&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ChF2mJV6fwoQ7kNvwGTeWzG&_nc_oc=Adp9DNe0mRSWNHbthmTJVebtyPYAx7EHfkp9fi9BWwD014bPvdUdfE1Au2k5cDZXwKsi-WmqUxBuqOSW1PiPv0AF&_nc_zt=23&_nc_ht=scontent-ord5-3.xx&_nc_gid=hFh5xdXrcHYN8jHOOacV6A&_nc_ss=7b289&oh=00_AQC_GViCdGaEx0b3yz4xpuGpywoUeeFg6UFJEUJCWCZ1AA&oe=6A6AFEF2",
+          image: "images/hsr-train.jpg",
         },
         {
           time: "18:00",
@@ -853,7 +853,7 @@ const ITINERARY = {
             zh: "地铁重庆西站 → 解放碑，办理开元名庭入住（每日双人自助早餐已包含）。",
           },
           cost: { cny: 3, usd: 0.44, note: { en: "per person", zh: "单人" } },
-          image: "https://ak-d.tripcdn.com/images/1mc0r12000qcgk653E27F_R_960_660_R5_D.jpg",
+          image: "images/chongqing-metro.png",
         },
         {
           time: "Evening",
@@ -899,7 +899,7 @@ const ITINERARY = {
             zh: "解放碑大轰炸遗址乘坐武隆往返直达直通车，单程 3 小时直达仙女镇，无需换乘。",
           },
           cost: { cny: 130, usd: 19.2, note: { en: "round-trip/person", zh: "往返/人" } },
-          image: "images/wulong-shuttle.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "10:30",
@@ -932,7 +932,7 @@ const ITINERARY = {
             zh: "16:00 返回仙女镇游客中心，17:00 直通车返程解放碑，20:00 抵达酒店。",
           },
           cost: null,
-          image: "images/wulong-shuttle.jpg",
+          image: "images/shuttle-bus.svg",
         },
       ],
     },
@@ -957,13 +957,13 @@ const ITINERARY = {
         },
         {
           time: "09:30",
-          type: "transport",
-          title: { en: "Metro to Liziba", zh: "地铁至李子坝" },
+          type: "attraction",
+          title: { en: "Liziba Light Rail Through Building", zh: "李子坝轻轨穿楼" },
           desc: {
             en: "Metro Line 2 from Jiefangbei to Liziba. Photo spot for panda light rail & train-through-building sight.",
             zh: "地铁 2 号线解放碑 → 李子坝，打卡熊猫涂装轻轨、轻轨穿楼观景台",
           },
-          cost: { cny: 2, usd: 0.3, note: { en: "per person", zh: "单人" } },
+          cost: { cny: 2, usd: 0.3, note: { en: "metro / person", zh: "地铁/人" } },
           image: "images/liziba.jpg",
         },
         {
@@ -1051,7 +1051,7 @@ const ITINERARY = {
             zh: "打车：解放碑 → 重庆东站。",
           },
           cost: { cny: 15, usd: 2.22, note: { en: "one-way", zh: "单程" } },
-          image: "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg",
+          image: "images/hsr-train.jpg",
         },
         {
           time: "07:40",
@@ -1062,7 +1062,7 @@ const ITINERARY = {
             zh: "重庆东 → 张家界西高铁，最快 2 小时 02 分，多班次可选",
           },
           cost: { cny: 226, usd: 33.38, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg",
+          image: "images/hsr-train.jpg",
         },
         {
           time: "10:00",
@@ -1073,7 +1073,7 @@ const ITINERARY = {
             zh: "张家界西站景区专线大巴前往武陵源大门，车程 40 分钟",
           },
           cost: { cny: 40, usd: 5.91, note: { en: "per person", zh: "单人" } },
-          image: "https://www.hongxiangzuche.com/up_files/20130604142622992.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "10:40",
@@ -1095,7 +1095,7 @@ const ITINERARY = {
             zh: "乘坐武陵源景区专线大巴返回张家界西站，车程 40 分钟，18:00 抵达车站",
           },
           cost: { cny: 40, usd: 5.91, note: { en: "per person", zh: "单人" } },
-          image: "https://www.hongxiangzuche.com/up_files/20130604142622992.jpg",
+          image: "images/shuttle-bus.svg",
         },
         {
           time: "20:48",
@@ -1106,7 +1106,7 @@ const ITINERARY = {
             zh: "G2442 次高铁张家界西站返程重庆东，行程 2 小时 07 分，22:55 抵达重庆东站，全部行程正式完结",
           },
           cost: { cny: 206, usd: 30.43, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg",
+          image: "images/hsr-train.jpg",
         },
         {
           time: "23:00",
@@ -1516,6 +1516,10 @@ const ACTIVITY_OVERVIEWS = {
     en: "A narrow limestone gorge with elevator descent, gentle downhill boardwalks, and the dramatic Galaxy Waterfall — cooler and less crowded than the bridges.",
     zh: "窄缝式石灰岩峡谷，电梯下谷、平缓下坡栈道，银河飞瀑壮观；比天生三桥更清凉人少。",
   },
+  "Liziba Light Rail Through Building": {
+    en: "Chongqing's famous train-through-building sight — watch panda-painted Line 2 light rail pass through a residential block from the viewing platform.",
+    zh: "重庆网红轻轨穿楼打卡点，观景台可拍摄熊猫涂装 2 号线列车穿楼而过的经典画面。",
+  },
   "Hotel Breakfast": {
     en: "Complimentary buffet at Kaiyuan Mingting — a good start before a full day of Chongqing sightseeing.",
     zh: "开元名庭免费自助早餐，为山城全天打卡补充能量。",
@@ -1581,6 +1585,8 @@ const ACTIVITY_REVIEWS = {
   "Yangtze River Cableway":
     "https://www.tripadvisor.com/Attraction_Review-g294213-d6207908-Reviews-Yangtze_River_Cableway-Chongqing.html",
   "Liziba Station":
+    "https://www.tripadvisor.com/Attraction_Review-g294213-d15758086-Reviews-Liziba_Station-Chongqing.html",
+  "Liziba Light Rail Through Building":
     "https://www.tripadvisor.com/Attraction_Review-g294213-d15758086-Reviews-Liziba_Station-Chongqing.html",
   "Xiahaoli Old Street":
     "https://www.tripadvisor.com/Attraction_Review-g294213-d5302833-Reviews-LongMenHao_ShangYeJie_SenLin_LongMen_HaoYue_Nan-Chongqing.html",

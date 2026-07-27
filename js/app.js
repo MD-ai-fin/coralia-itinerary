@@ -367,8 +367,13 @@
   }
 
   const DIDI_ICON = "images/didi.png";
+  const HSR_ICON = "images/hsr-train.jpg";
+  const SHUTTLE_ICON = "images/shuttle-bus.svg";
+  const CHONGQING_METRO_ICON = "images/chongqing-metro.png";
   const IMAGE_FALLBACKS = {
-    "images/wulong-shuttle.jpg": "images/wulong-shuttle.svg",
+    "images/wulong-shuttle.jpg": SHUTTLE_ICON,
+    "images/jiuzhaigou-shuttle.jpg": SHUTTLE_ICON,
+    "https://q4.itc.cn/images01/20240905/8b80a3c7561b46e7bb2777baaf82d81e.jpeg": HSR_ICON,
   };
   const GENERIC_IMAGE_FALLBACK =
     "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=200&q=80";
@@ -392,8 +397,41 @@
     return /打车|Taxi/i.test(titleEn) || /打车/.test(titleZh);
   }
 
+  function isHsrActivity(act) {
+    if (act.type !== "transport") return false;
+    const t = `${act.title.en} ${act.title.zh}`;
+    if (/Metro|地铁|打车|Taxi|Shuttle|直通车|接驳|专线大巴|Cableway|索道|Walk|步行/.test(t)) return false;
+    return /高铁|High-Speed|G2442|C5782|Panda High-Speed|熊猫.*高铁|熊猫涂装高铁/.test(t);
+  }
+
+  function isShuttleActivity(act) {
+    if (act.type !== "transport") return false;
+    const t = `${act.title.en} ${act.title.zh}`;
+    return /Shuttle|直通车|接驳大巴|专线大巴|景区接驳|Scenic Shuttle/i.test(t);
+  }
+
+  function isChongqingMetroActivity(act) {
+    if (act.type !== "transport") return false;
+    const t = `${act.title.en} ${act.title.zh}`;
+    if (!/Metro|地铁/.test(t)) return false;
+    return /Chongqing West|重庆西|Liziba|李子坝|Metro: Chongqing|地铁：重庆/.test(t);
+  }
+
+  function isTransportIconActivity(act) {
+    return (
+      isTaxiActivity(act) ||
+      isHsrActivity(act) ||
+      isShuttleActivity(act) ||
+      isChongqingMetroActivity(act)
+    );
+  }
+
   function getActivityImage(act) {
-    return isTaxiActivity(act) ? DIDI_ICON : act.image;
+    if (isTaxiActivity(act)) return DIDI_ICON;
+    if (isHsrActivity(act)) return HSR_ICON;
+    if (isShuttleActivity(act)) return SHUTTLE_ICON;
+    if (isChongqingMetroActivity(act)) return CHONGQING_METRO_ICON;
+    return act.image;
   }
 
   function getActivityReviews(act) {
@@ -543,7 +581,9 @@
     const typeLabel = ui().typeLabels[act.type] || act.type;
     const costStr = formatCost(act.cost);
     const imgSrc = getActivityImage(act);
-    const thumbClass = isTaxiActivity(act) ? "timeline-thumb timeline-thumb-didi" : "timeline-thumb";
+    const thumbClass = isTransportIconActivity(act)
+      ? "timeline-thumb timeline-thumb-icon"
+      : "timeline-thumb";
 
     return `
       <div class="timeline-item" id="act-d${dayNum}-${actIndex}" data-day="${dayNum}" data-act-index="${actIndex}" role="button" tabindex="0" aria-label="${t(act.title)}">
@@ -825,7 +865,9 @@
     let mediaHtml = "";
     const imgSrc = getActivityImage(act);
     if (imgSrc) {
-      const mediaClass = isTaxiActivity(act) ? "modal-media modal-media-didi" : "modal-media";
+      const mediaClass = isTransportIconActivity(act)
+        ? "modal-media modal-media-icon"
+        : "modal-media";
       mediaHtml = `<img class="${mediaClass}" src="${imgSrc}" alt="${t(act.title)}" onerror="${imgOnErrorHandler(imgSrc, 'large')}">`;
     }
 
