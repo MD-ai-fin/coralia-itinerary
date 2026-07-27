@@ -508,7 +508,7 @@ const ITINERARY = {
             zh: "免费入园。",
           },
           cost: null,
-          image: "https://p2.itc.cn/q_70/images03/20200723/c69a20b5eced4eff88e6d285b26ae104.jpeg",
+          image: "images/peoples-park.jpg",
         },
         {
           time: "10:30",
@@ -518,6 +518,12 @@ const ITINERARY = {
             en: "10:30 5-min walk to Wide & Narrow Alleys.",
             zh: "10:30 步行至宽窄巷子。",
           },
+          reviews: [
+            {
+              label: { en: "TripAdvisor Reviews", zh: "TripAdvisor 评价" },
+              url: "https://www.tripadvisor.com/Attraction_Review-g297463-d1832089-Reviews-Kuanzhai_Alley-Chengdu_Sichuan.html",
+            },
+          ],
           cost: null,
           image: "https://p2.itc.cn/q_70/images03/20200723/c69a20b5eced4eff88e6d285b26ae104.jpeg",
         },
@@ -1596,8 +1602,8 @@ ITINERARY.days.forEach((day) => {
       if (overview) act.overview = overview;
     }
     const review = ACTIVITY_REVIEWS[act.title.en];
-    if (!review) return;
+    if (!review || act.reviews?.length) return;
     if (Array.isArray(review)) act.reviews = review;
-    else act.reviewUrl = review;
+    else if (!act.reviewUrl) act.reviewUrl = review;
   });
 });
