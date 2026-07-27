@@ -12,9 +12,9 @@ const ITINERARY = {
     exchangeRate: "1 CNY = 0.1477 USD",
     build: "2026-07-26dz",
     budget: {
-      total: { cny: 9186, usd: 1356.76 },
+      total: { cny: 9190, usd: 1357.39 },
       cap: { cny: 9820, usd: 1449.41 },
-      remaining: { cny: 634, usd: 92.65 },
+      remaining: { cny: 630, usd: 92.02 },
     },
   },
 
@@ -734,7 +734,7 @@ const ITINERARY = {
       city: { en: "Jiuzhaigou → Chengdu", zh: "九寨沟 → 成都" },
       theme: { en: "Return to Chengdu", zh: "返程成都" },
       hotel: "panda-sleepy",
-      subtotal: { cny: 672, usd: 99.25 },
+      subtotal: { cny: 672, usd: 99.26 },
       summary: { en: "Shuttle + train back to Chunxi Road", zh: "接驳大巴 + 高铁返回春熙路" },
       activities: [
         {
@@ -777,7 +777,7 @@ const ITINERARY = {
       city: { en: "Chengdu → Chongqing", zh: "成都 → 重庆" },
       theme: { en: "Two Museums + Panda Train", zh: "双博物馆 + 熊猫高铁" },
       hotel: "kaiyuan",
-      subtotal: { cny: 700, usd: 103.39 },
+      subtotal: { cny: 704, usd: 103.99 },
       summary: {
         en: "Sichuan Museum → Chengdu Museum → Chongqing → Huashi Noodles → Hongyadong",
         zh: "川博 → 成博 → 重庆 → 花市豌杂面 → 洪崖洞",
@@ -881,7 +881,7 @@ const ITINERARY = {
       city: { en: "Chongqing", zh: "重庆" },
       theme: { en: "Wulong Day Trip", zh: "武隆一日游" },
       hotel: "kaiyuan",
-      subtotal: { cny: 1190, usd: 175.76 },
+      subtotal: { cny: 1190, usd: 175.77 },
       summary: { en: "Three Natural Bridges + Longshui Gorge", zh: "天生三桥 + 龙水峡地缝" },
       activities: [
         {
@@ -1022,7 +1022,7 @@ const ITINERARY = {
       city: { en: "Chongqing", zh: "重庆" },
       theme: { en: "Wulingyuan National Forest Park", zh: "武陵源国家森林公园" },
       hotel: "kaiyuan",
-      subtotal: { cny: 1887, usd: 278.68 },
+      subtotal: { cny: 1887, usd: 278.72 },
       summary: { en: "Zhangjiajie Wulingyuan full day", zh: "张家界武陵源全天游览" },
       activities: [
         {
@@ -1189,7 +1189,7 @@ const ITINERARY = {
           { label: { en: "HSR back to Chengdu East (×2)", zh: "九寨站→成都东高铁（×2）" }, cny: 270, usd: 39.88 },
           { label: { en: "Panda Sleepy daily split", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
         ],
-        subtotal: { cny: 672, usd: 99.25 },
+        subtotal: { cny: 672, usd: 99.26 },
       },
       {
         day: 7,
@@ -1201,7 +1201,7 @@ const ITINERARY = {
           { label: { en: "Metro Chongqing West–Jiefangbei (×2)", zh: "地铁重庆西→解放碑（×2）" }, cny: 6, usd: 0.89 },
           { label: { en: "Kaiyuan Mingting daily split", zh: "开元名庭单日分摊房价" }, cny: 388, usd: 57.31 },
         ],
-        subtotal: { cny: 700, usd: 103.39 },
+        subtotal: { cny: 704, usd: 103.99 },
       },
       {
         day: 8,
@@ -1212,7 +1212,7 @@ const ITINERARY = {
           { label: { en: "Longshui Gorge ticket (×2)", zh: "龙水峡地缝门票（×2）" }, cny: 232, usd: 34.27 },
           { label: { en: "Kaiyuan Mingting daily split", zh: "开元名庭单日分摊房价" }, cny: 388, usd: 57.31 },
         ],
-        subtotal: { cny: 1190, usd: 175.76 },
+        subtotal: { cny: 1190, usd: 175.77 },
       },
       {
         day: 9,
@@ -1234,14 +1234,14 @@ const ITINERARY = {
           { label: { en: "Shuttle to Wulingyuan gate (×2)", zh: "张家界西→武陵源专线（×2）" }, cny: 80, usd: 11.82 },
           { label: { en: "Wulingyuan ticket + Bailong Elevator (×2)", zh: "武陵源门票+百龙天梯（×2）" }, cny: 460, usd: 67.94 },
           { label: { en: "Shuttle to Zhangjiajie West (×2)", zh: "武陵源→张家界西专线（×2）" }, cny: 80, usd: 11.82 },
-          { label: { en: "HSR Zhangjiajie West–Chongqing East (×2)", zh: "张家界西→重庆东高铁（×2）" }, cny: 412, usd: 60.81 },
+          { label: { en: "HSR Zhangjiajie West–Chongqing East (×2)", zh: "张家界西→重庆东高铁（×2）" }, cny: 412, usd: 60.85 },
           { label: { en: "Kaiyuan Mingting 2-night split", zh: "开元名庭两晚分摊房价" }, cny: 388, usd: 57.31 },
         ],
-        subtotal: { cny: 1887, usd: 278.68 },
+        subtotal: { cny: 1887, usd: 278.72 },
       },
     ],
     optional: {
-      title: { en: "Optional Self-Paid (not in 8611 CNY)", zh: "自费可选（不计入 8611 CNY）" },
+      title: { en: "Optional Self-Paid (not in 9190 CNY)", zh: "自费可选（不计入 9190 CNY）" },
       items: [
         { en: "D1 Times Square Block A panda souvenirs & gifts", zh: "D1 时代广场A座熊猫文创伴手礼" },
         { en: "D1 Jiuyan Bridge bar drinks (extra beyond fixed cover)", zh: "D1 九眼桥清吧酒水" },
