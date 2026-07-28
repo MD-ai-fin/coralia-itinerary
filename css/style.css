@@ -2119,8 +2119,8 @@ body[lang="en"] .hero-greeting {
   }
 
   .header {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 0;
     padding: 10px 14px;
     padding-top: calc(10px + env(safe-area-inset-top, 0px));
   }
