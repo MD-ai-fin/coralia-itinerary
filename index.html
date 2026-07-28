@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6A9B4E">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="熊猫川渝行">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Coralia's Panda Adventure · 熊猫之旅</title>
+  <title>Panda Adventure · 熊猫川渝行</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260727e">
+  <link rel="stylesheet" href="css/style.css?v=20260727m">
 </head>
 <body>
   <div class="panda-watermark" aria-hidden="true"></div>
@@ -57,6 +65,24 @@
             <p id="hero-greeting" class="hero-greeting"></p>
             <div class="budget-pills" id="budget-pills"></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PWA install QR -->
+    <section class="section" id="install-qr-section">
+      <div class="install-qr-card card">
+        <div class="install-qr-copy">
+          <h2 id="install-qr-title"></h2>
+          <p id="install-qr-hint" class="section-desc"></p>
+          <ul class="install-qr-steps">
+            <li id="install-qr-ios"></li>
+            <li id="install-qr-android"></li>
+          </ul>
+          <a id="install-qr-link" class="install-qr-url" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+        <div class="install-qr-visual">
+          <img id="install-qr-image" src="images/install-qr.png" width="200" height="200" alt="">
         </div>
       </div>
     </section>
@@ -127,11 +153,11 @@
   </div>
 
   <footer class="footer">
-    <p id="footer-tagline">🎋 <span id="footer-tagline-text"></span></p>
     <p class="exchange-rate" id="exchange-rate"></p>
   </footer>
 
-  <script src="js/data.js?v=20260727g"></script>
-  <script src="js/app.js?v=20260727g"></script>
+  <script src="js/data.js?v=20260727m"></script>
+  <script src="js/app.js?v=20260727m"></script>
+  <script src="js/pwa.js?v=20260727m"></script>
 </body>
 </html>

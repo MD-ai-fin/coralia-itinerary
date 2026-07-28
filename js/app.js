@@ -21,6 +21,7 @@
   function renderAll() {
     renderHeader();
     renderHero();
+    renderInstallQr();
     renderHighlights();
     renderHotels();
     renderDays();
@@ -43,14 +44,28 @@
     document.title = t(ITINERARY.meta.title) + " · Coralia";
   }
 
+  function renderInstallQr() {
+    const u = ui();
+    const url = ITINERARY.meta.siteUrl;
+    const section = document.getElementById("install-qr-section");
+    if (!url || !section) return;
+
+    document.getElementById("install-qr-title").textContent = u.installQrTitle;
+    document.getElementById("install-qr-hint").textContent = u.installQrHint;
+    document.getElementById("install-qr-ios").textContent = u.installQrIos;
+    document.getElementById("install-qr-android").textContent = u.installQrAndroid;
+
+    const link = document.getElementById("install-qr-link");
+    link.href = url;
+    link.textContent = `${u.installQrLink}: ${url.replace(/^https:\/\//, "")}`;
+
+    const img = document.getElementById("install-qr-image");
+    img.alt = u.installQrTitle;
+  }
+
   function renderHero() {
     const u = ui();
-    const greeting =
-      lang === "zh"
-        ? "欢迎你，Coralia！熊猫之旅从这里开始！"
-        : "Welcome, Coralia! Your panda adventure begins here!";
-
-    document.getElementById("hero-greeting").textContent = greeting;
+    document.getElementById("hero-greeting").textContent = t(ITINERARY.meta.greeting);
 
     const b = ITINERARY.meta.budget;
     document.getElementById("budget-pills").innerHTML = `
@@ -792,7 +807,6 @@
   }
 
   function renderFooter() {
-    document.getElementById("footer-tagline-text").textContent = ui().footerTagline;
     const build = ITINERARY.meta.build ? ` · Build ${ITINERARY.meta.build}` : "";
     document.getElementById("exchange-rate").textContent = ITINERARY.meta.exchangeRate + build;
   }
@@ -954,6 +968,7 @@
     localStorage.setItem("coralia-lang", lang);
     document.body.setAttribute("lang", lang);
     renderAll();
+    window.CoraliaPWA?.refreshInstallBanner();
   }
 
   function openModal(act) {
