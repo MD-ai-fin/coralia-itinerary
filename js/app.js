@@ -82,6 +82,27 @@
     }
     document.title = t(ITINERARY.meta.title) + " · Coralia";
     updatePwaManifest();
+    requestAnimationFrame(fitTravelerBadge);
+  }
+
+  function fitTravelerBadge() {
+    const el = document.getElementById("traveler-info");
+    if (!el) return;
+
+    el.style.fontSize = "";
+    if (lang !== "en" || !window.matchMedia("(max-width: 640px)").matches) return;
+
+    el.style.whiteSpace = "nowrap";
+    const maxWidth = el.clientWidth;
+    if (maxWidth <= 0) return;
+
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    const minSize = Math.max(9, size * 0.62);
+    el.style.fontSize = `${size}px`;
+    while (size > minSize && el.scrollWidth > maxWidth) {
+      size -= 0.5;
+      el.style.fontSize = `${size}px`;
+    }
   }
 
   function renderInstallQr() {
@@ -1130,6 +1151,7 @@
       syncSpotNavAccessibility();
       fitHeroGreetingBox();
       fitHeroTextLines();
+      fitTravelerBadge();
     });
 
     document.getElementById("budget-panels").addEventListener("click", (e) => {

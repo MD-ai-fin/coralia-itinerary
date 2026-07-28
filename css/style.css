@@ -2451,6 +2451,10 @@ body[lang="en"] .hero-greeting-rest {
     line-height: 1.45;
   }
 
+  body[lang="en"] .traveler-badge {
+    white-space: nowrap;
+  }
+
   .header-actions {
     grid-area: actions;
     gap: 8px;
