@@ -977,7 +977,8 @@ body[lang="en"] .hero-greeting {
 }
 
 .day-card.expanded .day-body {
-  max-height: 2000px;
+  max-height: 12000px;
+  overflow: visible;
 }
 
 .day-timeline {
