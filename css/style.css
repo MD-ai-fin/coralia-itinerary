@@ -2186,13 +2186,77 @@ body[lang="en"] .hero-greeting {
   }
 
   .day-header {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) 18px;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 2px;
+    padding: 8px 12px;
+    align-items: start;
+  }
+
+  .day-number {
+    grid-row: 1 / -1;
+    align-self: center;
+    width: 34px;
+    height: 34px;
+    font-size: 0.82rem;
+  }
+
+  .day-info {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .day-city {
+    font-size: 0.65rem;
+  }
+
+  .day-theme {
+    font-size: 0.82rem;
+    line-height: 1.2;
+  }
+
+  .day-card:not(.expanded) .day-summary {
+    display: none;
+  }
+
+  .day-summary {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .day-cost {
-    width: 100%;
+    grid-column: 2;
+    grid-row: 2;
+    width: auto;
     text-align: left;
-    padding-left: 52px;
+    padding-left: 0;
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+  }
+
+  .day-cost-amount {
+    font-size: 0.78rem;
+  }
+
+  .day-cost-usd {
+    font-size: 0.65rem;
+  }
+
+  .day-chevron {
+    grid-column: 3;
+    grid-row: 1 / -1;
+    align-self: center;
+    font-size: 0.85rem;
+  }
+
+  .days-list {
+    gap: 6px;
   }
 
   .timeline-item {
