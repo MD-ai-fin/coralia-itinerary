@@ -645,7 +645,7 @@
   }
 
   const DIDI_ICON = "images/didi.png";
-  const HSR_ICON = "images/hsr-train.jpg";
+  const HSR_ICON = "images/china-railway.png";
   const SHUTTLE_ICON = "images/shuttle-bus.svg";
   const CHONGQING_METRO_ICON = "images/chongqing-metro.png";
   const IMAGE_FALLBACKS = {

@@ -1063,6 +1063,7 @@ body[lang="en"] .hero-greeting-rest {
 
 .timeline-thumb[src*="chengdu-metro"],
 .timeline-thumb[src*="chongqing-metro"],
+.timeline-thumb[src*="china-railway"],
 .timeline-thumb-icon {
   object-fit: contain;
   background: transparent;

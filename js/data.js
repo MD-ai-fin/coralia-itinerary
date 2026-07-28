@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-29p",
+    build: "2026-07-29q",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -705,7 +705,7 @@ const ITINERARY = {
             zh: "推荐早班 C5782：06:45 成都东站发车，08:24 抵达黄龙九寨站，备选 08:12/10:06/11:46/15:45/18:36，1 小时 39 分",
           },
           cost: { cny: 135, usd: 19.94, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "images/hsr-train.jpg",
+          image: "images/china-railway.png",
         },
         {
           time: "09:00",
@@ -780,7 +780,7 @@ const ITINERARY = {
             zh: "午间高铁返回成都东站，晚间抵达春熙路，整理行李，准备次日前往重庆",
           },
           cost: { cny: 135, usd: 19.94, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "images/hsr-train.jpg",
+          image: "images/china-railway.png",
         },
         {
           time: "Evening",
@@ -859,7 +859,7 @@ const ITINERARY = {
             zh: "成都东 → 重庆西熊猫涂装高铁，车程 1 小时 20 分",
           },
           cost: { cny: 148, usd: 21.86, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "images/hsr-train.jpg",
+          image: "images/china-railway.png",
         },
         {
           time: "18:00",
@@ -1068,7 +1068,7 @@ const ITINERARY = {
             zh: "打车：解放碑 → 重庆东站。",
           },
           cost: { cny: 15, usd: 2.22, note: { en: "one-way", zh: "单程" } },
-          image: "images/hsr-train.jpg",
+          image: "images/china-railway.png",
         },
         {
           time: "07:40",
@@ -1079,7 +1079,7 @@ const ITINERARY = {
             zh: "重庆东 → 张家界西高铁，最快 2 小时 02 分，多班次可选",
           },
           cost: { cny: 226, usd: 33.38, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "images/hsr-train.jpg",
+          image: "images/china-railway.png",
         },
         {
           time: "10:00",
@@ -1123,7 +1123,7 @@ const ITINERARY = {
             zh: "G2442 次高铁张家界西站返程重庆东，行程 2 小时 07 分，22:55 抵达重庆东站，全部行程正式完结",
           },
           cost: { cny: 206, usd: 30.43, note: { en: "2nd class/person", zh: "二等座/人" } },
-          image: "images/hsr-train.jpg",
+          image: "images/china-railway.png",
         },
         {
           time: "23:00",
