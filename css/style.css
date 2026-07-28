@@ -271,15 +271,11 @@ body[lang="zh"] .lang-en { display: none; }
   gap: 12px;
 }
 
-.hero-copy {
+.hero-greeting-row {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: fit-content;
-  max-width: 100%;
+  align-items: center;
   gap: 12px;
   min-width: 0;
-  min-height: 130px;
 }
 
 .hero-panda {
@@ -361,6 +357,38 @@ body[lang="en"] .hero-greeting-rest {
 .budget-pill.total { background: var(--mint); }
 .budget-pill.cap { background: var(--lavender); }
 .budget-pill.remaining { background: var(--yellow); }
+
+@media (min-width: 601px) {
+  .hero-intro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 12px;
+    justify-items: start;
+  }
+
+  .hero-greeting-row {
+    display: contents;
+  }
+
+  .hero-panda {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  .hero-greeting-box {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+  }
+
+  .budget-pills {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
 
 /* PWA install QR — compact footer style (~132px code, common web standard) */
 .install-qr-section {
@@ -2502,19 +2530,24 @@ body[lang="en"] .hero-greeting-rest {
 
 @media (max-width: 600px) {
   .hero-intro {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    grid-template-rows: auto auto;
-    gap: 10px 12px;
+    flex-direction: column;
     align-items: center;
-    text-align: left;
+    gap: 10px;
+  }
+
+  .hero-greeting-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px 12px;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
   }
 
   .hero-panda {
-    grid-column: 1;
-    grid-row: 1;
     width: auto;
-    align-self: center;
+    flex-shrink: 0;
   }
 
   .hero-panda .panda-img {
@@ -2523,13 +2556,7 @@ body[lang="en"] .hero-greeting-rest {
     width: auto;
   }
 
-  .hero-copy {
-    display: contents;
-  }
-
   .hero-greeting-box {
-    grid-column: 2;
-    grid-row: 1;
     min-width: 0;
     font-size: 1.05rem;
     gap: 2px;
@@ -2551,8 +2578,6 @@ body[lang="en"] .hero-greeting-rest {
   }
 
   .budget-pills {
-    grid-column: 1 / -1;
-    grid-row: 2;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
