@@ -70,10 +70,14 @@
   function renderHeader() {
     document.getElementById("page-title").textContent = t(ITINERARY.meta.title);
     document.getElementById("page-subtitle").textContent = t(ITINERARY.meta.subtitle);
-    document.getElementById("traveler-info").textContent = t(ITINERARY.meta.traveler);
+    const travelerText = t(ITINERARY.meta.traveler);
+    document.getElementById("traveler-info").textContent = travelerText;
+    const heroTraveler = document.getElementById("hero-traveler");
+    if (heroTraveler) heroTraveler.textContent = travelerText;
     const badge = document.getElementById("build-badge");
     if (badge && ITINERARY.meta.build) {
       badge.textContent = ITINERARY.meta.build;
+      badge.toggleAttribute("hidden", window.matchMedia("(max-width: 640px)").matches);
     }
     document.title = t(ITINERARY.meta.title) + " · Coralia";
     updatePwaManifest();
@@ -836,7 +840,8 @@
   }
 
   function renderFooter() {
-    const build = ITINERARY.meta.build ? ` · Build ${ITINERARY.meta.build}` : "";
+    const showBuild = window.matchMedia("(min-width: 641px)").matches;
+    const build = showBuild && ITINERARY.meta.build ? ` · Build ${ITINERARY.meta.build}` : "";
     document.getElementById("exchange-rate").textContent = ITINERARY.meta.exchangeRate + build;
   }
 
