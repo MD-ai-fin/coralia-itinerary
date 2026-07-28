@@ -778,7 +778,6 @@
             <textarea name="message" required rows="5" placeholder="${u.contactMessagePlaceholder}"></textarea>
           </label>
         </div>
-        <p class="contact-privacy">${u.contactPrivacy}</p>
         <div class="contact-actions">
           <button type="submit" class="contact-submit">${u.contactSubmit}</button>
         </div>
