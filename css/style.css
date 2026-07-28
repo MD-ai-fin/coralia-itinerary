@@ -55,7 +55,9 @@ body[lang="zh"] {
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei UI", sans-serif;
 }
 
-body[lang="zh"] .hero-greeting,
+body[lang="zh"] .hero-greeting-box,
+body[lang="zh"] .hero-greeting-lead,
+body[lang="zh"] .hero-greeting-rest,
 body[lang="zh"] h1,
 body[lang="zh"] h2,
 body[lang="zh"] .subtitle,
@@ -305,18 +307,38 @@ body[lang="zh"] .lang-en { display: none; }
   mask-size: 100% 100%;
 }
 
-.hero-greeting {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 0;
-  color: var(--text);
-  line-height: 1.35;
-  text-align: center;
+.hero-greeting-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
   max-width: 100%;
 }
 
-body[lang="en"] .hero-greeting {
+.hero-greeting-lead,
+.hero-greeting-rest {
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.hero-greeting-lead {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.hero-greeting-rest {
   font-size: 1.15rem;
+  text-align: center;
+}
+
+body[lang="en"] .hero-greeting-lead {
+  font-size: 1.15rem;
+}
+
+body[lang="en"] .hero-greeting-rest {
+  font-size: 1.05rem;
 }
 
 .budget-pills {
@@ -2480,36 +2502,64 @@ body[lang="en"] .hero-greeting {
 
 @media (max-width: 600px) {
   .hero-intro {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px 12px;
+    align-items: center;
+    text-align: left;
   }
 
   .hero-panda {
-    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    width: auto;
+    align-self: center;
+  }
+
+  .hero-panda .panda-img {
+    height: auto;
+    max-height: 86px;
+    width: auto;
   }
 
   .hero-copy {
-    align-items: stretch;
-    width: 100%;
-    min-height: 0;
+    display: contents;
   }
 
-  .hero-greeting,
-  .budget-pill {
-    white-space: nowrap;
+  .hero-greeting-box {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    font-size: 1.05rem;
+    gap: 2px;
+  }
+
+  .hero-greeting-lead,
+  .hero-greeting-rest {
+    font-size: 1em;
+    white-space: normal;
+  }
+
+  .hero-greeting-lead {
     text-align: center;
   }
 
+  .hero-greeting-rest {
+    text-align: left;
+  }
+
   .budget-pills {
+    grid-column: 1 / -1;
+    grid-row: 2;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
   }
 
-  body[lang="en"] .hero-greeting {
-    font-size: 1.05rem;
+  .budget-pill {
+    white-space: nowrap;
+    text-align: center;
   }
 
   .day-header {

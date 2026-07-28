@@ -14,13 +14,15 @@ const ITINERARY = {
       en: "Welcome! Your journey begins here.",
       zh: "欢迎开启一段难忘的旅程！",
     },
+    greetingLead: { en: "Welcome!", zh: "欢迎" },
+    greetingRest: { en: "Your journey begins here.", zh: "开启一段难忘的旅程！" },
     traveler: {
       en: "An unforgettable journey for two · Mild flavors · Easy pace · September",
       zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-29h",
+    build: "2026-07-29i",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },

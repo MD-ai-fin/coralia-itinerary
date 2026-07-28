@@ -105,7 +105,8 @@
 
   function renderHero() {
     const u = ui();
-    document.getElementById("hero-greeting").textContent = t(ITINERARY.meta.greeting);
+    document.getElementById("hero-greeting-lead").textContent = t(ITINERARY.meta.greetingLead);
+    document.getElementById("hero-greeting-rest").textContent = t(ITINERARY.meta.greetingRest);
 
     const b = ITINERARY.meta.budget;
     document.getElementById("budget-pills").innerHTML = `
@@ -113,22 +114,46 @@
       <span class="budget-pill cap">${u.budgetCap}: ${b.cap.cny} CNY / $${b.cap.usd}</span>
       <span class="budget-pill remaining">${u.remaining}: ${b.remaining.cny} CNY / $${b.remaining.usd}</span>
     `;
-    requestAnimationFrame(fitHeroTextLines);
+    requestAnimationFrame(() => {
+      fitHeroGreetingBox();
+      fitHeroTextLines();
+    });
+  }
+
+  function fitHeroGreetingBox() {
+    const box = document.getElementById("hero-greeting-box");
+    if (!box) return;
+
+    box.style.fontSize = "";
+    if (!window.matchMedia("(max-width: 600px)").matches) return;
+
+    const lead = document.getElementById("hero-greeting-lead");
+    const rest = document.getElementById("hero-greeting-rest");
+    const maxWidth = box.clientWidth;
+    if (maxWidth <= 0) return;
+
+    let size = parseFloat(getComputedStyle(lead).fontSize);
+    const minSize = 11;
+    box.style.fontSize = `${size}px`;
+    while (
+      size > minSize &&
+      (lead.scrollWidth > maxWidth || rest.scrollWidth > maxWidth)
+    ) {
+      size -= 0.5;
+      box.style.fontSize = `${size}px`;
+    }
   }
 
   function fitHeroTextLines() {
-    const container = document.querySelector(".hero-copy");
+    const container = document.querySelector(".hero-intro");
     if (!container) return;
 
     const maxWidth = container.clientWidth;
     if (maxWidth <= 0) return;
 
-    const lines = [
-      document.getElementById("hero-greeting"),
-      ...document.querySelectorAll("#budget-pills .budget-pill"),
-    ].filter(Boolean);
+    const pills = document.querySelectorAll("#budget-pills .budget-pill");
 
-    lines.forEach((el) => {
+    pills.forEach((el) => {
       el.style.fontSize = "";
       el.style.whiteSpace = "nowrap";
       let size = parseFloat(getComputedStyle(el).fontSize);
@@ -1101,6 +1126,7 @@
     window.addEventListener("resize", () => {
       syncSectionNavAccessibility();
       syncSpotNavAccessibility();
+      fitHeroGreetingBox();
       fitHeroTextLines();
     });
 
