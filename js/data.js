@@ -20,7 +20,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-28l",
+    build: "2026-07-28m",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -1403,7 +1403,7 @@ const ITINERARY = {
       downloadsHint: "Itinerary & visa guides for offline reading and printing",
       downloadBtn: "Download .docx",
       contactTitle: "Questions About This Trip?",
-      contactHint: "Leave a message — I'll reply by email. Your details stay private and are only used to answer your inquiry.",
+      contactHint: "Leave me a message — I'll get back to you by email. Your information will only be used to reply.",
       contactName: "Name",
       contactPhone: "Phone (optional)",
       contactEmail: "Email",
