@@ -401,6 +401,7 @@
       .join("");
 
     navEl.classList.toggle("open", sectionNavOpen);
+    document.body.classList.add("has-section-nav");
     const toggle = document.getElementById("section-nav-toggle");
     if (toggle) toggle.setAttribute("aria-expanded", sectionNavOpen ? "true" : "false");
   }
@@ -972,11 +973,12 @@
     });
 
     document.addEventListener("click", (e) => {
-      if (spotNavOpen && !e.target.closest("#spot-nav, #spot-nav-toggle")) {
+      const mobileNav = window.matchMedia("(max-width: 899px)").matches;
+      if (mobileNav && spotNavOpen && !e.target.closest("#spot-nav, #spot-nav-toggle")) {
         spotNavOpen = false;
         renderSpotNav();
       }
-      if (sectionNavOpen && !e.target.closest("#section-nav, #section-nav-toggle")) {
+      if (mobileNav && sectionNavOpen && !e.target.closest("#section-nav, #section-nav-toggle")) {
         sectionNavOpen = false;
         renderSectionNav();
       }
