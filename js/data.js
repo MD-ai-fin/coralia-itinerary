@@ -338,8 +338,8 @@ const ITINERARY = {
             zh: "联合国世界旅游组织与中国国家旅游局授予「中国最佳旅游城市」",
           },
           {
-            en: "Member, World Centers of Excellence for Destinations (CED)",
-            zh: "全球卓越目的地中心（CED）成员城市",
+            en: "Certified member, World Centers of Excellence for Destinations (CED, 2010) — international destination quality assessment",
+            zh: "旅游目的地质量认证成员（CED，2010）— 国际旅游目的地的第三方质量测评体系",
           },
         ],
         history: {
