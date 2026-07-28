@@ -113,6 +113,32 @@
       <span class="budget-pill cap">${u.budgetCap}: ${b.cap.cny} CNY / $${b.cap.usd}</span>
       <span class="budget-pill remaining">${u.remaining}: ${b.remaining.cny} CNY / $${b.remaining.usd}</span>
     `;
+    requestAnimationFrame(fitHeroTextLines);
+  }
+
+  function fitHeroTextLines() {
+    const container = document.querySelector(".hero-copy");
+    if (!container) return;
+
+    const maxWidth = container.clientWidth;
+    if (maxWidth <= 0) return;
+
+    const lines = [
+      document.getElementById("hero-greeting"),
+      ...document.querySelectorAll("#budget-pills .budget-pill"),
+    ].filter(Boolean);
+
+    lines.forEach((el) => {
+      el.style.fontSize = "";
+      el.style.whiteSpace = "nowrap";
+      let size = parseFloat(getComputedStyle(el).fontSize);
+      const minSize = Math.max(10, size * 0.62);
+      el.style.fontSize = `${size}px`;
+      while (size > minSize && el.scrollWidth > maxWidth) {
+        size -= 0.5;
+        el.style.fontSize = `${size}px`;
+      }
+    });
   }
 
   const storeBadgeAlt = (store) =>
@@ -1075,6 +1101,7 @@
     window.addEventListener("resize", () => {
       syncSectionNavAccessibility();
       syncSpotNavAccessibility();
+      fitHeroTextLines();
     });
 
     document.getElementById("budget-panels").addEventListener("click", (e) => {
