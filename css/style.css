@@ -322,66 +322,68 @@ body[lang="en"] .hero-greeting {
 .budget-pill.cap { background: var(--lavender); }
 .budget-pill.remaining { background: var(--yellow); }
 
-/* PWA install QR */
-.install-qr-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 24px;
-  padding: 24px 28px;
+/* PWA install QR — compact footer style (~132px code, common web standard) */
+.install-qr-section {
+  padding-top: 0;
+  margin-top: -4px;
 }
 
-.install-qr-copy h2 {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  color: var(--text);
+.install-qr-compact {
+  width: 552px;
+  max-width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px 24px 16px;
+  box-sizing: border-box;
 }
 
-.install-qr-steps {
-  margin: 14px 0 12px;
-  padding-left: 1.2rem;
-  color: var(--text);
-  font-size: 0.9rem;
-}
-
-.install-qr-steps li + li {
-  margin-top: 6px;
-}
-
-.install-qr-url {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--bamboo);
-  word-break: break-all;
-}
-
-.install-qr-visual {
-  flex-shrink: 0;
-  padding: 10px;
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
-}
-
-.install-qr-visual img {
+.install-qr-section h2,
+.install-qr-title {
   display: block;
-  width: 200px;
-  height: 200px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+  white-space: nowrap;
+  text-align: center;
 }
 
-@media (max-width: 720px) {
-  .install-qr-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+.install-qr-section h2::before,
+.install-qr-title::before {
+  content: none;
+  display: none;
+}
 
-  .install-qr-steps {
-    text-align: left;
-  }
+.install-qr-hint {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.45;
+  margin-bottom: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
 
-  .install-qr-visual {
-    justify-self: center;
+.install-qr-frame {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 8px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid rgba(106, 155, 78, 0.18);
+  box-shadow: 0 2px 12px rgba(106, 155, 78, 0.1);
+}
+
+.install-qr-frame img {
+  display: block;
+  width: 132px;
+  height: 132px;
+}
+
+@media (max-width: 768px), (display-mode: standalone) {
+  .install-qr-section {
+    display: none;
   }
 }
 

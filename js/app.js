@@ -87,12 +87,6 @@
 
     document.getElementById("install-qr-title").textContent = u.installQrTitle;
     document.getElementById("install-qr-hint").textContent = u.installQrHint;
-    document.getElementById("install-qr-ios").textContent = u.installQrIos;
-    document.getElementById("install-qr-android").textContent = u.installQrAndroid;
-
-    const link = document.getElementById("install-qr-link");
-    link.href = url;
-    link.textContent = `${u.installQrLink}: ${url.replace(/^https:\/\//, "")}`;
 
     const img = document.getElementById("install-qr-image");
     img.alt = u.installQrTitle;

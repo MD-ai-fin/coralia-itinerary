@@ -20,7 +20,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-27v",
+    build: "2026-07-28c",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -1423,11 +1423,8 @@ const ITINERARY = {
       pwaInstallBtn: "Install",
       pwaInstallDismiss: "Not now",
       pwaInstallSuccess: "Installed successfully! Find the app on your home screen.",
-      installQrTitle: "Scan QR Code to Install",
+      installQrTitle: "Scan to Open & Install",
       installQrHint: "Scan with your phone camera to open the itinerary, then add it to your home screen.",
-      installQrIos: "iPhone: Share → Add to Home Screen",
-      installQrAndroid: "Android: Open in Chrome → Install app / Add to Home Screen",
-      installQrLink: "Open link",
     },
     zh: {
       appsTitle: "必备旅行 APP",
@@ -1496,9 +1493,6 @@ const ITINERARY = {
       pwaInstallSuccess: "安装成功！请在本机主屏幕查看图标。",
       installQrTitle: "扫描二维码安装",
       installQrHint: "用手机相机或微信扫码打开行程，再添加到主屏幕即可。",
-      installQrIos: "iPhone：分享 → 添加到主屏幕",
-      installQrAndroid: "Android：Chrome 打开 → 安装应用 / 添加到主屏幕",
-      installQrLink: "打开链接",
     },
   },
 };
