@@ -8,6 +8,7 @@
   let expandedTipSection = null;
   let spotNavOpen = false;
   let spotlightTimer = null;
+  let manifestBlobUrl = null;
 
   const t = (obj) => (typeof obj === "object" && obj !== null ? obj[lang] || obj.en : obj);
   const ui = () => ITINERARY.ui[lang];
@@ -33,6 +34,38 @@
     renderFooter();
   }
 
+  function updatePwaManifest() {
+    const shortName = t(ITINERARY.meta.title);
+    const appleTitle = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+    if (appleTitle) appleTitle.setAttribute("content", shortName);
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+
+    const manifest = {
+      name: shortName,
+      short_name: shortName,
+      description: t(ITINERARY.meta.description),
+      start_url: "./",
+      scope: "./",
+      display: "standalone",
+      orientation: "portrait-primary",
+      background_color: "#F4FAEF",
+      theme_color: "#6A9B4E",
+      lang: lang === "zh" ? "zh-CN" : "en",
+      icons: [
+        { src: "images/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+        { src: "images/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+        { src: "images/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      ],
+    };
+
+    if (manifestBlobUrl) URL.revokeObjectURL(manifestBlobUrl);
+    manifestBlobUrl = URL.createObjectURL(
+      new Blob([JSON.stringify(manifest)], { type: "application/manifest+json" })
+    );
+    const link = document.querySelector('link[rel="manifest"]');
+    if (link) link.href = manifestBlobUrl;
+  }
+
   function renderHeader() {
     document.getElementById("page-title").textContent = t(ITINERARY.meta.title);
     document.getElementById("page-subtitle").textContent = t(ITINERARY.meta.subtitle);
@@ -42,6 +75,7 @@
       badge.textContent = ITINERARY.meta.build;
     }
     document.title = t(ITINERARY.meta.title) + " · Coralia";
+    updatePwaManifest();
   }
 
   function renderInstallQr() {

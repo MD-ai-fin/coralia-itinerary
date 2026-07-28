@@ -1,6 +1,10 @@
 const ITINERARY = {
   meta: {
     title: { en: "Panda Adventure", zh: "熊猫川渝行" },
+    description: {
+      en: "10-day Sichuan & Chongqing panda-themed travel itinerary",
+      zh: "10 天 9 晚川渝熊猫主题定制旅行行程",
+    },
     subtitle: {
       en: "10 Days · 9 Nights · Tailored Itinerary",
       zh: "10 天 9 晚 · 定制行程",
@@ -15,7 +19,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-27m",
+    build: "2026-07-27n",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },

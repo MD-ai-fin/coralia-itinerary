@@ -1,6 +1,6 @@
 {
-  "name": "Panda Adventure · 熊猫川渝行",
-  "short_name": "熊猫川渝行",
+  "name": "Panda Adventure",
+  "short_name": "Panda Adventure",
   "description": "10-day Sichuan & Chongqing panda-themed travel itinerary",
   "start_url": "./",
   "scope": "./",
