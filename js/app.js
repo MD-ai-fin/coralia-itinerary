@@ -364,16 +364,16 @@
     const u = ui();
     const b = ITINERARY.budgetBreakdown;
     return [
-      { sectionId: "hero-section", label: u.sectionNavWelcome, icon: "👋" },
-      { sectionId: "highlights-section", label: u.highlightsTitle, icon: "⭐" },
-      { sectionId: "hotels-section", label: u.hotelsTitle, icon: "🏨" },
-      { sectionId: "days-section", label: u.daysTitle, icon: "📅" },
-      { sectionId: "budget-section", label: t(b.title), icon: "💰", budgetPanel: "breakdown" },
-      { sectionId: "budget-section", label: t(b.optional.title), icon: "💡", budgetPanel: "optional" },
-      { sectionId: "tips-section", label: u.tipsTitle, icon: "🧳" },
-      { sectionId: "downloads-section", label: u.downloadsTitle, icon: "📥" },
-      { sectionId: "contact-section", label: u.contactTitle, icon: "✉️" },
-      { sectionId: "install-qr-section", label: u.installQrTitle, icon: "📲" },
+      { sectionId: "hero-section", label: u.sectionNavWelcome },
+      { sectionId: "highlights-section", label: u.highlightsTitle },
+      { sectionId: "hotels-section", label: u.hotelsTitle },
+      { sectionId: "days-section", label: u.daysTitle },
+      { sectionId: "budget-section", label: t(b.title), budgetPanel: "breakdown" },
+      { sectionId: "budget-section", label: t(b.optional.title), budgetPanel: "optional" },
+      { sectionId: "tips-section", label: u.tipsTitle },
+      { sectionId: "downloads-section", label: u.downloadsTitle },
+      { sectionId: "contact-section", label: u.contactTitle },
+      { sectionId: "install-qr-section", label: u.installQrTitle },
     ];
   }
 
@@ -393,7 +393,6 @@
                 data-section-id="${item.sectionId}"
                 data-budget-panel="${item.budgetPanel || ""}"
                 data-section-index="${index}">
-          <span class="section-nav-item-icon" aria-hidden="true">${item.icon}</span>
           <span class="section-nav-item-label">${item.label}</span>
         </button>
       `
