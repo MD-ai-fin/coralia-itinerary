@@ -406,15 +406,35 @@
     if (toggle) toggle.setAttribute("aria-expanded", sectionNavOpen ? "true" : "false");
   }
 
+  function getStickyHeaderOffset() {
+    const header = document.querySelector(".header");
+    return (header?.offsetHeight ?? 88) + 12;
+  }
+
+  function scrollToTarget(el) {
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - getStickyHeaderOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }
+
   function jumpToSection(sectionId, budgetPanel) {
     if (budgetPanel) {
       expandedBudgetPanel = budgetPanel;
       renderBudgetBreakdown();
     }
 
-    requestAnimationFrame(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    const runScroll = () => {
+      const el = budgetPanel
+        ? document.querySelector(`.budget-collapsible[data-budget-panel="${budgetPanel}"]`)
+        : document.getElementById(sectionId);
+      scrollToTarget(el);
+    };
+
+    if (budgetPanel) {
+      requestAnimationFrame(() => requestAnimationFrame(runScroll));
+    } else {
+      requestAnimationFrame(runScroll);
+    }
 
     if (window.matchMedia("(max-width: 899px)").matches) {
       sectionNavOpen = false;
