@@ -694,13 +694,15 @@
                     (item) => `
                   <tr>
                     <td>${t(item.label)}</td>
-                    <td class="budget-amount">${item.cny} CNY / $${item.usd}</td>
+                    <td class="budget-amount">${item.cny} CNY</td>
+                    <td class="budget-amount">$${item.usd}</td>
                   </tr>`
                   )
                   .join("")}
                 <tr class="budget-subtotal-row">
                   <td>${u.subtotalLabel}</td>
-                  <td class="budget-amount">${day.subtotal.cny} CNY / $${day.subtotal.usd}</td>
+                  <td class="budget-amount">${day.subtotal.cny} CNY</td>
+                  <td class="budget-amount">$${day.subtotal.usd}</td>
                 </tr>
               </tbody>
             </table>

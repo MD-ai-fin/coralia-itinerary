@@ -1399,7 +1399,6 @@ body[lang="en"] .hero-greeting {
   text-align: right;
   white-space: nowrap;
   font-weight: 600;
-  width: 1%;
 }
 
 .budget-subtotal-row td {
@@ -2325,62 +2324,43 @@ body[lang="en"] .hero-greeting {
     padding: 4px 10px;
   }
 
+  .budget-panel-inner {
+    padding: 0 12px 16px;
+  }
+
   .budget-day-header {
-    flex-wrap: wrap;
     padding: 12px 14px;
   }
 
   .budget-day-subtotal {
-    flex: 1 1 100%;
     white-space: normal;
     font-size: 0.82rem;
     line-height: 1.35;
   }
 
-  .budget-panel-inner {
-    padding: 0 14px 16px;
-  }
-
-  .budget-table,
-  .budget-table tbody,
-  .budget-table tr,
-  .budget-table td {
-    display: block;
-    width: 100%;
-  }
-
-  .budget-table tr {
-    padding: 10px 0 12px;
-    border-bottom: 1px solid rgba(176, 209, 151, 0.35);
+  .budget-table {
+    table-layout: fixed;
+    font-size: 0.75rem;
   }
 
   .budget-table td {
-    border-bottom: none;
-    padding: 0;
+    padding: 8px 6px;
+    vertical-align: top;
   }
 
   .budget-table td:first-child {
-    margin-bottom: 4px;
-    color: var(--text);
-    font-weight: 600;
-    font-size: 0.8rem;
+    width: 54%;
+    white-space: normal;
+    overflow-wrap: anywhere;
     line-height: 1.35;
+    padding-right: 6px;
   }
 
   .budget-amount {
-    width: auto;
-    text-align: left;
-    white-space: normal;
-    font-size: 0.82rem;
-  }
-
-  .budget-subtotal-row {
-    padding-top: 8px;
-    border-top: 2px solid var(--mint-dark);
-  }
-
-  .budget-day-card.expanded .budget-day-body {
-    max-height: 4000px;
+    width: 23%;
+    font-size: 0.72rem;
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .timeline-time {
