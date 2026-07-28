@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 /** Bump when shell assets change so clients refresh the cache. */
-const CACHE = "panda-itinerary-20260730j";
+const CACHE = "panda-itinerary-20260730p";
 
 const SHELL = [
   "./",

@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-30n",
+    build: "2026-07-30p",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -537,8 +537,8 @@ const ITINERARY = {
         icon: "🚄",
         title: { en: "High-speed rail tickets", zh: "高铁票务" },
         desc: {
-          en: "Book Chengdu–Jiuzhaigou, Chengdu–Chongqing, and Chongqing–Dazu trains. Trip.com accepts foreign cards; the 12306 app needs a Chinese phone number.",
-          zh: "预订成都↔九寨沟、成都↔重庆、重庆↔大足高铁。Trip.com 支持外卡；12306 需中国手机号。",
+          en: "Book Chengdu–Jiuzhaigou, Chengdu–Chongqing, and Chongqing–Dazu trains. For Jiuzhaigou, select Huanglongjiuzhai (黄龙九寨) station—not Jiuzhaigou town. Trip.com accepts foreign cards; the 12306 app needs a Chinese phone number.",
+          zh: "预订成都↔九寨沟、成都↔重庆、重庆↔大足高铁。九寨沟方向请在「黄龙九寨」站（Huanglongjiuzhai）上下车，而非九寨沟县城。Trip.com 支持外卡；12306 需中国手机号。",
         },
         link: { label: { en: "Book on Trip.com", zh: "Trip.com 购票" }, url: "https://www.trip.com/trains/" },
       },
@@ -547,10 +547,13 @@ const ITINERARY = {
         icon: "🏛️",
         title: { en: "Sichuan Museum reservation", zh: "四川博物院预约" },
         desc: {
-          en: "Free entry on Day 7 — reserve your visit slot ahead of time via the official site or WeChat mini program.",
-          zh: "D7 免费参观 — 请提前在官网或微信「四川博物院」小程序预约入馆时段。",
+          en: "Free entry on Day 7 — reserve your visit slot ahead of time via Trip.com or the WeChat mini program.",
+          zh: "D7 免费参观 — 请提前在 Trip.com 或微信「四川博物院」小程序预约入馆时段。",
         },
-        link: { label: { en: "Sichuan Museum", zh: "四川博物院官网" }, url: "https://www.sichuanmuseum.com" },
+        link: {
+          label: { en: "Sichuan Museum on Trip.com", zh: "Trip.com 四川博物院" },
+          url: "https://us.trip.com/travel-guide/attraction/chengdu/sichuan-museum-90391/?allianceid=1306174&sid=51684809&utm_source=google&utm_medium=cpc&utm_campaign=22258600078&ppcid=adid-733518331198_akid-dsa-1718401323482_adgid-172046832701&gad_source=1&gad_campaignid=22258600078&gbraid=0AAAAABn2eFLEWQ2imSPdT7XkC3h-S3F0Q&gclid=CjwKCAjwpqHTBhAcEiwAj2AfuqVFh0HM4eduZKwXlionFIeEmVsoFv57lFuUrTJeYRXVyszOP_siTBoCbI8QAvD_BwE",
+        },
       },
     ],
   },
@@ -1039,8 +1042,8 @@ const ITINERARY = {
           type: "transport",
           title: { en: "High-Speed Train C5782", zh: "高铁 C5782" },
           desc: {
-            en: "Recommended train C5782: departs Chengdu East at 06:45, arrives Huanglong Jiuzhai at 08:24. Alternative departures: 08:12/10:06/11:46/15:45/18:36, 1h 39m.",
-            zh: "推荐早班 C5782：06:45 成都东站发车，08:24 抵达黄龙九寨站，备选 08:12/10:06/11:46/15:45/18:36，1 小时 39 分",
+            en: "Recommended train C5782: departs Chengdu East at 06:45, arrives Huanglongjiuzhai (黄龙九寨) at 08:24—the Jiuzhaigou HSR station (not Jiuzhaigou town). Alternatives: 08:12/10:06/11:46/15:45/18:36, 1h 39m.",
+            zh: "推荐早班 C5782：06:45 成都东站发车，08:24 抵达黄龙九寨站（Huanglongjiuzhai，九寨沟高铁站名）。备选 08:12/10:06/11:46/15:45/18:36，1 小时 39 分",
           },
           cost: { cny: 135, usd: 19.94, note: { en: "2nd class, per person", zh: "二等座/人" } },
           image: "images/china-railway.png",
@@ -1050,8 +1053,8 @@ const ITINERARY = {
           type: "transport",
           title: { en: "Scenic Shuttle to Jiuzhaigou Gate", zh: "景区接驳大巴" },
           desc: {
-            en: "Transfer to direct scenic shuttle bus to Jiuzhaigou entrance after exit, rolling departure, 2-hour ride.",
-            zh: "出站换乘景区直通接驳大巴直达九寨沟口，滚动发车，车程 2 小时",
+            en: "After exiting Huanglongjiuzhai (黄龙九寨) station, transfer to the direct scenic shuttle to Jiuzhaigou entrance—rolling departure, 2-hour ride.",
+            zh: "自黄龙九寨站（Huanglongjiuzhai）出站，换乘景区直通接驳大巴直达九寨沟口，滚动发车，车程 2 小时",
           },
           cost: { cny: 51, usd: 7.53, note: { en: "per person", zh: "单人" } },
           image: "images/shuttle-bus.svg",
@@ -1100,10 +1103,10 @@ const ITINERARY = {
         {
           time: "Morning",
           type: "transport",
-          title: { en: "Shuttle to Huanglong Jiuzhai Station", zh: "接驳大巴 → 黄龙九寨站" },
+          title: { en: "Shuttle to Huanglongjiuzhai Station", zh: "接驳大巴 → 黄龙九寨站" },
           desc: {
-            en: "Shuttle bus from Jiuzhaigou entrance back to Huanglong Jiuzhai Station.",
-            zh: "九寨沟口接驳大巴返回黄龙九寨高铁站",
+            en: "Shuttle bus from Jiuzhaigou entrance back to Huanglongjiuzhai (黄龙九寨) HSR station.",
+            zh: "九寨沟口接驳大巴返回黄龙九寨站（Huanglongjiuzhai，九寨沟高铁站）",
           },
           cost: { cny: 51, usd: 7.53, note: { en: "per person", zh: "单人" } },
           image: "images/shuttle-bus.svg",
@@ -1113,8 +1116,8 @@ const ITINERARY = {
           type: "transport",
           title: { en: "High-Speed Train to Chengdu East", zh: "高铁返回成都东" },
           desc: {
-            en: "High-speed train to Chengdu East. Arrive near Chunxi Road in the evening and pack for Chongqing tomorrow.",
-            zh: "午间高铁返回成都东站，晚间抵达春熙路，整理行李，准备次日前往重庆",
+            en: "High-speed train from Huanglongjiuzhai (黄龙九寨) to Chengdu East. Arrive near Chunxi Road in the evening and pack for Chongqing tomorrow.",
+            zh: "黄龙九寨站（Huanglongjiuzhai）午间高铁返回成都东，晚间抵达春熙路，整理行李，准备次日前往重庆",
           },
           cost: { cny: 135, usd: 19.94, note: { en: "2nd class, per person", zh: "二等座/人" } },
           image: "images/china-railway.png",
