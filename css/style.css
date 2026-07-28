@@ -731,14 +731,14 @@ body[lang="en"] .hero-greeting-rest {
   transform: translateY(-4px);
 }
 
-.highlight-image-link {
+.highlight-image-wrap {
   display: block;
   position: relative;
   line-height: 0;
   overflow: hidden;
 }
 
-.highlight-image-link:hover .highlight-image {
+.highlight-image-wrap:hover .highlight-image {
   transform: scale(1.03);
 }
 
@@ -2550,7 +2550,8 @@ body[lang="en"] .hero-greeting-rest {
     text-align: left;
   }
 
-  body[lang="en"] .hero-greeting-rest {
+  body[lang="en"] .hero-greeting-rest,
+  body[lang="zh"] .hero-greeting-rest {
     font-size: 0.92em;
     text-align: center;
   }

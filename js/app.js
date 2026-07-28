@@ -302,12 +302,11 @@
       .map(
         (spot) => `
       <article class="highlight-card card">
-        <a class="highlight-image-link" href="${spot.reviewUrl}" target="_blank" rel="noopener noreferrer"
-           aria-label="${t(spot.name)} — ${u.viewReviews}">
+        <div class="highlight-image-wrap">
           <img class="highlight-image" src="${spot.image}" alt="${t(spot.name)}" loading="lazy"
                onerror="this.src='https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=800&q=80'">
           <span class="highlight-day-badge">${dayPrefix}${spot.day}</span>
-        </a>
+        </div>
         <div class="highlight-body">
           <div class="highlight-city">📍 ${t(spot.city)}</div>
           <div class="highlight-name">${t(spot.name)}</div>
