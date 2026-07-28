@@ -48,7 +48,7 @@
       scope: "./",
       display: "standalone",
       orientation: "portrait-primary",
-      background_color: "#F4FAEF",
+      background_color: "#FFFFFF",
       theme_color: "#6A9B4E",
       lang: lang === "zh" ? "zh-CN" : "en",
       icons: [
