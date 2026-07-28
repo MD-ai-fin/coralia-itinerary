@@ -139,14 +139,6 @@
       <span class="budget-pill cap">${u.budgetCap}: ${b.cap.cny} CNY / $${b.cap.usd}</span>
       <span class="budget-pill remaining">${u.remaining}: ${b.remaining.cny} CNY / $${b.remaining.usd}</span>
     `;
-    const heroActions = document.getElementById("hero-actions");
-    if (heroActions) {
-      heroActions.innerHTML = `
-        <a class="hero-cta-btn" href="#downloads-section" data-scroll-downloads>
-          ${u.downloadItineraryBtn}
-        </a>
-      `;
-    }
     requestAnimationFrame(() => {
       fitHeroGreetingBox();
       fitHeroTextLines();
@@ -1427,13 +1419,6 @@
       e.preventDefault();
       expandedPreDeparture = !expandedPreDeparture;
       renderPreDeparture48h();
-    });
-
-    document.getElementById("hero-section")?.addEventListener("click", (e) => {
-      const link = e.target.closest("[data-scroll-downloads]");
-      if (!link) return;
-      e.preventDefault();
-      jumpToSection("downloads-section");
     });
 
     document.getElementById("spot-nav-list")?.addEventListener("click", (e) => {

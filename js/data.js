@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-30j",
+    build: "2026-07-30k",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -1723,7 +1723,6 @@ const ITINERARY = {
       preDepartureTitle: "48 Hours Before Departure",
       preDepartureHint: "Tap to expand the checklist",
       preDepartureMore: "Full guide",
-      downloadItineraryBtn: "Download itinerary (.docx)",
       intensityLabels: {
         relaxed: "Relaxed pace",
         standard: "Standard",
@@ -1809,7 +1808,6 @@ const ITINERARY = {
       preDepartureTitle: "行前 48 小时",
       preDepartureHint: "点击标题展开核对清单",
       preDepartureMore: "查看完整指南",
-      downloadItineraryBtn: "下载行程 Word",
       intensityLabels: {
         relaxed: "轻松",
         standard: "标准",
