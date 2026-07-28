@@ -20,7 +20,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-28m",
+    build: "2026-07-28n",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -1471,7 +1471,7 @@ const ITINERARY = {
       downloadsHint: "完整 Word 文档，可离线阅读与打印",
       downloadBtn: "下载 .docx",
       contactTitle: "对行程有疑问？",
-      contactHint: "欢迎留言，我会通过邮件回复。您的信息仅用于回复咨询，不会公开或用于其他用途。",
+      contactHint: "欢迎留言，我会通过邮件回复。您的信息仅用于回复咨询。",
       contactName: "姓名",
       contactPhone: "电话（选填）",
       contactEmail: "邮箱",
