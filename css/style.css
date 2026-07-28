@@ -546,7 +546,7 @@ body[lang="en"] .hero-greeting {
 /* Apps Grid */
 .apps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 16px;
 }
 
@@ -555,18 +555,31 @@ body[lang="en"] .hero-greeting {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
+  box-sizing: border-box;
   transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.app-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
 }
 
 .app-header {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+}
+
+.app-header > div {
+  min-width: 0;
+}
+
+.app-name {
+  font-weight: 800;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
 .app-icon {
@@ -576,11 +589,6 @@ body[lang="en"] .hero-greeting {
   object-fit: cover;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-.app-name {
-  font-weight: 800;
-  font-size: 1rem;
 }
 
 .app-tag {
@@ -2179,6 +2187,28 @@ body[lang="en"] .hero-greeting {
   .install-qr-title,
   .install-qr-hint {
     white-space: normal;
+  }
+
+  .tip-body-inner {
+    padding: 12px 14px 16px;
+  }
+
+  .apps-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .app-card {
+    padding: 14px;
+  }
+
+  .app-links {
+    gap: 6px;
+  }
+
+  .app-link-badge img {
+    height: 28px;
+    max-width: calc(50vw - 40px);
   }
 }
 
