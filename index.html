@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260728u">
+  <link rel="stylesheet" href="css/style.css?v=20260728v">
 </head>
 <body>
   <div class="panda-watermark" aria-hidden="true"></div>
@@ -31,6 +31,16 @@
   </aside>
   <button type="button" id="spot-nav-toggle" class="spot-nav-toggle" aria-controls="spot-nav" aria-expanded="false">
     <span class="spot-nav-toggle-icon" aria-hidden="true">📍</span>
+  </button>
+
+  <aside id="section-nav" class="section-nav" aria-label="Section navigation">
+    <div class="section-nav-inner">
+      <div class="section-nav-title" id="section-nav-title"></div>
+      <nav class="section-nav-list" id="section-nav-list"></nav>
+    </div>
+  </aside>
+  <button type="button" id="section-nav-toggle" class="section-nav-toggle" aria-controls="section-nav" aria-expanded="false">
+    <span class="section-nav-toggle-icon" aria-hidden="true">📌</span>
   </button>
 
   <header class="header">
@@ -55,7 +65,7 @@
 
   <main class="main">
     <!-- Hero -->
-    <section class="hero card">
+    <section class="hero card" id="hero-section">
       <div class="hero-content">
         <div class="hero-intro">
           <div class="hero-panda">
@@ -150,8 +160,8 @@
     <p class="exchange-rate" id="exchange-rate"></p>
   </footer>
 
-  <script src="js/data.js?v=20260728u"></script>
-  <script src="js/app.js?v=20260728o"></script>
+  <script src="js/data.js?v=20260728v"></script>
+  <script src="js/app.js?v=20260728v"></script>
   <script src="js/pwa.js?v=20260727x"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
   let expandedBudgetPanel = null;
   let expandedTipSection = null;
   let spotNavOpen = false;
+  let sectionNavOpen = false;
   let spotlightTimer = null;
   let manifestBlobUrl = null;
 
@@ -27,6 +28,7 @@
     renderHotels();
     renderDays();
     renderSpotNav();
+    renderSectionNav();
     renderBudgetBreakdown();
     renderTips();
     renderDownloads();
@@ -356,6 +358,67 @@
     navEl.classList.toggle("open", spotNavOpen);
     const toggle = document.getElementById("spot-nav-toggle");
     if (toggle) toggle.setAttribute("aria-expanded", spotNavOpen ? "true" : "false");
+  }
+
+  function getSectionNavItems() {
+    const u = ui();
+    const b = ITINERARY.budgetBreakdown;
+    return [
+      { sectionId: "hero-section", label: u.sectionNavWelcome, icon: "👋" },
+      { sectionId: "highlights-section", label: u.highlightsTitle, icon: "⭐" },
+      { sectionId: "hotels-section", label: u.hotelsTitle, icon: "🏨" },
+      { sectionId: "days-section", label: u.daysTitle, icon: "📅" },
+      { sectionId: "budget-section", label: t(b.title), icon: "💰", budgetPanel: "breakdown" },
+      { sectionId: "budget-section", label: t(b.optional.title), icon: "💡", budgetPanel: "optional" },
+      { sectionId: "tips-section", label: u.tipsTitle, icon: "🧳" },
+      { sectionId: "downloads-section", label: u.downloadsTitle, icon: "📥" },
+      { sectionId: "contact-section", label: u.contactTitle, icon: "✉️" },
+      { sectionId: "install-qr-section", label: u.installQrTitle, icon: "📲" },
+    ];
+  }
+
+  function renderSectionNav() {
+    const u = ui();
+    const titleEl = document.getElementById("section-nav-title");
+    const listEl = document.getElementById("section-nav-list");
+    const navEl = document.getElementById("section-nav");
+    if (!titleEl || !listEl || !navEl) return;
+
+    titleEl.textContent = u.sectionNavTitle;
+    navEl.setAttribute("aria-label", u.sectionNavTitle);
+    listEl.innerHTML = getSectionNavItems()
+      .map(
+        (item, index) => `
+        <button type="button" class="section-nav-item"
+                data-section-id="${item.sectionId}"
+                data-budget-panel="${item.budgetPanel || ""}"
+                data-section-index="${index}">
+          <span class="section-nav-item-icon" aria-hidden="true">${item.icon}</span>
+          <span class="section-nav-item-label">${item.label}</span>
+        </button>
+      `
+      )
+      .join("");
+
+    navEl.classList.toggle("open", sectionNavOpen);
+    const toggle = document.getElementById("section-nav-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", sectionNavOpen ? "true" : "false");
+  }
+
+  function jumpToSection(sectionId, budgetPanel) {
+    if (budgetPanel) {
+      expandedBudgetPanel = budgetPanel;
+      renderBudgetBreakdown();
+    }
+
+    requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    if (window.matchMedia("(max-width: 899px)").matches) {
+      sectionNavOpen = false;
+      renderSectionNav();
+    }
   }
 
   function jumpToActivity(dayNum, actIndex) {
@@ -890,14 +953,33 @@
 
     document.getElementById("spot-nav-toggle")?.addEventListener("click", () => {
       spotNavOpen = !spotNavOpen;
+      if (spotNavOpen) sectionNavOpen = false;
       renderSpotNav();
+      renderSectionNav();
+    });
+
+    document.getElementById("section-nav-list")?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".section-nav-item");
+      if (!btn) return;
+      jumpToSection(btn.dataset.sectionId, btn.dataset.budgetPanel || null);
+    });
+
+    document.getElementById("section-nav-toggle")?.addEventListener("click", () => {
+      sectionNavOpen = !sectionNavOpen;
+      if (sectionNavOpen) spotNavOpen = false;
+      renderSpotNav();
+      renderSectionNav();
     });
 
     document.addEventListener("click", (e) => {
-      if (!spotNavOpen) return;
-      if (e.target.closest("#spot-nav, #spot-nav-toggle")) return;
-      spotNavOpen = false;
-      renderSpotNav();
+      if (spotNavOpen && !e.target.closest("#spot-nav, #spot-nav-toggle")) {
+        spotNavOpen = false;
+        renderSpotNav();
+      }
+      if (sectionNavOpen && !e.target.closest("#section-nav, #section-nav-toggle")) {
+        sectionNavOpen = false;
+        renderSectionNav();
+      }
     });
 
     document.getElementById("budget-panels").addEventListener("click", (e) => {
