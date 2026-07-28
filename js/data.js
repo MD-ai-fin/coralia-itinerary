@@ -1744,7 +1744,7 @@ const ITINERARY = {
       primerTitle: "目的地速览",
       primerHint: "点击卡片展开 · 带下划线的名称可跳转至对应行程",
       primerAnalogyLabel: "美国读者参照",
-      primerHonorsLabel: "响当当的名头",
+      primerHonorsLabel: "知名称号",
       primerHistoryLabel: "历史亮点",
       primerInventionsLabel: "著名创造与首创",
       primerTripLabel: "本行程涉及",
