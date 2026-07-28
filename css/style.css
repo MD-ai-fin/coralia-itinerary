@@ -2092,73 +2092,67 @@ body[lang="en"] .hero-greeting {
   opacity: 0.7;
 }
 
-.hero-traveler {
-  display: none;
-}
-
 /* Responsive */
 @media (max-width: 640px) {
   :root {
-    --header-h: 52px;
+    --header-h: 128px;
   }
 
   .header {
-    position: relative;
-    padding: 8px 14px;
-    padding-top: calc(8px + env(safe-area-inset-top, 0px));
-    border-bottom-width: 2px;
+    padding: 10px 14px;
+    padding-top: calc(10px + env(safe-area-inset-top, 0px));
   }
 
   .header-inner {
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "logo actions";
-    gap: 8px;
+    grid-template-areas:
+      "logo actions"
+      "traveler traveler";
+    gap: 8px 10px;
     align-items: center;
   }
 
   .logo {
     grid-area: logo;
-    gap: 8px;
+    gap: 10px;
   }
 
   .panda-icon {
-    width: 36px;
-    height: 36px;
-    animation: none;
+    width: 40px;
+    height: 40px;
   }
 
   .logo h1 {
-    font-size: 1.05rem;
+    font-size: 1.12rem;
   }
 
-  .subtitle,
-  .header .traveler-badge {
-    display: none;
+  .subtitle {
+    font-size: 0.72rem;
+  }
+
+  .traveler-badge {
+    grid-area: traveler;
+    max-width: none;
+    width: 100%;
+    justify-self: stretch;
+    text-align: left;
+    font-size: 0.68rem;
+    padding: 6px 10px;
+    line-height: 1.45;
   }
 
   .header-actions {
     grid-area: actions;
-    gap: 0;
+    gap: 8px;
   }
 
-  .build-badge,
-  #build-badge {
-    display: none !important;
+  .build-badge {
+    display: none;
   }
 
   .lang-btn {
     padding: 5px 12px;
     font-size: 0.7rem;
-  }
-
-  .hero-traveler {
-    display: block;
-    width: 100%;
-    max-width: none;
-    text-align: center;
-    margin-top: 8px;
-    font-size: 0.68rem;
-    line-height: 1.45;
   }
 }
 
