@@ -20,7 +20,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-28o",
+    build: "2026-07-28p",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -55,20 +55,6 @@ const ITINERARY = {
   },
 
   apps: [
-    {
-      id: "amap",
-      name: { en: "Amap Global", zh: "高德地图 Amap Global" },
-      tag: { en: "#1 Navigation", zh: "首选导航" },
-      desc: {
-        en: "Full English UI & voice nav. Offline maps for Jiuzhaigou. Register with US phone number.",
-        zh: "完整英文界面与导航语音，九寨沟可离线地图，美国手机号即可注册。",
-      },
-      icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6f/a8/17/6fa81731-26bd-3e94-9e6e-d3b466426c3a/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
-      links: {
-        ios: "https://apps.apple.com/us/app/amap-global/id461703208",
-        android: "https://play.google.com/store/apps/details?id=com.autonavi.minimap",
-      },
-    },
     {
       id: "wechat",
       name: { en: "WeChat", zh: "微信 WeChat" },
@@ -112,18 +98,17 @@ const ITINERARY = {
       },
     },
     {
-      id: "translate",
-      name: { en: "Baidu Translate", zh: "百度翻译" },
-      tag: { en: "Camera OCR", zh: "拍照翻译" },
+      id: "amap",
+      name: { en: "Amap Global", zh: "高德地图 Amap Global" },
+      tag: { en: "#1 Navigation", zh: "首选导航" },
       desc: {
-        en: "Works without VPN. Instant camera translation for menus & museum exhibits.",
-        zh: "无需 VPN，拍照翻译菜单与景区介绍。",
+        en: "Full English UI & voice nav. Offline maps for Jiuzhaigou. Register with US phone number.",
+        zh: "完整英文界面与导航语音，九寨沟可离线地图，美国手机号即可注册。",
       },
-      icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2d/f8/0c/2df80ca3-1677-0811-86f6-e08c9c2155d1/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",
+      icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6f/a8/17/6fa81731-26bd-3e94-9e6e-d3b466426c3a/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
       links: {
-        ios: "https://apps.apple.com/cn/app/id605670941",
-        android: "https://fanyi.baidu.com/appdownload/download.html",
-        androidLabel: { en: "Official Download", zh: "官网下载" },
+        ios: "https://apps.apple.com/us/app/amap-global/id461703208",
+        android: "https://play.google.com/store/apps/details?id=com.autonavi.minimap",
       },
     },
     {
@@ -138,6 +123,21 @@ const ITINERARY = {
       links: {
         ios: "https://apps.apple.com/app/apple-maps/id915056765",
         android: null,
+      },
+    },
+    {
+      id: "translate",
+      name: { en: "Baidu Translate", zh: "百度翻译" },
+      tag: { en: "Camera OCR", zh: "拍照翻译" },
+      desc: {
+        en: "Works without VPN. Instant camera translation for menus & museum exhibits.",
+        zh: "无需 VPN，拍照翻译菜单与景区介绍。",
+      },
+      icon: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2d/f8/0c/2df80ca3-1677-0811-86f6-e08c9c2155d1/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",
+      links: {
+        ios: "https://apps.apple.com/cn/app/id605670941",
+        android: "https://fanyi.baidu.com/appdownload/download.html",
+        androidLabel: { en: "Official Download", zh: "官网下载" },
       },
     },
   ],
