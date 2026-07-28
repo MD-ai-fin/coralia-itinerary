@@ -389,12 +389,6 @@ body[lang="en"] .hero-greeting {
   height: 132px;
 }
 
-@media (max-width: 768px), (display-mode: standalone) {
-  .install-qr-section {
-    display: none;
-  }
-}
-
 /* Word downloads */
 .downloads-grid {
   display: grid;
@@ -2155,6 +2149,18 @@ body[lang="en"] .hero-greeting {
   .lang-btn {
     padding: 5px 12px;
     font-size: 0.7rem;
+  }
+
+  .install-qr-compact {
+    width: 100%;
+    max-width: none;
+    padding: 16px 14px;
+  }
+
+  .install-qr-section h2,
+  .install-qr-title,
+  .install-qr-hint {
+    white-space: normal;
   }
 }
 
