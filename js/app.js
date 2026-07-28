@@ -6,6 +6,7 @@
   let expandedBudgetDay = null;
   let expandedBudgetPanel = null;
   let expandedTipSection = null;
+  let expandedPreDeparture = false;
   let expandedPrimerId = null;
   let spotNavOpen = false;
   let sectionNavOpen = false;
@@ -27,6 +28,7 @@
   function renderAll() {
     renderHeader();
     renderHero();
+    renderPreDeparture48h();
     renderInstallQr();
     renderDestinationPrimer();
     renderHighlights();
@@ -137,6 +139,14 @@
       <span class="budget-pill cap">${u.budgetCap}: ${b.cap.cny} CNY / $${b.cap.usd}</span>
       <span class="budget-pill remaining">${u.remaining}: ${b.remaining.cny} CNY / $${b.remaining.usd}</span>
     `;
+    const heroActions = document.getElementById("hero-actions");
+    if (heroActions) {
+      heroActions.innerHTML = `
+        <a class="hero-cta-btn" href="#downloads-section" data-scroll-downloads>
+          ${u.downloadItineraryBtn}
+        </a>
+      `;
+    }
     requestAnimationFrame(() => {
       fitHeroGreetingBox();
       fitHeroTextLines();
@@ -274,6 +284,176 @@
       .join("");
   }
 
+  function renderPreDeparture48h() {
+    const card = document.getElementById("predeparture-card");
+    const data = ITINERARY.preDeparture48h;
+    if (!card || !data) return;
+
+    const hintEl = document.getElementById("predeparture-hint");
+    if (hintEl) hintEl.textContent = ui().preDepartureHint;
+
+    const u = ui();
+    const isExpanded = expandedPreDeparture;
+    card.innerHTML = `
+      <article class="predeparture-card card tip-collapsible ${isExpanded ? "expanded" : ""}" id="predeparture-collapsible">
+        <div class="tip-header" role="button" tabindex="0" aria-expanded="${isExpanded}">
+          <h3>${t(data.title)}</h3>
+          <span class="day-chevron">▼</span>
+        </div>
+        <div class="tip-body">
+          <div class="tip-body-inner">
+            <p class="predeparture-subtitle">${t(data.subtitle)}</p>
+            <ul class="predeparture-list">
+              ${data.items
+                .map(
+                  (item) => `
+                <li class="predeparture-item">
+                  <span class="predeparture-icon" aria-hidden="true">${item.icon}</span>
+                  <div class="predeparture-body">
+                    <div class="predeparture-item-title">${t(item.title)}</div>
+                    <p class="predeparture-item-desc">${t(item.desc)}</p>
+                    <div class="predeparture-item-links">
+                      ${
+                        item.link
+                          ? `<a class="predeparture-link" href="${item.link.url}" target="_blank" rel="noopener">${t(item.link.label)} ↗</a>`
+                          : ""
+                      }
+                      ${
+                        item.tipTarget
+                          ? `<button type="button" class="predeparture-tip-link" data-tip-target="${item.tipTarget}">${u.preDepartureMore} ↗</button>`
+                          : ""
+                      }
+                    </div>
+                  </div>
+                </li>
+              `
+                )
+                .join("")}
+            </ul>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderIntensityBadge(intensity) {
+    if (!intensity) return "";
+    const label = ui().intensityLabels[intensity];
+    if (!label) return "";
+    return `<span class="day-intensity day-intensity-${intensity}">${label}</span>`;
+  }
+
+  function normalizeActivityText(text) {
+    return text
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .replace(/[，,；;。.!！?？·—–-]/g, "")
+      .trim();
+  }
+
+  function textsAreRedundant(a, b) {
+    if (!a || !b) return false;
+    const na = normalizeActivityText(a);
+    const nb = normalizeActivityText(b);
+    if (na === nb) return true;
+    if (na.length >= 12 && nb.length >= 12 && (na.includes(nb) || nb.includes(na))) return true;
+    const prefixLen = Math.min(48, na.length, nb.length);
+    return prefixLen >= 24 && na.slice(0, prefixLen) === nb.slice(0, prefixLen);
+  }
+
+  function joinActivitySentences(lead, tail) {
+    if (!lead) return tail;
+    if (!tail) return lead;
+    if (/[。!.?]$/.test(lead)) {
+      return lang === "zh" ? `${lead}${tail}` : `${lead} ${tail}`;
+    }
+    return lang === "zh" ? `${lead}。${tail}` : `${lead}. ${tail}`;
+  }
+
+  function composeActivityText(act) {
+    const overview = act.overview ? t(act.overview).trim() : "";
+    const desc = formatActivityDesc(act);
+
+    if (!overview) return desc;
+    if (!desc) return overview;
+    if (textsAreRedundant(overview, desc)) return overview;
+
+    if (desc.includes("\n")) {
+      return `${overview}\n\n${desc}`;
+    }
+
+    if (desc.length <= 90) {
+      return joinActivitySentences(overview, desc);
+    }
+
+    if (textsAreRedundant(overview, desc)) return overview;
+    return joinActivitySentences(overview, desc);
+  }
+
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderActivityBodyHtml(text, variant) {
+    if (!text) return "";
+
+    const blocks = text.split(/\n\n+/);
+    const html = blocks
+      .map((block) => {
+        const lines = block
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean);
+        if (!lines.length) return "";
+
+        const listItems = lines.filter((line) =>
+          /^(\d+[.)]|[-•*]|[12]）)/.test(line)
+        );
+        if (listItems.length === lines.length) {
+          return `<ul class="activity-body-list">${lines
+            .map((line) => `<li>${escapeHtml(line.replace(/^(\d+[.)]|[-•*]\s?|[12]）\s?)/, ""))}</li>`)
+            .join("")}</ul>`;
+        }
+
+        return lines.map((line) => `<p class="activity-body-p">${escapeHtml(line)}</p>`).join("");
+      })
+      .join("");
+
+    const className =
+      variant === "modal"
+        ? `modal-body-text${text.includes("\n") ? " modal-body-text-multiline" : ""}`
+        : `timeline-body-text${text.includes("\n") ? " timeline-body-text-multiline" : ""}`;
+
+    return `<div class="${className}">${html}</div>`;
+  }
+
+  function renderActivityBody(act, variant = "timeline") {
+    const badge = renderHeritageBadge(act.heritage);
+    const text = composeActivityText(act);
+    if (!badge && !text) return "";
+
+    const bodyHtml = renderActivityBodyHtml(text, variant);
+    if (variant === "modal") {
+      return `
+        <div class="modal-activity-body">
+          ${badge ? `<div class="heritage-badge-row">${badge}</div>` : ""}
+          ${bodyHtml}
+        </div>
+      `;
+    }
+
+    return `
+      <div class="timeline-activity-body">
+        ${badge ? `<div class="timeline-heritage">${badge}</div>` : ""}
+        ${bodyHtml}
+      </div>
+    `;
+  }
+
   function renderTips() {
     document.getElementById("tips-title").textContent = ui().tipsTitle;
     document.getElementById("tips-hint").textContent = ui().tipsHint;
@@ -406,6 +586,7 @@
         <div class="highlight-body">
           <div class="highlight-city">📍 ${t(spot.city)}</div>
           <div class="highlight-name">${t(spot.name)}</div>
+          ${spot.heritage ? `<div class="highlight-heritage">${renderHeritageBadge(spot.heritage)}</div>` : ""}
           ${renderHighlightTicket(spot, u)}
           <p class="highlight-tagline">${t(spot.tagline)}</p>
           <a class="highlight-review-link" href="${spot.reviewUrl}" target="_blank" rel="noopener noreferrer">${u.viewReviews} ↗</a>
@@ -547,13 +728,14 @@
     const b = ITINERARY.budgetBreakdown;
     return [
       { sectionId: "hero-section", label: u.sectionNavWelcome },
+      { sectionId: "predeparture-section", label: u.preDepartureTitle },
       { sectionId: "primer-section", label: u.primerTitle },
       { sectionId: "highlights-section", label: u.highlightsTitle },
       { sectionId: "hotels-section", label: u.hotelsTitle },
+      { sectionId: "tips-section", label: u.tipsTitle },
       { sectionId: "days-section", label: u.daysTitle },
       { sectionId: "budget-section", label: t(b.title), budgetPanel: "breakdown" },
       { sectionId: "budget-section", label: t(b.optional.title), budgetPanel: "optional" },
-      { sectionId: "tips-section", label: u.tipsTitle },
       { sectionId: "downloads-section", label: u.downloadsTitle },
       { sectionId: "contact-section", label: u.contactTitle },
       { sectionId: "install-qr-section", label: u.installQrTitle },
@@ -701,6 +883,15 @@
     }
   }
 
+  function jumpToTipSection(tipId) {
+    expandedTipSection = tipId;
+    renderTips();
+    requestAnimationFrame(() => {
+      const card = document.querySelector(`.tip-collapsible[data-tip="${tipId}"]`);
+      scrollToTarget(card || document.getElementById("tips-section"));
+    });
+  }
+
   function renderDays() {
     document.getElementById("days-title").textContent = ui().daysTitle;
     document.getElementById("drill-hint").textContent = ui().drillHint;
@@ -713,7 +904,10 @@
           <div class="day-header" role="button" tabindex="0" aria-expanded="${isExpanded}">
             <div class="day-number">${day.day}</div>
             <div class="day-info">
-              <div class="day-city">${t(day.city)}</div>
+              <div class="day-meta-row">
+                <div class="day-city">${t(day.city)}</div>
+                ${renderIntensityBadge(day.intensity)}
+              </div>
               <div class="day-theme">${t(day.theme)}</div>
               <div class="day-summary">${t(day.summary)}</div>
             </div>
@@ -893,28 +1087,25 @@
     return stripLeadingTimeFromDesc(stripPricesFromDesc(t(act.desc)), act.time);
   }
 
-  function renderActivityDescHtml(act, variant = "timeline") {
-    const text = formatActivityDesc(act);
-    if (!text) return "";
-    if (variant === "modal") {
-      return `<p class="modal-desc">${text}</p>`;
-    }
-    return `<div class="timeline-desc">${text}</div>`;
+  function formatHeritageLabel(heritage) {
+    if (!heritage) return "";
+    const kindLabel =
+      heritage.kind === "natural"
+        ? lang === "zh"
+          ? "世界自然遗产"
+          : "UNESCO World Natural Heritage"
+        : lang === "zh"
+          ? "世界文化遗产"
+          : "UNESCO World Cultural Heritage";
+    const yearPart = heritage.year ? (lang === "zh" ? `（${heritage.year}年）` : ` (${heritage.year})`) : "";
+    const seriesPart = heritage.series ? ` · ${t(heritage.series)}` : "";
+    return `${kindLabel}${yearPart}${seriesPart}`;
   }
 
-  function renderActivityOverview(act, variant = "timeline") {
-    if (!act.overview) return "";
-    const label = ui().activityOverview;
-    const text = t(act.overview);
-    if (variant === "modal") {
-      return `
-        <div class="modal-overview">
-          <div class="overview-label">${label}</div>
-          <p class="modal-overview-text">${text}</p>
-        </div>
-      `;
-    }
-    return `<div class="timeline-overview"><span class="overview-label">${label} · </span>${text}</div>`;
+  function renderHeritageBadge(heritage) {
+    if (!heritage) return "";
+    const kindClass = heritage.kind === "natural" ? "heritage-natural" : "heritage-cultural";
+    return `<span class="heritage-badge ${kindClass}">${formatHeritageLabel(heritage)}</span>`;
   }
 
   function renderActivityTitle(act) {
@@ -952,6 +1143,19 @@
     `;
   }
 
+  function formatActivityTime(act) {
+    if (!act.optional) return act.time;
+    if (lang === "zh") return act.time.replace(/^Optional ·\s*/, "可选 · ");
+    const match = act.time.match(/(\d{1,2}):(\d{2})/);
+    if (!match) return ui().optionalLabel;
+    let hour = parseInt(match[1], 10);
+    const minute = match[2];
+    const suffix = hour >= 12 ? "PM" : "AM";
+    if (hour > 12) hour -= 12;
+    if (hour === 0) hour = 12;
+    return `${ui().optionalLabel} (from ${hour}:${minute} ${suffix})`;
+  }
+
   function renderTimelineItem(act, dayNum, actIndex) {
     const typeLabel = ui().typeLabels[act.type] || act.type;
     const costStr = formatCost(act.cost);
@@ -959,17 +1163,22 @@
     const thumbClass = isTransportIconActivity(act)
       ? "timeline-thumb timeline-thumb-icon"
       : "timeline-thumb";
+    const optionalBadge = act.optional
+      ? `<span class="timeline-optional-badge">${ui().optionalLabel}</span>`
+      : "";
+    const itemClass = act.optional ? "timeline-item timeline-item-optional" : "timeline-item";
+    const timeDisplay = formatActivityTime(act);
 
     return `
-      <div class="timeline-item" id="act-d${dayNum}-${actIndex}" data-day="${dayNum}" data-act-index="${actIndex}" role="button" tabindex="0" aria-label="${t(act.title)}">
-        <div class="timeline-time">${act.time}</div>
+      <div class="${itemClass}" id="act-d${dayNum}-${actIndex}" data-day="${dayNum}" data-act-index="${actIndex}" role="button" tabindex="0" aria-label="${t(act.title)}">
+        <div class="timeline-time">${timeDisplay}</div>
         <img class="${thumbClass}" src="${imgSrc}" alt="" loading="lazy"
              onerror="${imgOnErrorHandler(imgSrc)}">
         <div class="timeline-content">
           <span class="timeline-type type-${act.type}">${typeLabel}</span>
+          ${optionalBadge}
           ${renderActivityTitle(act)}
-          ${renderActivityOverview(act)}
-          ${renderActivityDescHtml(act)}
+          ${renderActivityBody(act)}
           ${costStr ? `<div class="timeline-cost">${costStr}</div>` : ""}
         </div>
         <span class="timeline-arrow">›</span>
@@ -1199,6 +1408,34 @@
 
     document.getElementById("lang-toggle").addEventListener("click", toggleLang);
 
+    document.getElementById("predeparture-section")?.addEventListener("click", (e) => {
+      const header = e.target.closest("#predeparture-section .tip-header");
+      if (header && !e.target.closest("[data-tip-target], .predeparture-link")) {
+        expandedPreDeparture = !expandedPreDeparture;
+        renderPreDeparture48h();
+        return;
+      }
+      const btn = e.target.closest("[data-tip-target]");
+      if (!btn) return;
+      e.preventDefault();
+      jumpToTipSection(btn.dataset.tipTarget);
+    });
+
+    document.getElementById("predeparture-section")?.addEventListener("keydown", (e) => {
+      const header = e.target.closest("#predeparture-section .tip-header");
+      if (!header || (e.key !== "Enter" && e.key !== " ")) return;
+      e.preventDefault();
+      expandedPreDeparture = !expandedPreDeparture;
+      renderPreDeparture48h();
+    });
+
+    document.getElementById("hero-section")?.addEventListener("click", (e) => {
+      const link = e.target.closest("[data-scroll-downloads]");
+      if (!link) return;
+      e.preventDefault();
+      jumpToSection("downloads-section");
+    });
+
     document.getElementById("spot-nav-list")?.addEventListener("click", (e) => {
       const btn = e.target.closest(".spot-nav-item");
       if (!btn) return;
@@ -1411,8 +1648,7 @@
       <div class="modal-time">⏰ ${act.time}</div>
       <h3 class="modal-title">${t(act.title)}</h3>
       ${renderReviewLinksHtml(act)}
-      ${renderActivityOverview(act, "modal")}
-      ${renderActivityDescHtml(act, "modal")}
+      ${renderActivityBody(act, "modal")}
       ${costStr ? `<div class="modal-cost-box">${u.cost}: ${costStr}</div>` : ""}
     `;
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 /** Bump when shell assets change so clients refresh the cache. */
-const CACHE = "panda-itinerary-20260729w";
+const CACHE = "panda-itinerary-20260730j";
 
 const SHELL = [
   "./",
@@ -26,6 +26,7 @@ const SHELL = [
   "./images/longshui-gorge.jpg",
   "./images/liziba.jpg",
   "./images/xiahaoli.jpg",
+  "./images/dazu-rock-carvings.png",
   "./images/panda-panoramic-restaurant.jpg",
   "./images/sunset-bistro.jpg",
   "./images/ifs-chengdu.jpg",
