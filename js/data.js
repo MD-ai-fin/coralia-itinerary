@@ -309,8 +309,8 @@ const ITINERARY = {
           zh: "行政级别：地级市。约 2100 万指成都都市圈，是美国意义上的「城市区域」，不是全州人口。",
         },
         usScale: {
-          en: "City metro area ≈ NYC + Philadelphia combined (not a state comparison)",
-          zh: "都市区规模 ≈ 纽约 + 费城（城市对比，非州级）",
+          en: "City metro area ≈ New York City + Philadelphia metro areas combined (two U.S. cities — not a state comparison)",
+          zh: "都市区规模 ≈ 纽约都会区 + 费城都会区（两座城市对比，非州级）",
         },
         analogy: {
           en: "A western China lifestyle capital — less Wall Street hustle, more food, tea houses, and pandas — similar to how Portland or Austin lean into \"live well\" over \"move fast.\"",
@@ -343,8 +343,8 @@ const ITINERARY = {
           },
         ],
         history: {
-          en: "From Jinsha and Sanxingdui roots to Tang–Song \"Brocade City.\" One of the few major world cities that never relocated its urban core.",
-          zh: "从金沙、三星堆到唐宋「锦官城」；是世界上少数数千年未迁城址的大都会之一。",
+          en: "From Jinsha and Sanxingdui roots to Tang–Song \"Brocade City.\" In the Tang dynasty (618–907 CE), the saying \"Yangzhou first, Yi second\" (扬一益二) ranked Yi (益州 — ancient Chengdu) as the empire's second-most prosperous city after Yangzhou. One of the few major world cities that never relocated its urban core.",
+          zh: "从金沙、三星堆到唐宋「锦官城」；唐代（618–907 年）有「扬一益二」之说，益州（成都）为全国第二繁华都会，仅次于扬州；是世界上少数数千年未迁城址的大都会之一。",
         },
         inventions: [
           {
