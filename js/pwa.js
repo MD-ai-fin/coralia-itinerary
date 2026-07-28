@@ -3,6 +3,8 @@
 
   const DISMISS_KEY = "coralia-pwa-install-dismissed";
   let deferredPrompt = null;
+  let successTimer = null;
+  let lastSuccessAt = 0;
 
   function strings() {
     const lang = document.body.getAttribute("lang") || "en";
@@ -10,8 +12,20 @@
       return ITINERARY.ui[lang];
     }
     return lang === "zh"
-      ? { pwaInstallTitle: "安装到手机", pwaInstallHint: "添加主屏幕图标，离线也能查看行程", pwaInstallBtn: "安装", pwaInstallDismiss: "暂不" }
-      : { pwaInstallTitle: "Install app", pwaInstallHint: "Add to your home screen for offline access", pwaInstallBtn: "Install", pwaInstallDismiss: "Not now" };
+      ? {
+          pwaInstallTitle: "安装到手机",
+          pwaInstallHint: "添加主屏幕图标，离线也能查看行程",
+          pwaInstallBtn: "安装",
+          pwaInstallDismiss: "暂不",
+          pwaInstallSuccess: "安装成功！请在本机主屏幕查看图标。",
+        }
+      : {
+          pwaInstallTitle: "Install app",
+          pwaInstallHint: "Add to your home screen for offline access",
+          pwaInstallBtn: "Install",
+          pwaInstallDismiss: "Not now",
+          pwaInstallSuccess: "Installed successfully! Find the app on your home screen.",
+        };
   }
 
   function registerServiceWorker() {
@@ -23,6 +37,33 @@
 
   function isStandalone() {
     return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  }
+
+  function ensureSuccessToast() {
+    if (document.getElementById("pwa-install-success")) return;
+    const toast = document.createElement("div");
+    toast.id = "pwa-install-success";
+    toast.className = "pwa-install-success hidden";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    toast.innerHTML = `<span id="pwa-install-success-text"></span>`;
+    document.body.appendChild(toast);
+  }
+
+  function showInstallSuccess() {
+    const now = Date.now();
+    if (now - lastSuccessAt < 1500) return;
+    lastSuccessAt = now;
+    ensureSuccessToast();
+    const toast = document.getElementById("pwa-install-success");
+    document.getElementById("pwa-install-success-text").textContent = strings().pwaInstallSuccess;
+    toast.classList.remove("hidden");
+    toast.classList.add("visible");
+    clearTimeout(successTimer);
+    successTimer = setTimeout(() => {
+      toast.classList.remove("visible");
+      toast.classList.add("hidden");
+    }, 4500);
   }
 
   function createInstallBanner() {
@@ -52,9 +93,10 @@
     document.getElementById("pwa-install-btn").addEventListener("click", async () => {
       if (!deferredPrompt) return;
       deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
+      const { outcome } = await deferredPrompt.userChoice;
       deferredPrompt = null;
       banner.classList.add("hidden");
+      if (outcome === "accepted") showInstallSuccess();
     });
   }
 
@@ -67,12 +109,16 @@
     document.getElementById("pwa-install-btn").textContent = u.pwaInstallBtn;
     document.getElementById("pwa-install-dismiss").textContent = u.pwaInstallDismiss;
 
+    const successText = document.getElementById("pwa-install-success-text");
+    if (successText) successText.textContent = u.pwaInstallSuccess;
+
     const show = deferredPrompt && !localStorage.getItem(DISMISS_KEY) && !isStandalone();
     banner.classList.toggle("hidden", !show);
   }
 
   function bindInstallPrompt() {
     createInstallBanner();
+    ensureSuccessToast();
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       deferredPrompt = event;
@@ -81,11 +127,12 @@
     window.addEventListener("appinstalled", () => {
       deferredPrompt = null;
       refreshInstallBanner();
+      showInstallSuccess();
     });
   }
 
   registerServiceWorker();
   bindInstallPrompt();
 
-  window.CoraliaPWA = { refreshInstallBanner };
+  window.CoraliaPWA = { refreshInstallBanner, showInstallSuccess };
 })();

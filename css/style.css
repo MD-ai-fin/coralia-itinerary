@@ -1908,6 +1908,40 @@ body[lang="en"] .hero-greeting {
   }
 }
 
+.pwa-install-success {
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  left: 50%;
+  z-index: 300;
+  max-width: min(92vw, 420px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--mint-dark), var(--bamboo));
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  transform: translate(-50%, -12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.pwa-install-success.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.pwa-install-success.hidden {
+  display: none;
+}
+
+.pwa-install-success.visible.hidden {
+  display: block;
+}
+
 /* Contact form */
 .contact-card {
   width: 100%;
