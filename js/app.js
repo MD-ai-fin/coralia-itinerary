@@ -6,6 +6,7 @@
   let expandedBudgetDay = null;
   let expandedBudgetPanel = null;
   let expandedTipSection = null;
+  let expandedPrimerId = null;
   let spotNavOpen = false;
   let sectionNavOpen = false;
   let spotlightTimer = null;
@@ -27,6 +28,7 @@
     renderHeader();
     renderHero();
     renderInstallQr();
+    renderDestinationPrimer();
     renderHighlights();
     renderHotels();
     renderDays();
@@ -198,6 +200,79 @@
       : store === "ios"
         ? "Download on the App Store"
         : "Get it on Google Play";
+
+  function renderPrimerContent(item) {
+    if (!item) return "";
+    if (item.segments) {
+      return item.segments
+        .map((seg) => {
+          if (seg.day != null) {
+            const actAttr = seg.actIndex != null ? ` data-act-index="${seg.actIndex}"` : "";
+            return `<button type="button" class="primer-itinerary-link" data-day="${seg.day}"${actAttr}>${t(seg.t)}</button>`;
+          }
+          return `<span>${t(seg.t)}</span>`;
+        })
+        .join("");
+    }
+    return t(item);
+  }
+
+  function renderDestinationPrimer() {
+    const u = ui();
+    const p = ITINERARY.destinationPrimer;
+    if (!p) return;
+
+    document.getElementById("primer-title").textContent = u.primerTitle;
+    document.getElementById("primer-hint").textContent = u.primerHint;
+    document.getElementById("primer-disclaimer").textContent = t(p.disclaimer);
+
+    document.getElementById("primer-grid").innerHTML = p.places
+      .map((place) => {
+        const isExpanded = expandedPrimerId === place.id;
+        const usScale = place.usScale ? `<span class="primer-us-scale">${t(place.usScale)}</span>` : "";
+        return `
+        <article class="primer-card card tip-collapsible ${isExpanded ? "expanded" : ""}" data-primer="${place.id}">
+          <div class="tip-header" role="button" tabindex="0" aria-expanded="${isExpanded}">
+            <h3>${t(place.name)}</h3>
+            <span class="day-chevron">▼</span>
+          </div>
+          <div class="tip-body">
+            <div class="tip-body-inner primer-body-inner">
+              <p class="primer-stats">${t(place.stats)} ${usScale}</p>
+              ${place.geoNote ? `<p class="primer-geo-note">${t(place.geoNote)}</p>` : ""}
+              <p class="primer-status">${t(place.status)}</p>
+              ${
+                place.honors?.length
+                  ? `<div class="primer-block">
+                <h4 class="primer-label">${u.primerHonorsLabel}</h4>
+                <ul class="primer-list primer-honors-list">
+                  ${place.honors.map((item) => `<li>${renderPrimerContent(item)}</li>`).join("")}
+                </ul>
+              </div>`
+                  : ""
+              }
+              <div class="primer-block">
+                <h4 class="primer-label">${u.primerAnalogyLabel}</h4>
+                <p class="primer-analogy">${t(place.analogy)}</p>
+              </div>
+              <div class="primer-block">
+                <h4 class="primer-label">${u.primerHistoryLabel}</h4>
+                <p class="primer-text">${t(place.history)}</p>
+              </div>
+              <div class="primer-block">
+                <h4 class="primer-label">${u.primerInventionsLabel}</h4>
+                <ul class="primer-list">
+                  ${place.inventions.map((item) => `<li>${renderPrimerContent(item)}</li>`).join("")}
+                </ul>
+              </div>
+              <p class="primer-trip"><strong>${u.primerTripLabel}:</strong> ${renderPrimerContent(place.trip)}</p>
+            </div>
+          </div>
+        </article>
+      `;
+      })
+      .join("");
+  }
 
   function renderTips() {
     document.getElementById("tips-title").textContent = ui().tipsTitle;
@@ -472,6 +547,7 @@
     const b = ITINERARY.budgetBreakdown;
     return [
       { sectionId: "hero-section", label: u.sectionNavWelcome },
+      { sectionId: "primer-section", label: u.primerTitle },
       { sectionId: "highlights-section", label: u.highlightsTitle },
       { sectionId: "hotels-section", label: u.hotelsTitle },
       { sectionId: "days-section", label: u.daysTitle },
@@ -582,6 +658,20 @@
     if (isSectionNavDrawerMode()) {
       sectionNavOpen = false;
       renderSectionNav();
+    }
+  }
+
+  function jumpToDay(dayNum) {
+    expandedDay = dayNum;
+    renderDays();
+    renderSpotNav();
+    requestAnimationFrame(() => {
+      document.getElementById("days-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => scrollToDayCard(dayNum), 280);
+    });
+    if (isSpotNavDrawerMode()) {
+      spotNavOpen = false;
+      renderSpotNav();
     }
   }
 
@@ -1189,11 +1279,53 @@
       const header = e.target.closest(".tip-header");
       if (!header) return;
       const card = header.closest(".tip-collapsible");
+      if (!card || card.closest("#primer-grid")) return;
       const tipId = card.dataset.tip;
       expandedTipSection = expandedTipSection === tipId ? null : tipId;
       renderTips();
       if (expandedTipSection === tipId) {
         document.querySelector(`.tip-collapsible[data-tip="${tipId}"]`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+
+    document.getElementById("primer-grid").addEventListener("click", (e) => {
+      const link = e.target.closest(".primer-itinerary-link");
+      if (link) {
+        e.preventDefault();
+        e.stopPropagation();
+        const day = parseInt(link.dataset.day, 10);
+        const actIndexRaw = link.dataset.actIndex;
+        if (actIndexRaw !== undefined && actIndexRaw !== "") {
+          jumpToActivity(day, parseInt(actIndexRaw, 10));
+        } else {
+          jumpToDay(day);
+        }
+        return;
+      }
+
+      const header = e.target.closest(".tip-header");
+      if (!header) return;
+      const card = header.closest(".tip-collapsible");
+      const primerId = card.dataset.primer;
+      expandedPrimerId = expandedPrimerId === primerId ? null : primerId;
+      renderDestinationPrimer();
+      if (expandedPrimerId === primerId) {
+        document.querySelector(`.tip-collapsible[data-primer="${primerId}"]`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+
+    document.getElementById("primer-grid").addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const link = e.target.closest(".primer-itinerary-link");
+      if (link) {
+        e.preventDefault();
+        link.click();
+        return;
+      }
+      const header = e.target.closest(".tip-header");
+      if (header) {
+        e.preventDefault();
+        header.click();
       }
     });
 

@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-29q",
+    build: "2026-07-29w",
     budget: {
       total: { cny: 9390, usd: 1386.92 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -194,6 +194,307 @@ const ITINERARY = {
       website: "https://www.trip.com/hotels/chongqing-hotel-detail-132460794/chongqing-jiefangbei-maison-new-century-hotel/?locale=en-US&curr=USD",
     },
   ],
+
+  destinationPrimer: {
+    disclaimer: {
+      en: "Rough analogies for American readers — not exact comparisons. In China: a province ≈ a U.S. state; Chengdu is a city; Chongqing is a provincial-level municipality (city plus surrounding counties — not a single city in the American sense). Population figures are approximate.",
+      zh: "人口与类比均为约数，便于建立尺度感。中国：省≈美国州；成都为地级市；重庆为直辖市（省级，含城区与郊县）。并非学术精确对比。",
+    },
+    places: [
+      {
+        id: "sichuan",
+        name: { en: "Sichuan Province", zh: "四川省" },
+        stats: {
+          en: "Province · ~83 million people · 3,000+ years of recorded history",
+          zh: "省级 · 约 8300 万人口 · 有文字记载的历史 3000 年以上",
+        },
+        geoNote: {
+          en: "Admin level: province (comparable to a U.S. state). The figure below is the whole province — not one city.",
+          zh: "行政级别：省（类似美国的一个州）。下述人口为全省，不是单一城市。",
+        },
+        usScale: {
+          en: "Province vs. state: ~2.5× the population of Texas",
+          zh: "省对州：人口约为德州的 2.5 倍",
+        },
+        analogy: {
+          en: "Regional identity as strong as Texas or Louisiana in the U.S. — distinct food, dialect, and pace that the whole country recognizes.",
+          zh: "在中国，巴蜀认同之强，类似美国人对德州或路易斯安那的区域印象——饮食、方言、生活节奏都极具辨识度。",
+        },
+        status: {
+          en: "Southwest China's most populous province; known as the Land of Abundance (天府之国). A cultural and economic heartland of the upper Yangtze.",
+          zh: "中国西南人口第一大省，素有「天府之国」之称，是长江上游的文化与经济重镇。",
+        },
+        honors: [
+          {
+            en: "5 UNESCO World Heritage sites — among the highest of any Chinese province (tied with Fujian, Henan, and Yunnan; Beijing as a municipality has more)",
+            zh: "5 处联合国教科文组织世界遗产 — 全国省份中最多之一（与福建、河南、云南并列；北京市作为直辖市更多）",
+          },
+          {
+            segments: [
+              {
+                t: {
+                  en: "Sites include Jiuzhaigou, Huanglong, Mount Emei–Leshan Giant Buddha, Qingcheng–Dujiangyan, and Sichuan Giant Panda Sanctuaries — your trip visits ",
+                  zh: "含九寨沟、黄龙、峨眉山—乐山大佛、青城山—都江堰、大熊猫栖息地；本行程含 ",
+                },
+              },
+              { t: { en: "Jiuzhaigou", zh: "九寨沟" }, day: 5, actIndex: 0 },
+            ],
+          },
+          {
+            en: "Land of Abundance (天府之国) — a title used for 2,000+ years",
+            zh: "「天府之国」— 沿用两千余年的美誉",
+          },
+          {
+            en: "Birthplace of Sichuan cuisine — one of China's Four Great Cuisines",
+            zh: "川菜发源地 — 中国四大菜系之一",
+          },
+          {
+            en: "Heartland of the giant panda — world's largest panda habitat network",
+            zh: "大熊猫故乡 — 全球最大熊猫栖息地网络",
+          },
+        ],
+        history: {
+          en: "Ancient Ba-Shu kingdoms; Three Kingdoms-era Shu Han (蜀汉); major WWII rear base. The 256 BCE Dujiangyan irrigation system still feeds the Chengdu Plain.",
+          zh: "古巴蜀文明、三国蜀汉、抗战大后方；公元前 256 年建成的都江堰至今仍在灌溉成都平原。",
+        },
+        inventions: [
+          {
+            en: "Jiaozi (交子) — often cited as the world's first paper money, issued by Chengdu merchants in the 11th century",
+            zh: "交子 — 常被视作世界最早纸币，11 世纪由成都商人发行",
+          },
+          {
+            en: "Dujiangyan — ancient irrigation masterpiece, still operating after 2,200+ years",
+            zh: "都江堰 — 古代水利杰作，2200 余年来持续运转",
+          },
+          {
+            en: "Sichuan cuisine — birthplace of mapo tofu, kung pao chicken, and hot-pot traditions that spread nationwide",
+            zh: "川菜 — 麻婆豆腐、宫保鸡丁、火锅等饮食传统的发源与传播中心",
+          },
+          {
+            en: "Shu brocade (蜀锦) — prized silk weaving since Han-dynasty trade along the Silk Road",
+            zh: "蜀锦 — 自汉代丝路贸易以来闻名的丝织工艺",
+          },
+          {
+            en: "Shu embroidery (蜀绣) — one of China's Four Great Embroideries; needlework tradition centered in the Chengdu plain",
+            zh: "蜀绣 — 中国四大名绣之一，成都平原为核心的刺绣传统",
+          },
+          {
+            en: "Zigong well salt (自贡井盐) — 2,000+ years of brine-well drilling; pioneers of deep-well salt mining and early natural-gas use",
+            zh: "自贡井盐 — 2000 余年井盐开采史，深井采盐与早期天然气利用的重要发源地",
+          },
+        ],
+        trip: {
+          segments: [
+            { t: { en: "Your trip: ", zh: "本行程：" } },
+            { t: { en: "Chengdu hub", zh: "成都大本营" }, day: 1 },
+            { t: { en: " (Days 1–3, 6), ", zh: "（第 1–3、6 天），" } },
+            { t: { en: "Jiuzhaigou", zh: "九寨沟" }, day: 5, actIndex: 0 },
+            { t: { en: " (Days 4–5), ", zh: "（第 4–5 天），" } },
+            { t: { en: "Sichuan Museum", zh: "四川博物院" }, day: 7, actIndex: 1 },
+            { t: { en: " & ", zh: "、" } },
+            { t: { en: "Chengdu Museum", zh: "成都博物馆" }, day: 7, actIndex: 3 },
+            { t: { en: " en route to Chongqing (Day 7).", zh: "，赴渝（第 7 天）。" } },
+          ],
+        },
+      },
+      {
+        id: "chengdu",
+        name: { en: "Chengdu City", zh: "成都市" },
+        stats: {
+          en: "City · ~21 million (greater metro area) · 2,300+ years at the same city site",
+          zh: "地级市 · 约 2100 万（都市圈）· 同一城址 2300 余年未迁",
+        },
+        geoNote: {
+          en: "Admin level: city (prefecture-level). The ~21 million figure is the greater Chengdu metro area — a city region, not a U.S. state.",
+          zh: "行政级别：地级市。约 2100 万指成都都市圈，是美国意义上的「城市区域」，不是全州人口。",
+        },
+        usScale: {
+          en: "City metro area ≈ NYC + Philadelphia combined (not a state comparison)",
+          zh: "都市区规模 ≈ 纽约 + 费城（城市对比，非州级）",
+        },
+        analogy: {
+          en: "A western China lifestyle capital — less Wall Street hustle, more food, tea houses, and pandas — similar to how Portland or Austin lean into \"live well\" over \"move fast.\"",
+          zh: "中国西部的「生活型都会」——少些金融 hustle，多些美食、茶馆与熊猫；类似波特兰或奥斯汀那种「会生活」气质。",
+        },
+        status: {
+          en: "Southwest China's tech, trade, and leisure hub; one of China's most visited inland cities. Nicknamed the City of Hibiscus (蓉城).",
+          zh: "西南科技、商贸与休闲中心，中国最受欢迎的内陆城市之一，别称「蓉城」。",
+        },
+        honors: [
+          {
+            en: "First UNESCO City of Gastronomy in Asia (2010) — member of UNESCO's Creative Cities Network (City of Gastronomy category)",
+            zh: "亚洲首个联合国教科文组织「美食之都」（2010）—「创意城市网络」成员（美食之都类别）",
+          },
+          {
+            en: "Cradle of Sichuan cuisine — recognized globally by UNESCO for living food culture",
+            zh: "川菜摇篮 — 联合国教科文组织认可的美食文化活态传承",
+          },
+          {
+            en: "Important central city of western China (西部地区重要的中心城市) — leading urban hub of China's west",
+            zh: "西部地区重要的中心城市 — 中国西部核心枢纽",
+          },
+          {
+            en: "Named a Best Tourist City in China by the UN World Tourism Organization and China National Tourism Administration",
+            zh: "联合国世界旅游组织与中国国家旅游局授予「中国最佳旅游城市」",
+          },
+          {
+            en: "Member, World Centers of Excellence for Destinations (CED)",
+            zh: "全球卓越目的地中心（CED）成员城市",
+          },
+        ],
+        history: {
+          en: "From Jinsha and Sanxingdui roots to Tang–Song \"Brocade City.\" One of the few major world cities that never relocated its urban core.",
+          zh: "从金沙、三星堆到唐宋「锦官城」；是世界上少数数千年未迁城址的大都会之一。",
+        },
+        inventions: [
+          {
+            en: "Birthplace of Jiaozi paper money and a Song-dynasty printing & commerce center",
+            zh: "交子纸币诞生地，宋代商贸与印刷重镇",
+          },
+          {
+            segments: [
+              { t: { en: "Sichuan opera ", zh: "川剧" } },
+              { t: { en: "face-changing (变脸)", zh: "变脸" }, day: 2, actIndex: 9 },
+              { t: { en: " — iconic performing-arts innovation", zh: " — 标志性表演艺术创新" } },
+            ],
+          },
+          {
+            segments: [
+              { t: { en: "World center for ", zh: "世界" } },
+              { t: { en: "giant panda breeding", zh: "大熊猫繁育" }, day: 1, actIndex: 1 },
+              { t: { en: " and conservation research", zh: "与科研中心" } },
+            ],
+          },
+          {
+            en: "Tea-house culture — slow-living urban style that defines daily Chengdu life",
+            zh: "茶馆文化 — 塑造成都日常节奏的「慢生活」城市风格",
+          },
+          {
+            en: "Shu embroidery (蜀绣) — living craft in Chengdu workshops; one of China's Four Great Embroideries",
+            zh: "蜀绣 — 成都工坊传承至今，中国四大名绣之一",
+          },
+        ],
+        trip: {
+          segments: [
+            { t: { en: "Your trip: ", zh: "本行程：" } },
+            { t: { en: "Panda Base", zh: "熊猫基地" }, day: 1, actIndex: 1 },
+            { t: { en: " & ", zh: "、" } },
+            { t: { en: "Jinli", zh: "锦里" }, day: 1, actIndex: 8 },
+            { t: { en: " (Day 1), ", zh: "（第 1 天），" } },
+            { t: { en: "Kuanzhai Alley", zh: "宽窄巷子" }, day: 2, actIndex: 2 },
+            { t: { en: " / ", zh: " / " } },
+            { t: { en: "Jinsha", zh: "金沙" }, day: 2, actIndex: 7 },
+            { t: { en: " / ", zh: " / " } },
+            { t: { en: "Sichuan Opera", zh: "川剧" }, day: 2, actIndex: 9 },
+            { t: { en: " (Day 2), ", zh: "（第 2 天），" } },
+            { t: { en: "Sanxingdui", zh: "三星堆" }, day: 3, actIndex: 1 },
+            { t: { en: " (Day 3), ", zh: "（第 3 天），" } },
+            { t: { en: "Sichuan Museum", zh: "四川博物院" }, day: 7, actIndex: 1 },
+            { t: { en: " & ", zh: "、" } },
+            { t: { en: "Chengdu Museum", zh: "成都博物馆" }, day: 7, actIndex: 3 },
+            { t: { en: " (Day 7), ", zh: "（第 7 天），" } },
+            { t: { en: "return to Chengdu", zh: "返程成都" }, day: 6 },
+            { t: { en: ".", zh: "。" } },
+          ],
+        },
+      },
+      {
+        id: "chongqing",
+        name: { en: "Chongqing Municipality", zh: "重庆市（直辖市）" },
+        stats: {
+          en: "Provincial-level municipality · ~32 million (whole region) · 3,000+ years of settlement",
+          zh: "省级直辖市 · 约 3200 万（全市域）· 建城历史 3000 年以上",
+        },
+        geoNote: {
+          en: "Admin level: direct-controlled municipality (provincial-level — like Beijing or Shanghai). ~32 million covers the entire region (urban core plus rural counties), so comparisons to U.S. states are common — but this is not one city in the American sense.",
+          zh: "行政级别：直辖市（省级，与北京、上海同级）。约 3200 万含城区与郊县，常与美国「州」人口对比，但并非美国意义上的单一城市。",
+        },
+        usScale: {
+          en: "Whole municipality vs. state: more people than any U.S. state except California",
+          zh: "全市域对州：人口超过美国除加州外的任一州",
+        },
+        analogy: {
+          en: "Imagine a provincial-scale region built on steep hills where the Yangtze and Jialing Rivers meet — part San Francisco terrain, part Pittsburgh riverfront, at megacity scale.",
+          zh: "一个省级规模的江岸丘陵地带——有点像旧金山的地形 + 匹兹堡的江岸，却是超大城市群规模。",
+        },
+        status: {
+          en: "One of four direct-controlled municipalities (provincial-level, like Beijing and Shanghai). Major Yangtze port, bridge city, and industrial hub.",
+          zh: "中国四大直辖市之一（与北京、上海同级），长江航运枢纽、桥梁之城与工业重镇。",
+        },
+        honors: [
+          {
+            en: "China's wartime capital (1937–1945) — 战时陪都; seat of Allied China during WWII",
+            zh: "1937–1945 战时陪都 — 二战时期中国大后方与盟军在华中枢",
+          },
+          {
+            en: "UNESCO World Heritage: Dazu Rock Carvings (1999) — pinnacle of Chinese cliff sculpture art",
+            zh: "世界遗产：大足石刻（1999）— 中国石窟艺术巅峰之作",
+          },
+          {
+            segments: [
+              {
+                t: {
+                  en: "UNESCO World Heritage: Wulong Karst (2007) — part of South China Karst; your trip visits ",
+                  zh: "世界遗产：武隆喀斯特（2007）— 南方喀斯特组成部分；本行程含 ",
+                },
+              },
+              { t: { en: "Wulong", zh: "武隆" }, day: 8, actIndex: 1 },
+            ],
+          },
+          {
+            en: "Mountain City (山城), Fog City (雾都), Bridge City (桥都) — signature nicknames",
+            zh: "「山城」「雾都」「桥都」— 家喻户晓的城市名片",
+          },
+          {
+            en: "One of China's 5 national central cities (with Beijing, Shanghai, Guangzhou, and Tianjin)",
+            zh: "国家中心城市（全国仅 5 座：北京、上海、广州、重庆、天津）",
+          },
+        ],
+        history: {
+          en: "China's wartime capital (1937–1945); endured heavy bombing; gateway to the Three Gorges. Known as the Mountain City (山城) and Fog City (雾都).",
+          zh: "1937–1945 战时陪都，经历大轰炸；三峡门户，别称「山城」「雾都」。",
+        },
+        inventions: [
+          {
+            en: "Chongqing-style hotpot (火锅) — mala broth culture that spread across China",
+            zh: "重庆火锅 — 麻辣锅底文化风靡全国",
+          },
+          {
+            segments: [
+              { t: { en: "Chongqing noodles (小面)", zh: "重庆小面" }, day: 7, actIndex: 6 },
+              { t: { en: " — on your itinerary at Huashi Wanza Noodles", zh: " — 本行程花市豌杂面" } },
+            ],
+          },
+          {
+            segments: [
+              { t: { en: "Mountain-city transit — ", zh: "山城交通设计 — " } },
+              { t: { en: "monorail through buildings (Liziba)", zh: "穿楼轻轨（李子坝）" }, day: 9, actIndex: 1 },
+              { t: { en: ", cableways, and layered river bridges", zh: "、索道与层叠江桥" } },
+            ],
+          },
+          {
+            en: "Wartime publishing & resistance base — major WWII news and industrial relocation hub",
+            zh: "战时出版与工业内迁中心 — 抗战时期重要的新闻与产业后方",
+          },
+        ],
+        trip: {
+          segments: [
+            { t: { en: "Your trip: ", zh: "本行程：" } },
+            { t: { en: "Panda HSR from Chengdu", zh: "成都熊猫高铁" }, day: 7, actIndex: 4 },
+            { t: { en: " (Day 7), ", zh: "（第 7 天），" } },
+            { t: { en: "Hongyadong", zh: "洪崖洞" }, day: 7, actIndex: 7 },
+            { t: { en: ", ", zh: "、" } },
+            { t: { en: "Liziba", zh: "李子坝" }, day: 9, actIndex: 1 },
+            { t: { en: ", ", zh: "、" } },
+            { t: { en: "Huashi noodles", zh: "花市豌杂面" }, day: 7, actIndex: 6 },
+            { t: { en: " (Day 7), ", zh: "（第 7 天），" } },
+            { t: { en: "Wulong Karst", zh: "武隆喀斯特" }, day: 8, actIndex: 1 },
+            { t: { en: " (Day 8).", zh: "（第 8 天）。" } },
+          ],
+        },
+      },
+    ],
+  },
 
   highlights: [
     {
@@ -1364,6 +1665,13 @@ const ITINERARY = {
       appsTitle: "Essential Travel Apps",
       appsSubtitle: "Download before departure · Legal & authorized only",
       hotelsTitle: "Hotels",
+      primerTitle: "Where You're Going",
+      primerHint: "Tap a card to expand · Underlined names jump to that spot in your itinerary",
+      primerAnalogyLabel: "U.S. mental map",
+      primerHonorsLabel: "Notable titles",
+      primerHistoryLabel: "History highlights",
+      primerInventionsLabel: "Known for & firsts",
+      primerTripLabel: "On your itinerary",
       highlightsTitle: "Key Attractions",
       highlightsHint: "TripAdvisor reviews in English",
       ticketLabel: "Ticket",
@@ -1433,6 +1741,13 @@ const ITINERARY = {
       appsTitle: "必备旅行 APP",
       appsSubtitle: "出行前提前下载 · 完全合规",
       hotelsTitle: "酒店",
+      primerTitle: "目的地速览",
+      primerHint: "点击卡片展开 · 带下划线的名称可跳转至对应行程",
+      primerAnalogyLabel: "美国读者参照",
+      primerHonorsLabel: "响当当的名头",
+      primerHistoryLabel: "历史亮点",
+      primerInventionsLabel: "著名创造与首创",
+      primerTripLabel: "本行程涉及",
       highlightsTitle: "主要景点",
       highlightsHint: "TripAdvisor 英文评价",
       ticketLabel: "门票",

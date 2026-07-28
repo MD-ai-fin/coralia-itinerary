@@ -1486,6 +1486,150 @@ body[lang="en"] .hero-greeting-rest {
 }
 
 /* Tips */
+.primer-disclaimer {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin: 4px 0 0;
+}
+
+.primer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.primer-card {
+  padding: 0;
+}
+
+.primer-body-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.primer-stats {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--bamboo-dark);
+  line-height: 1.5;
+}
+
+.primer-us-scale {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(176, 209, 151, 0.35);
+}
+
+.primer-geo-note {
+  margin: -6px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: rgba(255, 248, 220, 0.55);
+  border: 1px dashed rgba(176, 209, 151, 0.55);
+}
+
+.primer-honors-list li::before {
+  content: "★";
+  color: var(--bamboo-dark);
+  font-size: 0.65rem;
+  top: 7px;
+}
+
+.primer-status,
+.primer-text {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+.primer-block {
+  margin: 0;
+}
+
+.primer-label {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bamboo-dark);
+}
+
+.primer-analogy {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text);
+  background: rgba(176, 209, 151, 0.18);
+  border-left: 3px solid var(--bamboo);
+}
+
+.primer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primer-list li {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.45;
+}
+
+.primer-list li::before {
+  content: "🐾";
+  position: absolute;
+  left: 0;
+  font-size: 0.7rem;
+}
+
+.primer-trip {
+  margin: 0;
+  padding-top: 4px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  border-top: 2px dashed rgba(176, 209, 151, 0.35);
+}
+
+.primer-itinerary-link {
+  display: inline;
+  margin: 0;
+  padding: 0 2px;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: var(--bamboo-dark);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.primer-itinerary-link:hover,
+.primer-itinerary-link:focus-visible {
+  color: #4a7a32;
+  text-decoration-style: solid;
+}
+
 .tips-grid {
   display: flex;
   flex-direction: column;
