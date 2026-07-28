@@ -362,30 +362,6 @@ body[lang="en"] .hero-greeting-rest {
 .budget-pill.cap { background: var(--lavender); }
 .budget-pill.remaining { background: var(--yellow); }
 
-.hero-actions {
-  margin-top: 12px;
-}
-
-.hero-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--bamboo), var(--bamboo-dark));
-  color: var(--white);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(106, 155, 78, 0.28);
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.hero-cta-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(106, 155, 78, 0.34);
-}
-
 .predeparture-section {
   padding-top: 0;
   margin-top: -8px;
