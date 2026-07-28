@@ -11,6 +11,9 @@
   let spotlightTimer = null;
   let manifestBlobUrl = null;
 
+  const SECTION_NAV_DRAWER_MQ = "(max-width: 1279px)";
+  const SPOT_NAV_DRAWER_MQ = "(max-width: 1279px)";
+
   const t = (obj) => (typeof obj === "object" && obj !== null ? obj[lang] || obj.en : obj);
   const ui = () => ITINERARY.ui[lang];
 
@@ -357,7 +360,37 @@
     document.body.classList.add("has-spot-nav");
     navEl.classList.toggle("open", spotNavOpen);
     const toggle = document.getElementById("spot-nav-toggle");
-    if (toggle) toggle.setAttribute("aria-expanded", spotNavOpen ? "true" : "false");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", spotNavOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", u.spotNavTitle);
+    }
+    requestAnimationFrame(syncSpotNavAccessibility);
+  }
+
+  function isSpotNavDrawerMode() {
+    return (
+      window.matchMedia(SPOT_NAV_DRAWER_MQ).matches ||
+      document.body.classList.contains("spot-nav-needs-toggle")
+    );
+  }
+
+  function syncSpotNavAccessibility() {
+    const nav = document.getElementById("spot-nav");
+    if (!nav) return;
+
+    if (window.matchMedia(SPOT_NAV_DRAWER_MQ).matches) {
+      document.body.classList.remove("spot-nav-needs-toggle");
+      return;
+    }
+
+    const rect = nav.getBoundingClientRect();
+    const inView =
+      rect.width > 40 &&
+      rect.height > 40 &&
+      rect.left > 8 &&
+      rect.right < window.innerWidth - 8;
+
+    document.body.classList.toggle("spot-nav-needs-toggle", !inView);
   }
 
   function getSectionNavItems() {
@@ -402,7 +435,37 @@
     navEl.classList.toggle("open", sectionNavOpen);
     document.body.classList.add("has-section-nav");
     const toggle = document.getElementById("section-nav-toggle");
-    if (toggle) toggle.setAttribute("aria-expanded", sectionNavOpen ? "true" : "false");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", sectionNavOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", u.sectionNavTitle);
+    }
+    requestAnimationFrame(syncSectionNavAccessibility);
+  }
+
+  function isSectionNavDrawerMode() {
+    return (
+      window.matchMedia(SECTION_NAV_DRAWER_MQ).matches ||
+      document.body.classList.contains("section-nav-needs-toggle")
+    );
+  }
+
+  function syncSectionNavAccessibility() {
+    const nav = document.getElementById("section-nav");
+    if (!nav) return;
+
+    if (window.matchMedia(SECTION_NAV_DRAWER_MQ).matches) {
+      document.body.classList.remove("section-nav-needs-toggle");
+      return;
+    }
+
+    const rect = nav.getBoundingClientRect();
+    const inView =
+      rect.width > 40 &&
+      rect.height > 40 &&
+      rect.right > 8 &&
+      rect.left < window.innerWidth - 8;
+
+    document.body.classList.toggle("section-nav-needs-toggle", !inView);
   }
 
   function getStickyHeaderOffset() {
@@ -414,6 +477,13 @@
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - getStickyHeaderOffset();
     window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }
+
+  function scrollToDayCard(day) {
+    requestAnimationFrame(() => {
+      const header = document.querySelector(`.day-card[data-day="${day}"] .day-header`);
+      scrollToTarget(header);
+    });
   }
 
   function jumpToSection(sectionId, budgetPanel) {
@@ -435,7 +505,7 @@
       requestAnimationFrame(runScroll);
     }
 
-    if (window.matchMedia("(max-width: 899px)").matches) {
+    if (isSectionNavDrawerMode()) {
       sectionNavOpen = false;
       renderSectionNav();
     }
@@ -461,7 +531,7 @@
       }, 280);
     });
 
-    if (window.matchMedia("(max-width: 899px)").matches) {
+    if (isSpotNavDrawerMode()) {
       spotNavOpen = false;
       renderSpotNav();
     }
@@ -992,15 +1062,19 @@
     });
 
     document.addEventListener("click", (e) => {
-      const mobileNav = window.matchMedia("(max-width: 899px)").matches;
-      if (mobileNav && spotNavOpen && !e.target.closest("#spot-nav, #spot-nav-toggle")) {
+      if (isSpotNavDrawerMode() && spotNavOpen && !e.target.closest("#spot-nav, #spot-nav-toggle")) {
         spotNavOpen = false;
         renderSpotNav();
       }
-      if (mobileNav && sectionNavOpen && !e.target.closest("#section-nav, #section-nav-toggle")) {
+      if (isSectionNavDrawerMode() && sectionNavOpen && !e.target.closest("#section-nav, #section-nav-toggle")) {
         sectionNavOpen = false;
         renderSectionNav();
       }
+    });
+
+    window.addEventListener("resize", () => {
+      syncSectionNavAccessibility();
+      syncSpotNavAccessibility();
     });
 
     document.getElementById("budget-panels").addEventListener("click", (e) => {
@@ -1065,7 +1139,7 @@
         expandedDay = expandedDay === day ? null : day;
         renderDays();
         if (expandedDay === day) {
-          card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          scrollToDayCard(day);
         }
         return;
       }
