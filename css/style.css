@@ -2315,6 +2315,15 @@ body[lang="en"] .hero-greeting {
     grid-template-columns: 1fr;
   }
 
+  .download-card-title {
+    display: none;
+  }
+
+  .download-category-badge {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+  }
+
   .timeline-time {
     min-width: auto;
     width: 100%;
