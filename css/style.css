@@ -389,6 +389,23 @@ body[lang="en"] .hero-greeting {
   height: 132px;
 }
 
+.install-qr-url {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--bamboo);
+  text-align: center;
+  text-decoration: none;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.install-qr-url:hover {
+  text-decoration: underline;
+  color: var(--pink-dark);
+}
+
 /* Word downloads */
 .downloads-grid {
   display: grid;

@@ -90,6 +90,12 @@
 
     const img = document.getElementById("install-qr-image");
     img.alt = u.installQrTitle;
+
+    const urlEl = document.getElementById("install-qr-url");
+    if (urlEl) {
+      urlEl.href = url;
+      urlEl.textContent = url.replace(/\/$/, "");
+    }
   }
 
   function renderHero() {
