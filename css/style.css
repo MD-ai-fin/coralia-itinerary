@@ -2538,7 +2538,8 @@ body[lang="en"] .hero-greeting-rest {
   .hero-greeting-lead,
   .hero-greeting-rest {
     font-size: 1em;
-    white-space: normal;
+    white-space: nowrap;
+    max-width: 100%;
   }
 
   .hero-greeting-lead {

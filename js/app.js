@@ -132,8 +132,11 @@
     const maxWidth = box.clientWidth;
     if (maxWidth <= 0) return;
 
+    lead.style.whiteSpace = "nowrap";
+    rest.style.whiteSpace = "nowrap";
+
     let size = parseFloat(getComputedStyle(lead).fontSize);
-    const minSize = 11;
+    const minSize = Math.max(10, size * 0.62);
     box.style.fontSize = `${size}px`;
     while (
       size > minSize &&
