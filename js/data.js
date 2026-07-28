@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-30p",
+    build: "2026-07-30q",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -187,8 +187,8 @@ const ITINERARY = {
       pricePerNight: { cny: 388, usd: 57.31 },
       total: { cny: 1940, usd: 286.54 },
       perks: {
-        en: "Breakfast for two daily · Tang-inspired décor · Xiaoshizi Metro within 100 m · Laundry and fitness center",
-        zh: "每日双人早餐 · 唐风国潮设计 · 小什字地铁口 · 自助洗衣与健身房",
+        en: "Breakfast for two daily · Tang-dynasty (618–907 CE) inspired décor · Xiaoshizi Metro within 100 m · Laundry and fitness center",
+        zh: "每日双人早餐 · 唐风国潮设计（唐代 618–907 年）· 小什字地铁口 · 自助洗衣与健身房",
       },
       image: "https://ak-d.tripcdn.com/images/1mc0r12000qcgk653E27F_R_960_660_R5_D.jpg",
       website: "https://www.trip.com/hotels/chongqing-hotel-detail-132460794/chongqing-jiefangbei-maison-new-century-hotel/?locale=en-US&curr=USD",
@@ -254,13 +254,13 @@ const ITINERARY = {
           },
         ],
         history: {
-          en: "Ancient Ba and Shu kingdoms; the Three Kingdoms-era state of Shu Han (蜀汉); a major WWII rear base. The Dujiangyan irrigation system, built in 256 BCE, still waters the Chengdu Plain.",
-          zh: "古巴蜀文明、三国蜀汉、抗战大后方；公元前 256 年建成的都江堰至今仍在灌溉成都平原。",
+          en: "Ancient Ba and Shu kingdoms (c. 11th century–316 BCE); the Three Kingdoms state of Shu Han (221–263 CE); a major WWII rear base (1937–1945). The Dujiangyan irrigation system, built in 256 BCE, still waters the Chengdu Plain.",
+          zh: "古巴蜀王国（约公元前 11 世纪–前 316 年）、三国蜀汉（221–263 年）、抗战大后方（1937–1945 年）；公元前 256 年建成的都江堰至今仍在灌溉成都平原。",
         },
         inventions: [
           {
-            en: "Jiaozi (交子)—often cited as the world's first paper money, issued by Chengdu merchants in the 11th century",
-            zh: "交子 — 常被视作世界最早纸币，11 世纪由成都商人发行",
+            en: "Jiaozi (交子)—often cited as the world's first paper money, issued by Chengdu merchants in the Northern Song dynasty (960–1127 CE)",
+            zh: "交子 — 常被视作世界最早纸币，北宋（960–1127 年）由成都商人发行",
           },
           {
             en: "Dujiangyan—an ancient irrigation system still operating after more than 2,200 years",
@@ -271,8 +271,8 @@ const ITINERARY = {
             zh: "川菜 — 麻婆豆腐、宫保鸡丁、火锅等饮食传统的发源与传播中心",
           },
           {
-            en: "Shu brocade (蜀锦)—prized silk weaving traded along the Silk Road since the Han dynasty",
-            zh: "蜀锦 — 自汉代丝路贸易以来闻名的丝织工艺",
+            en: "Shu brocade (蜀锦)—prized silk weaving traded along the Silk Road since the Han dynasty (206 BCE–220 CE)",
+            zh: "蜀锦 — 自汉代（公元前 206 年–公元 220 年）丝路贸易以来闻名的丝织工艺",
           },
           {
             en: "Shu embroidery (蜀绣)—one of China's four great embroidery traditions, centered in the Chengdu Plain",
@@ -341,13 +341,13 @@ const ITINERARY = {
           },
         ],
         history: {
-          en: "From the Jinsha and Sanxingdui cultures to the Tang–Song \"Brocade City.\" In the Tang dynasty (618–907 CE), the saying \"Yangzhou first, Yi second\" (扬一益二) ranked Yi (益州—ancient Chengdu) as the empire's second-richest city after Yangzhou. One of the few major cities in the world that has never moved its urban core.",
-          zh: "从金沙、三星堆到唐宋「锦官城」；唐代（618–907 年）有「扬一益二」之说，益州（成都）为全国第二繁华都会，仅次于扬州；是世界上少数数千年未迁城址的大都会之一。",
+          en: "From the Jinsha (c. 1200–650 BCE) and Sanxingdui (c. 1200–1000 BCE) cultures to the Tang–Song \"Brocade City\" (Tang 618–907 CE; Song 960–1279 CE). In the Tang dynasty (618–907 CE), the saying \"Yangzhou first, Yi second\" (扬一益二) ranked Yi (益州—ancient Chengdu) as the empire's second-richest city after Yangzhou. One of the few major cities in the world that has never moved its urban core.",
+          zh: "从金沙（约公元前 1200–650 年）、三星堆（约公元前 1200–1000 年）到唐宋「锦官城」（唐 618–907 年；宋 960–1279 年）；唐代（618–907 年）有「扬一益二」之说，益州（成都）为全国第二繁华都会，仅次于扬州；是世界上少数数千年未迁城址的大都会之一。",
         },
         inventions: [
           {
-            en: "Birthplace of jiaozi paper money and a Song-dynasty center of printing and commerce",
-            zh: "交子纸币诞生地，宋代商贸与印刷重镇",
+            en: "Birthplace of jiaozi paper money and a Song-dynasty (960–1279 CE) center of printing and commerce",
+            zh: "交子纸币诞生地，宋代（960–1279 年）商贸与印刷重镇",
           },
           {
             segments: [
@@ -574,7 +574,7 @@ const ITINERARY = {
       day: 3,
       city: { en: "Guanghan", zh: "广汉" },
       name: { en: "Sanxingdui Museum", zh: "三星堆博物馆" },
-      tagline: { en: "Bronze masks & mysterious ancient Shu kingdom", zh: "青铜面具 · 神秘古蜀王国" },
+      tagline: { en: "Bronze masks & ancient Shu kingdom (c. 1200–1000 BCE)", zh: "青铜面具 · 古蜀王国（约公元前 1200–1000 年）" },
       heritage: { kind: "cultural", year: 2024 },
       image: "images/sanxingdui-museum.jpg",
       reviewKey: "Sanxingdui Museum",
@@ -607,7 +607,7 @@ const ITINERARY = {
       day: 10,
       city: { en: "Dazu", zh: "大足" },
       name: { en: "Dazu Rock Carvings", zh: "大足石刻" },
-      tagline: { en: "Cliff Buddhas · Baodingshan grottoes", zh: "宝顶山石窟 · 摩崖造像" },
+      tagline: { en: "Tang–Song cliff Buddhas (9th–13th c.) · Baodingshan grottoes", zh: "唐至宋代（9–13 世纪）摩崖造像 · 宝顶山石窟" },
       heritage: { kind: "cultural", year: 1999 },
       image: "images/dazu-rock-carvings.png",
       reviewKey: "Dazu Rock Carvings",
@@ -618,7 +618,7 @@ const ITINERARY = {
       day: 2,
       city: { en: "Chengdu", zh: "成都" },
       name: { en: "Jinsha Site Museum", zh: "金沙遗址博物馆" },
-      tagline: { en: "3,000-year-old Shu civilization & golden sunbird", zh: "三千年古蜀文明 · 太阳神鸟" },
+      tagline: { en: "Shu civilization site (c. 1200–650 BCE) & golden sunbird", zh: "古蜀文明（约公元前 1200–650 年）· 太阳神鸟" },
       heritage: { kind: "cultural", year: 2024 },
       image: "images/jinsha-museum.jpg",
       reviewKey: "Jinsha Site Museum",
@@ -639,7 +639,7 @@ const ITINERARY = {
       day: 2,
       city: { en: "Chengdu", zh: "成都" },
       name: { en: "Wide & Narrow Alleys", zh: "宽窄巷子" },
-      tagline: { en: "Qing-era lanes & panda-themed dining", zh: "清代巷弄 · 熊猫主题餐饮" },
+      tagline: { en: "Qing-dynasty lanes (1644–1912) & panda-themed dining", zh: "清代巷弄（1644–1912 年）· 熊猫主题餐饮" },
       image: "https://p2.itc.cn/q_70/images03/20200723/c69a20b5eced4eff88e6d285b26ae104.jpeg",
       reviewKey: "Wide & Narrow Alleys",
       ticket: { free: true },
@@ -998,8 +998,8 @@ const ITINERARY = {
           type: "attraction",
           title: { en: "Sanxingdui Museum", zh: "三星堆博物馆" },
           desc: {
-            en: "Available for rent:\n1. Smart audio guide (recommended for two sharing one device)\nRental: 30CNY / 4.43USD per unit; deposit 200CNY (fully refunded on return)\nLanguages: English, Chinese, Japanese & more; auto-triggered exhibit narration\nHours: 08:30–17:00; 4-hour battery — enough for a full-day visit\n2. MR immersive guide glasses (Shu Kingdom Secret Mirror)\nRental: 38CNY / 5.61USD per unit\nHighlight: AR animations recreate ancient Shu scenes — ideal for immersive experience seekers",
-            zh: "可租：\n1. 智慧语音导览器（推荐双人使用）\n租金：30CNY / 4.43USD / 台，押金 200CNY（归还全额退还）\n语言：含英语、中文、日语等多语种，文物自动感应讲解\n时长：08:30–17:00，续航 4 小时，足够全天游览\n2. MR 沉浸式导览眼镜（蜀国秘镜）\n租金：38CNY / 5.61USD / 台\n特色：AR 动画还原古蜀场景，适合喜欢沉浸式体验游客",
+            en: "Available for rent:\n1. Smart audio guide (recommended for two sharing one device)\nRental: 30CNY / 4.43USD per unit; deposit 200CNY (fully refunded on return)\nLanguages: English, Chinese, Japanese & more; auto-triggered exhibit narration\nHours: 08:30–17:00; 4-hour battery — enough for a full-day visit\n2. MR immersive guide glasses (Shu Kingdom Secret Mirror)\nRental: 38CNY / 5.61USD per unit\nHighlight: AR animations recreate ancient Shu scenes (c. 1200–1000 BCE) — ideal for immersive experience seekers",
+            zh: "可租：\n1. 智慧语音导览器（推荐双人使用）\n租金：30CNY / 4.43USD / 台，押金 200CNY（归还全额退还）\n语言：含英语、中文、日语等多语种，文物自动感应讲解\n时长：08:30–17:00，续航 4 小时，足够全天游览\n2. MR 沉浸式导览眼镜（蜀国秘镜）\n租金：38CNY / 5.61USD / 台\n特色：AR 动画还原古蜀场景（约公元前 1200–1000 年），适合喜欢沉浸式体验游客",
           },
           cost: { cny: 102, usd: 15.06, note: { en: "ticket 72 + 30 audio / person", zh: "门票 72 + 讲解 30/人" } },
           image: "images/sanxingdui-museum.jpg",
@@ -1890,8 +1890,8 @@ const ACTIVITY_OVERVIEWS = {
     zh: "IFS 旁隐藏的熊猫文创批发楼，正版公仔、盲盒、四川特产齐全，价格约为景区街边的三分之一。",
   },
   "Jinli Ancient Street": {
-    en: "Ming–Qing style pedestrian lane beside Wuhou Shrine — red lanterns, folk crafts, and Chengdu street snacks; most atmospheric after dark.",
-    zh: "武侯祠旁明清风格古街，红灯笼、民间手艺与成都小吃云集，华灯初上时最有氛围。",
+    en: "Ming–Qing style pedestrian lane (Ming 1368–1644; Qing 1644–1912) beside Wuhou Shrine — red lanterns, folk crafts, and Chengdu street snacks; most atmospheric after dark.",
+    zh: "武侯祠旁明清风格古街（明 1368–1644 年；清 1644–1912 年），红灯笼、民间手艺与成都小吃云集，华灯初上时最有氛围。",
   },
   "Jiuyan Bridge Riverside Bar": {
     en: "Anshun Bridge spans the Jin River with neon reflections at night; riverside folk bars offer live music and mild fruit wine in a relaxed local scene.",
@@ -1902,12 +1902,12 @@ const ACTIVITY_OVERVIEWS = {
     zh: "成都历史最悠久的城市公园（1911 年建），可观赏广场舞、独特相亲角，以及鹤鸣茶社百年盖碗茶文化。",
   },
   "Tingxiang Mansion Panda Banquet": {
-    en: "Private dining in Wide & Narrow Alleys with panda-shaped creative dishes — fully customizable non-spicy menu in a Qing-era courtyard setting.",
-    zh: "宽窄巷子内私房菜馆，熊猫造型创意菜可全桌无辣定制，在清代院落环境中用餐，仪式感强。",
+    en: "Private dining in Wide & Narrow Alleys with panda-shaped creative dishes — fully customizable non-spicy menu in a Qing-dynasty (1644–1912) courtyard setting.",
+    zh: "宽窄巷子内私房菜馆，熊猫造型创意菜可全桌无辣定制，在清代（1644–1912 年）院落环境中用餐，仪式感强。",
   },
   "Jinsha Site Museum": {
-    en: "3,000-year-old Shu Kingdom site — home of the golden Sun Bird (China's cultural heritage logo) and exquisite jade and gold artifacts.",
-    zh: "三千年古蜀文明遗址，出土太阳神鸟金饰（中国文化遗产标志）及精美玉器、金器，是成都文明的源头。",
+    en: "Shu Kingdom site (c. 1200–650 BCE) — home of the golden Sun Bird (China's cultural heritage logo) and exquisite jade and gold artifacts.",
+    zh: "古蜀王国遗址（约公元前 1200–650 年），出土太阳神鸟金饰（中国文化遗产标志）及精美玉器、金器，是成都文明的源头。",
   },
   "Long Chaoshou (Wenshu Branch)": {
     en: "Chengdu's classic wonton chain since 1941 — clear-broth wontons are light, mild, and perfect for a non-spicy local dinner near Wenshu Monastery.",
@@ -1918,8 +1918,8 @@ const ACTIVITY_OVERVIEWS = {
     zh: "70 分钟精品川剧，变脸、吐火、长嘴壶茶艺一网打尽，在小剧场近距离欣赏非遗技艺。",
   },
   "Sanxingdui Museum": {
-    en: "One of China's greatest archaeological discoveries — towering bronze masks, gold scepters, and a mysterious civilization unlike anything else in Chinese history.",
-    zh: "中国考古最震撼发现之一，青铜大面具、金杖与神秘古蜀文明，视觉冲击力极强。",
+    en: "One of China's greatest archaeological discoveries (Sanxingdui culture, c. 1200–1000 BCE) — towering bronze masks, gold scepters, and a mysterious civilization unlike anything else in Chinese history.",
+    zh: "中国考古最震撼发现之一（三星堆文化，约公元前 1200–1000 年），青铜大面具、金杖与神秘古蜀文明，视觉冲击力极强。",
   },
   "Jiuzhaigou Valley": {
     en: "Turquoise lakes and waterfalls in a high-altitude valley — shuttle buses and boardwalks make it accessible without strenuous hiking.",
@@ -1930,8 +1930,8 @@ const ACTIVITY_OVERVIEWS = {
     zh: "四川省顶级综合博物馆，免费预约，古蜀文物、藏文化、张大千书画收藏突出。",
   },
   "Chengdu Museum": {
-    en: "Free city museum at Tianfu Square tracing 4,500 years of Chengdu history — from ancient Shu to modern teahouse culture.",
-    zh: "天府广场免费城市博物馆，从4500 年前古蜀到现代茶馆文化，互动展陈讲述成都城市通史。",
+    en: "Free city museum at Tianfu Square tracing 4,500 years of Chengdu history — from ancient Shu cultures (from c. 4500 BCE) to modern teahouse culture.",
+    zh: "天府广场免费城市博物馆，从约公元前 4500 年起的古蜀文化到现代茶馆文化，互动展陈讲述成都城市通史。",
   },
   "Bai Xiang Ju · Shiba Ti · Huashi Wanza Noodles": {
     en: "Huashi Wanza Noodles is a Chongqing staple — dry pea noodles with minced pork, customizable no-chili; paired with Bai Xiang Ju cliffside apartments and Shiba Ti's restored steps.",
@@ -1970,8 +1970,8 @@ const ACTIVITY_OVERVIEWS = {
     zh: "大足一日游前的酒店自助早餐，已含在住宿内。",
   },
   "Dazu Rock Carvings (Baodingshan)": {
-    en: "Cliff sculptures dating from the 9th–13th centuries — the Thousand-Hand Guanyin and themed grotto clusters at Baodingshan are among China's finest Buddhist rock art.",
-    zh: "9–13 世纪摩崖造像 — 宝顶山千手观音等石窟群为中国佛教石刻艺术巅峰之一。",
+    en: "Cliff sculptures from the late Tang through Song dynasties (9th–13th centuries; Tang 618–907 CE, Song 960–1279 CE) — the Thousand-Hand Guanyin and themed grotto clusters at Baodingshan are among China's finest Buddhist rock art.",
+    zh: "唐至宋代（9–13 世纪；唐 618–907 年，宋 960–1279 年）摩崖造像 — 宝顶山千手观音等石窟群为中国佛教石刻艺术巅峰之一。",
   },
 };
 
