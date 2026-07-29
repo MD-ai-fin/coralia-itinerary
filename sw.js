@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 /** Bump when shell assets change so clients refresh the cache. */
-const CACHE = "panda-itinerary-20260731e";
+const CACHE = "panda-itinerary-20260731f";
 
 const SHELL = [
   "./",
@@ -102,17 +102,26 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    caches.match(pathKey(request.url)).then((cached) => {
-      const network = fetch(request)
-        .then((response) => {
-          if (response.ok) {
-            caches.open(CACHE).then((cache) => cache.put(pathKey(request.url), response.clone()));
-          }
-          return response;
-        })
-        .catch(() => cached);
+    (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")
+      ? fetch(request)
+          .then((response) => {
+            if (response.ok) {
+              caches.open(CACHE).then((cache) => cache.put(pathKey(request.url), response.clone()));
+            }
+            return response;
+          })
+          .catch(() => caches.match(pathKey(request.url)))
+      : caches.match(pathKey(request.url)).then((cached) => {
+          const network = fetch(request)
+            .then((response) => {
+              if (response.ok) {
+                caches.open(CACHE).then((cache) => cache.put(pathKey(request.url), response.clone()));
+              }
+              return response;
+            })
+            .catch(() => cached);
 
-      return cached || network;
-    })
+          return cached || network;
+        }))
   );
 });

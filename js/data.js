@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-31e",
+    build: "2026-07-31f",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },

@@ -752,7 +752,7 @@
                 data-section-index="${index}">
           ${
             item.iconImg
-              ? `<span class="section-nav-item-icon section-nav-item-icon-img" aria-hidden="true"><img src="${item.iconImg}" alt="" loading="lazy"></span>`
+              ? `<span class="section-nav-item-icon section-nav-item-icon-img" aria-hidden="true"><img class="section-nav-panda-icon" src="${item.iconImg}" alt="" width="18" height="18" loading="lazy" decoding="async"></span>`
               : item.icon
                 ? `<span class="section-nav-item-icon" aria-hidden="true">${item.icon}</span>`
                 : ""
