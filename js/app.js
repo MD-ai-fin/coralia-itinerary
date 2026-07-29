@@ -719,18 +719,18 @@
     const u = ui();
     const b = ITINERARY.budgetBreakdown;
     return [
-      { sectionId: "hero-section", label: u.sectionNavWelcome },
-      { sectionId: "predeparture-section", label: u.preDepartureTitle },
-      { sectionId: "primer-section", label: u.primerTitle },
-      { sectionId: "highlights-section", label: u.highlightsTitle },
-      { sectionId: "hotels-section", label: u.hotelsTitle },
-      { sectionId: "tips-section", label: u.tipsTitle },
-      { sectionId: "days-section", label: u.daysTitle },
-      { sectionId: "budget-section", label: t(b.title), budgetPanel: "breakdown" },
-      { sectionId: "budget-section", label: t(b.optional.title), budgetPanel: "optional" },
-      { sectionId: "downloads-section", label: u.downloadsTitle },
-      { sectionId: "contact-section", label: u.contactTitle },
-      { sectionId: "install-qr-section", label: u.installQrTitle },
+      { sectionId: "hero-section", label: u.sectionNavWelcome, iconImg: "images/panda-wave.png" },
+      { sectionId: "predeparture-section", label: u.preDepartureTitle, icon: "⏰" },
+      { sectionId: "primer-section", label: u.primerTitle, icon: "🗺️" },
+      { sectionId: "highlights-section", label: u.highlightsTitle, icon: "✨" },
+      { sectionId: "hotels-section", label: u.hotelsTitle, icon: "🏨" },
+      { sectionId: "tips-section", label: u.tipsTitle, icon: "💡" },
+      { sectionId: "days-section", label: u.daysTitle, icon: "📅" },
+      { sectionId: "budget-section", label: t(b.title), icon: "💰", budgetPanel: "breakdown" },
+      { sectionId: "budget-section", label: t(b.optional.title), icon: "➕", budgetPanel: "optional" },
+      { sectionId: "downloads-section", label: u.downloadsTitle, icon: "📥" },
+      { sectionId: "contact-section", label: u.contactTitle, icon: "✉️" },
+      { sectionId: "install-qr-section", label: u.installQrTitle, icon: "📲" },
     ];
   }
 
@@ -750,6 +750,13 @@
                 data-section-id="${item.sectionId}"
                 data-budget-panel="${item.budgetPanel || ""}"
                 data-section-index="${index}">
+          ${
+            item.iconImg
+              ? `<span class="section-nav-item-icon section-nav-item-icon-img" aria-hidden="true"><img src="${item.iconImg}" alt="" loading="lazy"></span>`
+              : item.icon
+                ? `<span class="section-nav-item-icon" aria-hidden="true">${item.icon}</span>`
+                : ""
+          }
           <span class="section-nav-item-label">${item.label}</span>
         </button>
       `
@@ -1359,6 +1366,9 @@
   }
 
   function renderFooter() {
+    const taglineEl = document.getElementById("footer-tagline-text");
+    if (taglineEl) taglineEl.textContent = ui().footerTagline;
+
     const build = ITINERARY.meta.build ? ` · Build ${ITINERARY.meta.build}` : "";
     document.getElementById("exchange-rate").textContent = ITINERARY.meta.exchangeRate + build;
   }

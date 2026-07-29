@@ -17,12 +17,12 @@ const ITINERARY = {
     greetingLead: { en: "Welcome!", zh: "欢迎" },
     greetingRest: { en: "Your trip starts here.", zh: "开启一段难忘的旅程！" },
     traveler: {
-      en: "Two travelers · Easy on spice · Relaxed pace · September",
-      zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 九月",
+      en: "Two travelers · Easy on spice · Relaxed pace · Oct 15–30",
+      zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 10 月 15–30 日",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-30q",
+    build: "2026-07-31e",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -502,6 +502,16 @@ const ITINERARY = {
     },
     items: [
       {
+        id: "oct-timing",
+        icon: "📅",
+        title: { en: "Oct 15–30 travel window", zh: "10 月 15–30 日出行提醒" },
+        desc: {
+          en: "Your dates avoid National Day Golden Week (Oct 1–7), but Jiuzhaigou is still peak season—book valley tickets, hotels, and HSR early. Oct 15–30 falls in the visa guide’s “apply 4–8 weeks before departure” window; if you have not started yet, do so immediately.",
+          zh: "本行程 10 月 15–30 日已避开国庆黄金周（10/1–7），但九寨沟仍为旺季，门票与酒店建议提前预订。该时段落在签证指南「出发前 4–8 周申请」窗口内，若尚未办签请尽快办理。",
+        },
+        tipTarget: "visa",
+      },
+      {
         id: "visa",
         icon: "🛂",
         title: { en: "China L visa", zh: "中国旅游 L 签证" },
@@ -585,7 +595,7 @@ const ITINERARY = {
       day: 5,
       city: { en: "Jiuzhaigou", zh: "九寨沟" },
       name: { en: "Jiuzhaigou Valley", zh: "九寨沟风景区" },
-      tagline: { en: "Turquoise lakes & shuttle-friendly boardwalks", zh: "五彩海子 · 观光车全覆盖" },
+      tagline: { en: "Peak autumn foliage & shuttle-friendly boardwalks", zh: "彩林高峰 · 观光车全覆盖" },
       heritage: { kind: "natural", year: 1992 },
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/960px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg",
       reviewKey: "Jiuzhaigou Valley",
@@ -1089,6 +1099,18 @@ const ITINERARY = {
           cost: { cny: 280, usd: 41.36, note: { en: "ticket + shuttle / person", zh: "门票+观光车/人" } },
           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/960px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg",
         },
+        {
+          time: "Optional · Evening",
+          optional: true,
+          type: "attraction",
+          title: { en: "Legend of Jiuzhai Show", zh: "《九寨千古情》藏羌歌舞（可选）" },
+          desc: {
+            en: "Not included in the required budget. TripAdvisor 4.4★ (1,300+ reviews)—the top-rated evening show near Jiuzhaigou gate town. Songcheng Jiuzhai Romance Park: 5D Tibetan-Qiang song & dance, ~1 hr. Typical showtimes 17:30 or 19:00 (confirm when booking). Ticket includes park entry; arrive ~30 min early. Short taxi or hotel shuttle from Xingyu; book ahead in peak season.",
+            zh: "不计入固定花费。TripAdvisor 4.4 分（1,300+ 条评价）— 沟口口碑最佳的晚间演出。宋城九寨千古情景区：5D 藏羌歌舞约 1 小时，常见场次 17:30 或 19:00（以预约为准），含景区入园，建议提前 30 分钟入场。星宇酒店班车或短途打车可达，旺季请提前预约。",
+          },
+          cost: { cny: 270, usd: 39.88, note: { en: "audience seat / person", zh: "观众席/人" } },
+          image: "https://ak-d.tripcdn.com/images/1mc1012000seytq7cA1F4_R_960_660_R5_D.jpg",
+        },
       ],
     },
     {
@@ -1580,6 +1602,7 @@ const ITINERARY = {
         { en: "D9 Yangtze River Cableway round-trip for two (~100 CNY / $14.77)", zh: "D9 长江索道往返（×2）：约 100 CNY / 14.77 USD" },
         { en: "D8 Longshui Gorge add-on (~210 CNY / $31.02 for two)", zh: "D8 龙水峡地缝加游（若补游武隆）：双人约 210 CNY / 31.02 USD" },
         { en: "D3 Sichuan local specialty souvenirs (evening shopping)", zh: "D3 四川特产伴手礼" },
+        { en: "D5 Legend of Jiuzhai (九寨千古情) evening show for two — audience seats ~540 CNY / $79.76 (TripAdvisor 4.4★; book ahead)", zh: "D5 晚间《九寨千古情》藏羌歌舞（双人观众席）：约 540 CNY / 79.76 USD（TripAdvisor 4.4 分，旺季提前预约）" },
         { en: "D7 Huashi Wanza Noodles for two (34CNY): 2 dry pea noodles, no chili, soft-boiled egg each", zh: "D7 花市豌杂面（民生路总店）双人 34 CNY：两碗干溜豌杂面、不要辣、各加溏心煎蛋" },
         { en: "D9 Brother Mao Old Duck Soup lunch for two (70/person): 140 CNY / $20.68", zh: "D9 毛哥老鸭汤（临江门店）双人午餐：140 CNY / 20.68 USD" },
         { en: "D10 Lunch near Dazu scenic area", zh: "D10 大足景区附近午餐" },
@@ -1782,6 +1805,7 @@ const ITINERARY = {
       pwaInstallSuccess: "Installed! Find the app on your home screen.",
       installQrTitle: "Open on your phone",
       installQrHint: "Scan with your camera to open the trip, then add it to your home screen.",
+      footerTagline: "Made with care for Coralia D. Hope you have a wonderful trip",
     },
     zh: {
       appsTitle: "出行前必备 APP",
@@ -1867,6 +1891,7 @@ const ITINERARY = {
       pwaInstallSuccess: "安装成功！请在本机主屏幕查看图标。",
       installQrTitle: "手机安装",
       installQrHint: "用手机相机或微信扫码打开行程，再添加到主屏幕即可。",
+      footerTagline: "Coralia D. 专属旅程 · 愿一路皆美好",
     },
   },
 };
@@ -1922,8 +1947,12 @@ const ACTIVITY_OVERVIEWS = {
     zh: "中国考古最震撼发现之一（三星堆文化，约公元前 1200–1000 年），青铜大面具、金杖与神秘古蜀文明，视觉冲击力极强。",
   },
   "Jiuzhaigou Valley": {
-    en: "Turquoise lakes and waterfalls in a high-altitude valley — shuttle buses and boardwalks make it accessible without strenuous hiking.",
-    zh: "钙华海子与瀑布群，9 月色彩层次丰富；观光车与木栈道覆盖全沟，无需高强度徒步。",
+    en: "Jiuzhaigou lies in the Ngawa (Aba) Tibetan and Qiang Autonomous Prefecture—named for nine Tibetan villages once along the gorges. Tibetan-style architecture around the gate town; Day 4 hotel includes complimentary Tibetan costume photos. UNESCO site since 1992; affected by the 2008 Wenchuan earthquake and later restored. Turquoise lakes and waterfalls at high altitude; mid-to-late October (Oct 15–30 on this trip) brings peak red-and-gold foliage. Shuttle buses and boardwalks cover the valley without strenuous hiking—layer up for cool mornings.",
+    zh: "九寨沟位于阿坝藏族羌族自治州，沟名来自沟内九个藏族村寨；沟口可见藏式建筑，D4 酒店含免费藏服拍照。1992 年世界自然遗产；2008 年汶川大地震波及本区，后经修复现正常开放。钙华海子碧蓝；本行程在 10 月 15–30 日，彩林正盛。观光车与木栈道覆盖全沟，无需高强度徒步，早晚较凉请添衣。",
+  },
+  "Legend of Jiuzhai Show": {
+    en: "Songcheng’s Legend of Jiuzhai (Jiuzhai Romance Park) is the best-reviewed evening show at Jiuzhaigou gate town—TripAdvisor 4.4★ from 1,300+ reviews. One-hour 5D Tibetan-Qiang spectacular with rotating seats and live effects; chapters cover local legends, Princess Wencheng, and the 2008 Wenchuan earthquake. Adjacent to the scenic area in Zhangzha; ticket includes the theme park before the show.",
+    zh: "宋城《九寨千古情》（九寨千古情景区）为沟口口碑最佳的晚间演出，TripAdvisor 4.4 分、1,300+ 条评价。约 1 小时 5D 藏羌歌舞，座椅互动与实景特效；分九寨传说、文成公主、汶川抗震等篇章。景区毗邻沟口漳扎镇，门票含主题园游览。",
   },
   "Sichuan Museum": {
     en: "Sichuan's top provincial museum — free entry, strong collection of Shu relics, Tibetan artifacts, and Zhang Daqian paintings.",
@@ -2013,6 +2042,8 @@ const ACTIVITY_REVIEWS = {
     "https://www.tripadvisor.com/Attraction_Review-g1152585-d457099-Reviews-Guanghan_Sanxingdui_Museum-Guanghan_Sichuan.html",
   "Jiuzhaigou Valley":
     "https://www.tripadvisor.com/Attraction_Review-g303770-d319081-Reviews-Jiuzhaigou_Natural_Reserve-Jiuzhaigou_County_Sichuan.html",
+  "Legend of Jiuzhai Show":
+    "https://www.tripadvisor.com/Attraction_Review-g303770-d8705179-Reviews-Jiuzhai_Romance_Park-Jiuzhaigou_County_Ngawa_Tibetan_and_Qiang_Autonomous_Prefecture.html",
   "Sichuan Museum":
     "https://www.tripadvisor.com/Attraction_Review-g297463-d1824371-Reviews-Sichuan_Museum-Chengdu_Sichuan.html",
   "Chengdu Museum":
