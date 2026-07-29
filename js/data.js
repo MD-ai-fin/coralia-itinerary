@@ -18,11 +18,11 @@ const ITINERARY = {
     greetingRest: { en: "Your trip starts here.", zh: "开启一段难忘的旅程！" },
     traveler: {
       en: "Two travelers · Easy on spice · Relaxed pace · Oct 15–30",
-      zh: "一场属于两个人的难忘旅程 · 清淡饮食 · 轻松慢行 · 10 月 15–30 日",
+      zh: "两个人的难忘旅程 · 清淡少辣 · 轻松慢行 · 10 月 15–30 日",
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-31f",
+    build: "2026-07-31l",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -1089,13 +1089,16 @@ const ITINERARY = {
       intensity: "relaxed",
       hotel: "xingyu",
       subtotal: { cny: 889, usd: 131.31 },
-      summary: { en: "Colorful lakes & shuttle buses all day", zh: "五彩湖泊 · 观光车全覆盖" },
+      summary: { en: "Colorful lakes · shuttles · optional evening show", zh: "五彩湖泊 · 观光车全覆盖 · 晚间可选千古情" },
       activities: [
         {
           time: "All Day",
           type: "attraction",
           title: { en: "Jiuzhaigou Valley", zh: "九寨沟风景区" },
-          desc: { en: "", zh: "" },
+          desc: {
+            en: "Note: optional evening Legend of Jiuzhai (theme park + show) is a separate venue and ticket—not included here.",
+            zh: "提示：晚间《九寨千古情》（主题园+主秀）为可选自费，地点与门票均不同于本项。",
+          },
           cost: { cny: 280, usd: 41.36, note: { en: "ticket + shuttle / person", zh: "门票+观光车/人" } },
           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/960px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg",
         },
@@ -1105,10 +1108,10 @@ const ITINERARY = {
           type: "attraction",
           title: { en: "Legend of Jiuzhai Show", zh: "《九寨千古情》藏羌歌舞（可选）" },
           desc: {
-            en: "Not included in the required budget. TripAdvisor 4.4★ (1,300+ reviews)—the top-rated evening show near Jiuzhaigou gate town. Songcheng Jiuzhai Romance Park: 5D Tibetan-Qiang song & dance, ~1 hr. Typical showtimes 17:30 or 19:00 (confirm when booking). Ticket includes park entry; arrive ~30 min early. Short taxi or hotel shuttle from Xingyu; book ahead in peak season.",
-            zh: "不计入固定花费。TripAdvisor 4.4 分（1,300+ 条评价）— 沟口口碑最佳的晚间演出。宋城九寨千古情景区：5D 藏羌歌舞约 1 小时，常见场次 17:30 或 19:00（以预约为准），含景区入园，建议提前 30 分钟入场。星宇酒店班车或短途打车可达，旺季请提前预约。",
+            en: "Not included in the required budget.\n\n• Separate from Jiuzhaigou National Park (your Day 5 valley ticket)—different location, different ticket\n• This ticket includes: Jiuzhai Romance theme-park entry + Legend of Jiuzhai main show (~1 hr)\n• Does not include: national-park valley ticket (already in required costs)\n\n• Theme park quick stroll: arrive 30–60 min before showtime\n• Theme park in depth: ~1–1.5 hr\n• Whole evening (park + show): usually ~2–3 hr\n\nTypical show slots 17:30 or 19:00 (confirm when booking). TripAdvisor 4.4★. Taxi or hotel shuttle from Xingyu; book ahead in peak season.",
+            zh: "不计入固定花费。\n\n• 与白天「九寨沟风景区」不同地点、不同门票\n• 本票含：九寨千古情主题园入园 + 主秀（约 1 小时）\n• 不含：国家公园门票（白天固定花费已含）\n\n• 主题园快速逛：提前 30–60 分钟入园\n• 主题园深度逛：约 1–1.5 小时\n• 连主秀整晚：通常 2–3 小时\n\n常见场次 17:30 或 19:00（以预约为准）。TripAdvisor 4.4 分。星宇酒店班车或短途打车；旺季提前预约。",
           },
-          cost: { cny: 270, usd: 39.88, note: { en: "audience seat / person", zh: "观众席/人" } },
+          cost: { cny: 270, usd: 39.88, note: { en: "audience seat / person (park + show)", zh: "观众席/人（含主题园+主秀）" } },
           image: "https://ak-d.tripcdn.com/images/1mc1012000seytq7cA1F4_R_960_660_R5_D.jpg",
         },
       ],
@@ -1602,7 +1605,7 @@ const ITINERARY = {
         { en: "D9 Yangtze River Cableway round-trip for two (~100 CNY / $14.77)", zh: "D9 长江索道往返（×2）：约 100 CNY / 14.77 USD" },
         { en: "D8 Longshui Gorge add-on (~210 CNY / $31.02 for two)", zh: "D8 龙水峡地缝加游（若补游武隆）：双人约 210 CNY / 31.02 USD" },
         { en: "D3 Sichuan local specialty souvenirs (evening shopping)", zh: "D3 四川特产伴手礼" },
-        { en: "D5 Legend of Jiuzhai (九寨千古情) evening show for two — audience seats ~540 CNY / $79.76 (TripAdvisor 4.4★; book ahead)", zh: "D5 晚间《九寨千古情》藏羌歌舞（双人观众席）：约 540 CNY / 79.76 USD（TripAdvisor 4.4 分，旺季提前预约）" },
+        { en: "D5 Legend of Jiuzhai (九寨千古情) evening for two — theme park + show, audience seats ~540 CNY / $79.76 (separate from valley ticket; book ahead)", zh: "D5 晚间《九寨千古情》（主题园+主秀，双人观众席）：约 540 CNY / 79.76 USD（与白天国家公园门票无关，旺季提前预约）" },
         { en: "D7 Huashi Wanza Noodles for two (34CNY): 2 dry pea noodles, no chili, soft-boiled egg each", zh: "D7 花市豌杂面（民生路总店）双人 34 CNY：两碗干溜豌杂面、不要辣、各加溏心煎蛋" },
         { en: "D9 Brother Mao Old Duck Soup lunch for two (70/person): 140 CNY / $20.68", zh: "D9 毛哥老鸭汤（临江门店）双人午餐：140 CNY / 20.68 USD" },
         { en: "D10 Lunch near Dazu scenic area", zh: "D10 大足景区附近午餐" },
@@ -1951,8 +1954,8 @@ const ACTIVITY_OVERVIEWS = {
     zh: "九寨沟位于阿坝藏族羌族自治州，沟名来自沟内九个藏族村寨；沟口可见藏式建筑，D4 酒店含免费藏服拍照。1992 年世界自然遗产；2008 年汶川大地震波及本区，后经修复现正常开放。钙华海子碧蓝；本行程在 10 月 15–30 日，彩林正盛。观光车与木栈道覆盖全沟，无需高强度徒步，早晚较凉请添衣。",
   },
   "Legend of Jiuzhai Show": {
-    en: "Songcheng’s Legend of Jiuzhai (Jiuzhai Romance Park) is the best-reviewed evening show at Jiuzhaigou gate town—TripAdvisor 4.4★ from 1,300+ reviews. One-hour 5D Tibetan-Qiang spectacular with rotating seats and live effects; chapters cover local legends, Princess Wencheng, and the 2008 Wenchuan earthquake. Adjacent to the scenic area in Zhangzha; ticket includes the theme park before the show.",
-    zh: "宋城《九寨千古情》（九寨千古情景区）为沟口口碑最佳的晚间演出，TripAdvisor 4.4 分、1,300+ 条评价。约 1 小时 5D 藏羌歌舞，座椅互动与实景特效；分九寨传说、文成公主、汶川抗震等篇章。景区毗邻沟口漳扎镇，门票含主题园游览。",
+    en: "Songcheng’s Tibetan-Qiang theme park in Zhangzha gate town—next to Jiuzhaigou Valley but a separate ticket. Inside: Tibetan-style streets, pop-up acts, and snack stalls—mostly flat, easy walking.",
+    zh: "宋城在沟口漳扎镇打造的藏羌主题园，与九寨沟国家公园相邻但门票独立；园内有藏羌街景、快闪小演出与小吃街，以平路为主。",
   },
   "Sichuan Museum": {
     en: "Sichuan's top provincial museum — free entry, strong collection of Shu relics, Tibetan artifacts, and Zhang Daqian paintings.",

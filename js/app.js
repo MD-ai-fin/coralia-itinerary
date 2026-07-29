@@ -371,6 +371,7 @@
     if (textsAreRedundant(overview, desc)) return overview;
 
     if (desc.includes("\n")) {
+      if (/^\s*•\s/m.test(desc)) return desc;
       return `${overview}\n\n${desc}`;
     }
 
@@ -1013,6 +1014,7 @@
     const isShoppingGuide = /Pop Panda Factory|泡泡熊猫工厂/.test(text);
 
     const stripLine = (line) => {
+      if (/^\s*[•·\-*]\s/.test(line)) return line.trim();
       if (/租金|押金|Rental:|deposit|\/ 台|per unit|导览器|导览眼镜|智慧语音|MR 沉浸式|Smart audio guide|MR immersive|Languages:|语言：|时长：|Hours:|Highlight:|特色：|^可租/i.test(line)) return line.trim();
       if (isShoppingGuide) return line.trim();
 
@@ -1038,7 +1040,8 @@
         /\d+(?:\.\d+)?\s*CNY(?:\s*\/\s*人|\s*\/人|\s*per person)?/gi,
         /\d+(?:\.\d+)?\s*USD(?:\s*\/\s*人|\s*per person|\s*one-way|\s*round-trip)?/gi,
         /(?:约?\s*\d+(?:\.\d+)?\s*元\/人(?:\/day)?)/g,
-        /(?:One-way fare per person|One-way|Second-class seat|Second-class|Set price for two|Set for two|Ticket set for two|Cost for two|Daily room split|Daily split|Room rate|Average second-class|Combined entrance ticket|Entrance ticket|Combo ticket|Ticket)\s*[^.;\n]*/gi,
+        /(?:One-way fare per person|One-way|Second-class seat|Second-class|Set price for two|Set for two|Ticket set for two|Cost for two|Daily room split|Daily split|Room rate|Average second-class|Combined entrance ticket|Entrance ticket|Combo ticket)\s*[^.;\n]*/gi,
+        /\bTicket\s+(?:\d|~|CNY|USD|\$)[^.;\n]*/gi,
         /(?:Round-trip)\s+(?:\d|fare|ticket|per person|CNY|USD)/gi,
         /(?:单人|人均|双人|套餐|单日分摊|房价|合计|二等座|英文讲解器|地缝门票|含百龙天梯)[^，,;；.\n]*/g,
         /(?:English audio guide)[^，,;；.\n]*/gi,
