@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-31m",
+    build: "2026-07-31n",
     budget: {
       total: { cny: 7951, usd: 1174.36 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -2020,8 +2020,6 @@ const UNESCO_HERITAGE = {
 /** Verified TripAdvisor pages (manual lookup, g297463 Chengdu geo). */
 const ACTIVITY_REVIEWS = {
   "Chengdu Panda Breeding Base":
-    "https://www.tripadvisor.com/Attraction_Review-g297463-d457089-Reviews-Giant_Panda_Breeding_Research_Base_Xiongmao_Jidi-Chengdu_Sichuan.html",
-  "Panda Panoramic Restaurant":
     "https://www.tripadvisor.com/Attraction_Review-g297463-d457089-Reviews-Giant_Panda_Breeding_Research_Base_Xiongmao_Jidi-Chengdu_Sichuan.html",
   "IFS Sunset Bistro Panda Afternoon Tea":
     "https://www.tripadvisor.com/Attraction_Review-g297463-d15671160-Reviews-Taikoo_Li-Chengdu_Sichuan.html",
