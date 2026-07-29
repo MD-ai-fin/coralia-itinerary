@@ -2602,15 +2602,22 @@ body[lang="en"] .hero-greeting-rest {
 }
 
 #footer-tagline {
-  margin: 0 0 8px;
-  line-height: 1.5;
+  margin: 0 auto 8px;
+  line-height: 1.45;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.15em 0.35em;
+  max-width: min(100%, 22rem);
 }
 
 .footer-panda {
-  width: 1.4em;
-  height: 1.4em;
+  width: 1.35em;
+  height: 1.35em;
   object-fit: contain;
-  vertical-align: -0.15em;
+  vertical-align: -0.12em;
+  flex-shrink: 0;
 }
 
 .exchange-rate {
@@ -2696,6 +2703,26 @@ body[lang="en"] .hero-greeting-rest {
 
   .pwa-install-actions {
     justify-content: center;
+  }
+
+  .footer {
+    padding: 20px 14px;
+    font-size: 0.78rem;
+  }
+
+  #footer-tagline {
+    max-width: min(100%, 18.5rem);
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+
+  body[lang="en"] #footer-tagline {
+    font-size: 0.7rem;
+  }
+
+  .footer-panda {
+    width: 1.2em;
+    height: 1.2em;
   }
 }
 
