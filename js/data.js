@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-08-01b",
+    build: "2026-08-01d",
     budget: {
       total: { cny: 7825, usd: 1155.65 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -148,7 +148,7 @@ const ITINERARY = {
     {
       id: "panda-sleepy",
       city: { en: "Chengdu", zh: "成都" },
-      name: { en: "Panda Sleepy Hotel", zh: "熊猫很困酒店" },
+      name: { en: "Panda Hotel", zh: "熊猫很困酒店" },
       location: { en: "Chunxi Road Taikoo Li", zh: "春熙路太古里店" },
       stars: 4,
       nights: 3,
@@ -766,9 +766,9 @@ const ITINERARY = {
         {
           time: "18:00",
           type: "hotel",
-          title: { en: "Panda Sleepy Hotel Check-in", zh: "熊猫很困酒店入住" },
+          title: { en: "Panda Hotel Check-in", zh: "熊猫很困酒店入住" },
           desc: {
-            en: "Walk back to Panda Sleepy Hotel to check in and rest.",
+            en: "Walk back to Panda Hotel to check in and rest.",
             zh: "步行回熊猫很困酒店办理入住休整。",
           },
           cost: { cny: 600, usd: 88.62, note: { en: "2 nights (your share)", zh: "两晚分摊" } },
@@ -961,7 +961,7 @@ const ITINERARY = {
           type: "transport",
           title: { en: "Metro Back to Hotel", zh: "地铁返程酒店" },
           desc: {
-            en: "21:30 metro back to Panda Sleepy Hotel.",
+            en: "21:30 metro back to Panda Hotel.",
             zh: "21:30 地铁返程酒店。",
           },
           cost: null,
@@ -970,9 +970,9 @@ const ITINERARY = {
         {
           time: "22:00",
           type: "hotel",
-          title: { en: "Panda Sleepy Hotel", zh: "熊猫很困酒店住宿" },
+          title: { en: "Panda Hotel", zh: "熊猫很困酒店住宿" },
           desc: {
-            en: "Overnight at Panda Sleepy Hotel.",
+            en: "Overnight at Panda Hotel.",
             zh: "熊猫很困酒店过夜住宿",
           },
           cost: { cny: 300, usd: 44.31, note: { en: "nightly share", zh: "单日分摊" } },
@@ -1025,9 +1025,9 @@ const ITINERARY = {
         {
           time: "19:00",
           type: "hotel",
-          title: { en: "Panda Sleepy Hotel", zh: "熊猫很困酒店住宿" },
+          title: { en: "Panda Hotel", zh: "熊猫很困酒店住宿" },
           desc: {
-            en: "Evening at Panda Sleepy Hotel — free luggage storage, pack for Jiuzhaigou.",
+            en: "Evening at Panda Hotel — free luggage storage, pack for Jiuzhaigou.",
             zh: "晚间回熊猫很困酒店，免费寄存大件行李、整理九寨沟出行物资",
           },
           cost: { cny: 300, usd: 44.31, note: { en: "nightly share", zh: "单日分摊" } },
@@ -1147,7 +1147,7 @@ const ITINERARY = {
         {
           time: "Evening",
           type: "hotel",
-          title: { en: "Panda Sleepy Hotel", zh: "熊猫很困酒店" },
+          title: { en: "Panda Hotel", zh: "熊猫很困酒店" },
           desc: {
             en: "No complimentary breakfast—pick up food nearby or buy breakfast at the front desk.",
             zh: "入住熊猫很困酒店，住宿提示：无免费早餐，次日早餐可街边就餐或酒店自费购买。",
@@ -1443,7 +1443,7 @@ const ITINERARY = {
           { label: { en: "Panda Base lunch for two", zh: "熊猫基地双人午餐" }, cny: 120, usd: 17.72 },
           { label: { en: "IFS panda afternoon tea set", zh: "IFS 双人熊猫下午茶" }, cny: 260, usd: 38.4 },
           { label: { en: "Taxis (hotel→Jinli→hotel)", zh: "打车（酒店→锦里→酒店）" }, cny: 18, usd: 2.66 },
-          { label: { en: "Panda Sleepy (2 nights, your share)", zh: "熊猫很困两晚分摊房价" }, cny: 600, usd: 88.62 },
+          { label: { en: "Panda Hotel (2 nights, your share)", zh: "熊猫很困两晚分摊房价" }, cny: 600, usd: 88.62 },
         ],
         subtotal: { cny: 1208, usd: 178.42 },
       },
@@ -1457,7 +1457,7 @@ const ITINERARY = {
           { label: { en: "Taxi to Jinsha Museum", zh: "打车至金沙遗址" }, cny: 20, usd: 2.95 },
           { label: { en: "Jinsha ticket + audio guide (×2)", zh: "金沙门票+英文讲解（×2）" }, cny: 200, usd: 29.54 },
           { label: { en: "Sichuan Opera two-person ticket", zh: "川剧变脸双人套票" }, cny: 99, usd: 14.61 },
-          { label: { en: "Panda Sleepy (nightly share)", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
+          { label: { en: "Panda Hotel (nightly share)", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
         ],
         subtotal: { cny: 873, usd: 128.93 },
       },
@@ -1467,7 +1467,7 @@ const ITINERARY = {
         items: [
           { label: { en: "IFS round-trip Sanxingdui shuttle", zh: "IFS 往返三星堆直通车" }, cny: 132, usd: 19.5 },
           { label: { en: "Sanxingdui ticket + audio guide (×2)", zh: "三星堆门票+讲解（×2）" }, cny: 204, usd: 30.13 },
-          { label: { en: "Panda Sleepy (nightly share)", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
+          { label: { en: "Panda Hotel (nightly share)", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
         ],
         subtotal: { cny: 636, usd: 93.94 },
       },
@@ -1496,7 +1496,7 @@ const ITINERARY = {
         items: [
           { label: { en: "Shuttle Jiuzhaigou–Huanglong Jiuzhai (×2)", zh: "九寨沟口→九寨站接驳（×2）" }, cny: 102, usd: 15.07 },
           { label: { en: "High-speed rail to Chengdu East (×2)", zh: "九寨站→成都东高铁（×2）" }, cny: 270, usd: 39.88 },
-          { label: { en: "Panda Sleepy (nightly share)", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
+          { label: { en: "Panda Hotel (nightly share)", zh: "熊猫很困单日分摊房价" }, cny: 300, usd: 44.31 },
         ],
         subtotal: { cny: 672, usd: 99.26 },
       },
@@ -1548,7 +1548,7 @@ const ITINERARY = {
       items: [
         { en: "D1 Times Square Block A panda souvenirs & gifts", zh: "D1 时代广场A座熊猫文创伴手礼" },
         { en: "D1 Jiuyan Bridge optional evening (~80 CNY/person cover + drinks + taxis)", zh: "D1 九眼桥可选晚间：清吧人均约 80 CNY + 酒水 + 打车" },
-        { en: "D1–D3 Panda Sleepy Hotel breakfast for two (3 nights): 228 CNY / $33.68", zh: "D1–D3 成都熊猫很困 3 晚双人早餐：228 CNY / 33.68 USD" },
+        { en: "D1–D3 Panda Hotel breakfast for two (3 nights): 228 CNY / $33.68", zh: "D1–D3 成都熊猫很困 3 晚双人早餐：228 CNY / 33.68 USD" },
         { en: "D3 Sichuan local specialty souvenirs (evening shopping)", zh: "D3 四川特产伴手礼" },
         { en: "D5 Legend of Jiuzhai (九寨千古情) Tibetan-Qiang show — theme park + main show, audience seats for two: ~540 CNY / $79.76 (separate from valley ticket; book ahead)", zh: "D5 晚间《九寨千古情》藏羌歌舞（主题园+主秀，双人观众席）：约 540 CNY / 79.76 USD（与白天国家公园门票无关，旺季提前预约）" },
         { en: "D7 Huashi Wanza Noodles for two (34CNY): 2 dry pea noodles, no chili, soft-boiled egg each", zh: "D7 花市豌杂面（民生路总店）双人 34 CNY：两碗干溜豌杂面、不要辣、各加溏心煎蛋" },
@@ -1569,13 +1569,13 @@ const ITINERARY = {
       zh: "美国往返中国须办 L 类旅游签证 — 美国护照不在中国单方面免签范围内",
     },
     required: {
-      en: "U.S. citizens need an L (tourist) visa for this 10-day Sichuan–Chongqing trip. Start the application 4–8 weeks before departure.",
-      zh: "美国公民赴川渝 10 天行程须提前办理 L 类（旅游）签证，建议出发前 4–8 周申请。",
+      en: "U.S. citizens need an L (tourist) visa for this 10-day Sichuan–Chongqing trip. Start the application 4–8 weeks before departure. Illinois residents apply through the Consulate General in Chicago.",
+      zh: "美国公民赴川渝 10 天行程须提前办理 L 类（旅游）签证，建议出发前 4–8 周申请。伊利诺伊州居民请向芝加哥总领馆申请。",
     },
     steps: [
       {
-        en: "Apply online through COVA (launched September 30, 2025) via the Chinese embassy or consulate that serves your U.S. state",
-        zh: "在美国驻华使领馆管辖范围内，通过 COVA 在线签证系统（2025年9月30日启用）填写申请",
+        en: "Apply online through COVA (launched September 30, 2025) via the Chinese Consulate General in Chicago",
+        zh: "通过 COVA 在线签证系统（2025年9月30日启用）向芝加哥总领馆提交申请",
       },
       {
         en: "Choose Ordinary Visa → L (Tourism). Request a multiple-entry or 10-year visa if you qualify",
@@ -1629,13 +1629,14 @@ const ITINERARY = {
     links: [
       { label: { en: "Chinese Embassy in the United States", zh: "中国驻美国大使馆" }, url: "https://us.china-embassy.gov.cn/eng/lsfw/zj/" },
       { label: { en: "COVA online application", zh: "COVA 在线申请系统" }, url: "https://cova.mfa.gov.cn" },
-      { label: { en: "Consulate General of China, New York", zh: "纽约总领馆" }, url: "https://newyork.china-consulate.gov.cn/eng/" },
-      { label: { en: "Consulate General of China, Chicago", zh: "芝加哥总领馆" }, url: "https://chicago.china-consulate.gov.cn/eng/" },
-      { label: { en: "Consulate General of China, San Francisco", zh: "旧金山总领馆" }, url: "https://sanfrancisco.china-consulate.gov.cn/eng/" },
+      {
+        label: { en: "Consulate General of China, Chicago (Illinois)", zh: "中国驻芝加哥总领馆（伊利诺伊州）" },
+        url: "https://chicago.china-consulate.gov.cn/eng/",
+      },
     ],
     note: {
-      en: "Requirements vary by applicant. Always confirm the latest rules with the consulate that covers your home state before you apply.",
-      zh: "签证审理因个案而异，请以所属领馆辖区最新要求为准。",
+      en: "Requirements vary by applicant. Always confirm the latest rules on the Chicago consulate website before you apply.",
+      zh: "签证审理因个案而异，请以芝加哥总领馆官网最新要求为准。",
     },
   },
 
