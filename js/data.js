@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-07-31z",
+    build: "2026-08-01b",
     budget: {
       total: { cny: 7825, usd: 1155.65 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -285,7 +285,6 @@ const ITINERARY = {
         ],
         trip: {
           segments: [
-            { t: { en: "This trip: ", zh: "本行程：" } },
             { t: { en: "Chengdu base", zh: "成都大本营" }, day: 1 },
             { t: { en: " (Days 1–3, 6), ", zh: "（第 1–3、6 天），" } },
             { t: { en: "Jiuzhaigou", zh: "九寨沟" }, day: 5, actIndex: 0 },
@@ -374,7 +373,6 @@ const ITINERARY = {
         ],
         trip: {
           segments: [
-            { t: { en: "This trip: ", zh: "本行程：" } },
             { t: { en: "Panda Base", zh: "熊猫基地" }, day: 1, actIndex: 1 },
             { t: { en: " & ", zh: "、" } },
             { t: { en: "Jinli", zh: "锦里" }, day: 1, actIndex: 8 },
@@ -475,7 +473,6 @@ const ITINERARY = {
         ],
         trip: {
           segments: [
-            { t: { en: "This trip: ", zh: "本行程：" } },
             { t: { en: "Train from Chengdu", zh: "成都高铁赴渝" }, day: 7, actIndex: 2 },
             { t: { en: " (Day 7), ", zh: "（第 7 天），" } },
             { t: { en: "Huashi noodles", zh: "花市豌杂面" }, day: 7, actIndex: 4 },
@@ -2030,9 +2027,9 @@ const ACTIVITY_REVIEWS = {
   "Nanbin Road & Xiahaoli":
     "https://www.tripadvisor.com/Attraction_Review-g294213-d5302833-Reviews-LongMenHao_ShangYeJie_SenLin_LongMen_HaoYue_Nan-Chongqing.html",
   "Dazu Rock Carvings":
-    "https://www.tripadvisor.com/Attraction_Review-g659303-d325274-Reviews-Dazu_Rock_Carving-Dazu_County_Chongqing.html",
+    "https://www.tripadvisor.com/Attraction_Review-g325577-d319625-Reviews-The_Dazu_Rock_Carvings-Dazu_County.html",
   "Dazu Rock Carvings (Baodingshan)":
-    "https://www.tripadvisor.com/Attraction_Review-g659303-d325274-Reviews-Dazu_Rock_Carving-Dazu_County_Chongqing.html",
+    "https://www.tripadvisor.com/Attraction_Review-g325577-d319625-Reviews-The_Dazu_Rock_Carvings-Dazu_County.html",
 };
 
 ITINERARY.highlights.forEach((h) => {
