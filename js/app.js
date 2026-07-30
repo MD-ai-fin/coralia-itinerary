@@ -1409,7 +1409,7 @@
             </div>
             <a class="download-btn" href="${item.file[lang] || item.file.en}" download data-download>
               <span class="download-btn-icon" aria-hidden="true">📥</span>
-              ${u.downloadBtn}
+              <span class="download-btn-label">${u.downloadBtn}</span>
             </a>
           </article>
         `
@@ -1445,8 +1445,15 @@
 
   async function triggerFileDownload(url, linkEl) {
     const filename = url.split("/").pop() || "download.docx";
+    const minBusyMs = 500;
+
     linkEl.setAttribute("aria-busy", "true");
     linkEl.classList.add("download-btn-busy");
+
+    // Ensure the busy state paints before fetch (local files can finish in one frame).
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+    const started = Date.now();
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error("fetch failed");
@@ -1468,10 +1475,15 @@
       anchor.click();
       anchor.remove();
       showAppToast(ui().downloadSuccess);
-    } finally {
-      linkEl.removeAttribute("aria-busy");
-      linkEl.classList.remove("download-btn-busy");
     }
+
+    const remaining = minBusyMs - (Date.now() - started);
+    if (remaining > 0) {
+      await new Promise((resolve) => setTimeout(resolve, remaining));
+    }
+
+    linkEl.classList.remove("download-btn-busy");
+    linkEl.removeAttribute("aria-busy");
   }
 
   function bindEvents() {
