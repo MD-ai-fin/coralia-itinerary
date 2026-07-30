@@ -12,6 +12,7 @@
   let sectionNavOpen = false;
   let spotlightTimer = null;
   let manifestBlobUrl = null;
+  let downloadToastTimer = null;
 
   const SECTION_NAV_DRAWER_MQ = "(max-width: 1279px)";
   const SPOT_NAV_DRAWER_MQ = "(max-width: 1279px)";
@@ -625,6 +626,16 @@
     const titleZh = act.title?.zh || "";
     if (/hotel breakfast|breakfast & departure|breakfast and departure/.test(titleEn)) return true;
     if (/酒店早餐|早餐出发/.test(titleZh)) return true;
+    // Transit combos mis-tagged as food/attraction — not navigable spots
+    if (
+      act.image === "images/china-railway.png" ||
+      act.image === "images/didi.png" ||
+      act.image === "images/shuttle-bus.svg" ||
+      act.image === "images/chengdu-metro.png" ||
+      act.image === "images/chongqing-metro.png"
+    ) {
+      return true;
+    }
     return false;
   }
 
@@ -1396,7 +1407,7 @@
               <div class="download-card-title">${t(item.title)}</div>
               <p class="download-card-desc">${t(item.desc)}</p>
             </div>
-            <a class="download-btn" href="${item.file[lang] || item.file.en}" download>
+            <a class="download-btn" href="${item.file[lang] || item.file.en}" download data-download>
               <span class="download-btn-icon" aria-hidden="true">📥</span>
               ${u.downloadBtn}
             </a>
@@ -1408,8 +1419,70 @@
     `;
   }
 
+  function ensureAppToast() {
+    if (document.getElementById("app-toast")) return;
+    const toast = document.createElement("div");
+    toast.id = "app-toast";
+    toast.className = "app-toast hidden";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    toast.innerHTML = `<span id="app-toast-text"></span>`;
+    document.body.appendChild(toast);
+  }
+
+  function showAppToast(message) {
+    ensureAppToast();
+    const toast = document.getElementById("app-toast");
+    document.getElementById("app-toast-text").textContent = message;
+    toast.classList.remove("hidden");
+    toast.classList.add("visible");
+    clearTimeout(downloadToastTimer);
+    downloadToastTimer = setTimeout(() => {
+      toast.classList.remove("visible");
+      toast.classList.add("hidden");
+    }, 3500);
+  }
+
+  async function triggerFileDownload(url, linkEl) {
+    const filename = url.split("/").pop() || "download.docx";
+    linkEl.setAttribute("aria-busy", "true");
+    linkEl.classList.add("download-btn-busy");
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("fetch failed");
+      const blob = await res.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = blobUrl;
+      anchor.download = filename;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(blobUrl);
+      showAppToast(ui().downloadSuccess);
+    } catch {
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      showAppToast(ui().downloadSuccess);
+    } finally {
+      linkEl.removeAttribute("aria-busy");
+      linkEl.classList.remove("download-btn-busy");
+    }
+  }
+
   function bindEvents() {
     document.getElementById("contact-section")?.addEventListener("submit", handleContactSubmit);
+
+    document.getElementById("downloads-section")?.addEventListener("click", (e) => {
+      const link = e.target.closest("[data-download]");
+      if (!link || link.classList.contains("download-btn-busy")) return;
+      e.preventDefault();
+      triggerFileDownload(link.getAttribute("href"), link);
+    });
 
     document.getElementById("lang-toggle").addEventListener("click", toggleLang);
 

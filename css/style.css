@@ -669,6 +669,11 @@ body[lang="en"] .hero-greeting-rest {
   outline: none;
 }
 
+.download-btn-busy {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
 .download-btn-icon {
   font-size: 0.9rem;
   line-height: 1;
@@ -2726,7 +2731,8 @@ body[lang="en"] .hero-greeting-rest {
   }
 }
 
-.pwa-install-success {
+.pwa-install-success,
+.app-toast {
   position: fixed;
   top: calc(12px + env(safe-area-inset-top, 0px));
   left: 50%;
@@ -2747,16 +2753,19 @@ body[lang="en"] .hero-greeting-rest {
   pointer-events: none;
 }
 
-.pwa-install-success.visible {
+.pwa-install-success.visible,
+.app-toast.visible {
   opacity: 1;
   transform: translate(-50%, 0);
 }
 
-.pwa-install-success.hidden {
+.pwa-install-success.hidden,
+.app-toast.hidden {
   display: none;
 }
 
-.pwa-install-success.visible.hidden {
+.pwa-install-success.visible.hidden,
+.app-toast.visible.hidden {
   display: block;
 }
 
