@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-08-01e",
+    build: "2026-08-01r",
     budget: {
       total: { cny: 7825, usd: 1155.65 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -491,6 +491,292 @@ const ITINERARY = {
     ],
   },
 
+  octWeather: {
+    title: { en: "Oct 15–30 Weather & Clothing", zh: "10 月 15–30 日天气与穿衣" },
+    subtitle: {
+      en: "Five-year averages (2021–2025) · Actual vs feels-like temps · Chicago included for reference",
+      zh: "近五年（2021–2025）均值 · 实际温度与体感温度 · 含芝加哥参照",
+    },
+    source: {
+      en: "Source: Open-Meteo historical archive, Oct 15–30 averaged across 2021–2025 (80 sample days per city). “Meteorological feels-like” = apparent temperature (wind + humidity formula)—not the same as damp-clothes chill.",
+      zh: "数据来源：Open-Meteo 历史档案，2021–2025 年每年 10 月 15–30 日共 80 个样本日。「气象体感」= apparent temperature（风速+湿度公式），≠ 湿衣、无日照带来的阴冷感。",
+    },
+    humidityNote: {
+      en: "Chengdu/Chongqing: at 14–22°C, formulas barely penalize humidity—feels-like ≈ the reading. Jiuzhaigou: formulas do subtract for wind (see table gap), but ~84% humidity and ~89% drizzly days add damp chill the number still misses—wettest stop on the trip, not comparable to drier Chicago.",
+      zh: "成都/重庆：14–22°C 段公式对湿度几乎不扣分，气象体感≈实况。九寨沟：公式已扣风寒（表格有差距），但湿度约 84%、近 90% 日子有毛毛雨/雾雨，阴湿穿透感仍超出表格——全程最湿，不能等同较干的芝加哥。",
+    },
+    dampDressTitle: { en: "Damp-air clothing guide", zh: "阴湿穿衣参考" },
+    dampDressTips: [
+      {
+        title: { en: "Chengdu & Chongqing", zh: "成都 & 重庆" },
+        desc: {
+          en: "Dress as if ~3–5°C (5–9°F) lower than the table on overcast or drizzly days—especially evenings. The table’s met feels-like undercounts damp air here.",
+          zh: "阴天/毛毛雨日，尤其夜间，按比表格低 3–5°C 备衣。表格「气象体感」未充分体现盆地阴湿。",
+        },
+      },
+      {
+        title: { en: "Jiuzhaigou", zh: "九寨沟" },
+        desc: {
+          en: "Start from the met feels-like column (wind already counted: ~11°C / 52°F day highs, ~3°C / 37°F mornings)—then add one extra layer for mist/drizzle and wet shoes. On gloomy days, treat it as another ~2–4°C (4–7°F) colder than that met feels-like. Most humid stop on the trip (~89% days with precipitation).",
+          zh: "以表格「气象体感」为底（风寒已计入：白天约 11°C、清晨约 3°C），再因雾雨、鞋袜潮多加一层；阴天/毛毛雨日另按气象体感再低 2–4°C 备衣。全程最湿（约 89% 日子有降水），不能按芝加哥方式只盯表格。",
+        },
+      },
+      {
+        title: { en: "Chicago (reference)", zh: "芝加哥（参照）" },
+        desc: {
+          en: "Met feels-like is enough—wind is the main factor; fewer drizzly days (~43%) and lower humidity (~71%). You will not be there on this trip.",
+          zh: "按「气象体感」即可——以风寒为主；雨日较少（约 43%）、湿度较低（约 71%）。本行程不含芝加哥。",
+        },
+      },
+    ],
+    rainOverview: {
+      en: "Most trip rain is drizzle or light rain (1–5 mm/day)—an umbrella usually suffices. See the emoji guide below for quick reading.",
+      zh: "本行程时段降水以微雨、毛毛雨为主（多数雨天 1–5 mm/天），带伞一般够用；下方雨量图例便于快速对照。",
+    },
+    rainScaleTitle: { en: "Rain amount guide", zh: "雨量图例" },
+    rainScale: [
+      {
+        id: "mist",
+        emoji: "🌫️",
+        label: { en: "Mist / trace", zh: "微雨/雾雨" },
+        range: { en: "<1 mm/day", zh: "<1 mm/天" },
+        gear: { en: "Usually no gear", zh: "通常无需雨具" },
+      },
+      {
+        id: "drizzle",
+        emoji: "🌦️",
+        label: { en: "Drizzle", zh: "毛毛雨" },
+        range: { en: "1–5 mm/day", zh: "1–5 mm/天" },
+        gear: { en: "☂️ Umbrella", zh: "☂️ 折叠伞" },
+      },
+      {
+        id: "light",
+        emoji: "🌧️",
+        label: { en: "Light rain", zh: "小雨" },
+        range: { en: "5–15 mm/day", zh: "5–15 mm/天" },
+        gear: { en: "☂️ Umbrella", zh: "☂️ 折叠伞" },
+      },
+      {
+        id: "moderate",
+        emoji: "☔",
+        label: { en: "Moderate rain", zh: "中雨" },
+        range: { en: "15–30 mm/day", zh: "15–30 mm/天" },
+        gear: { en: "🧥 Rain jacket", zh: "🧥 轻便雨衣" },
+      },
+      {
+        id: "heavy",
+        emoji: "⛈️",
+        label: { en: "Heavy rain", zh: "大雨" },
+        range: { en: "30+ mm/day", zh: "30+ mm/天" },
+        gear: { en: "🧥 Rain jacket + grips", zh: "🧥 雨衣 + 防滑鞋" },
+      },
+    ],
+    rainFreq: {
+      main: { en: "usual", zh: "为主" },
+      common: { en: "common", zh: "常见" },
+      occasional: { en: "occasional", zh: "偶有" },
+      rare: { en: "rare", zh: "极少" },
+    },
+    skyLabels: {
+      bright: { en: "Sunny", zh: "日照较好" },
+      mixed: { en: "Partly sunny", zh: "多云间晴" },
+      gloomy: { en: "Cloudy", zh: "阴天" },
+    },
+    skyOverview: {
+      en: "Grouped by daily sunshine: bright (≥6 h), mixed (2–6 h), or overcast/gloomy (<2 h). True all-day blue sky is rare in Chengdu and Chongqing; Jiuzhaigou sees more sun breaks despite frequent drizzle.",
+      zh: "按每日日照划分：日照较好（≥6 小时）、多云间晴（2–6 小时）、阴天/全天灰蒙（<2 小时）。成都、重庆少见整天大晴天；九寨沟虽常毛毛雨，但出太阳时海子更亮。",
+    },
+    tableHeaders: {
+      city: { en: "City", zh: "城市" },
+      high: { en: "Avg high (actual / met. feels)", zh: "日均最高（实际 / 气象体感）" },
+      low: { en: "Avg low (actual / met. feels)", zh: "日均最低（实际 / 气象体感）" },
+      mean: { en: "Daily mean (actual / met. feels)", zh: "日平均（实际 / 气象体感）" },
+    },
+    cities: [
+      {
+        id: "chengdu",
+        name: { en: "Chengdu", zh: "成都" },
+        ref: false,
+        high: { c: 20, feelC: 20, f: 68, feelF: 68 },
+        low: { c: 14, feelC: 14, f: 57, feelF: 57 },
+        mean: { c: 17, feelC: 17, f: 63, feelF: 63 },
+        sky: {
+          brightPct: 30,
+          mixedPct: 26,
+          gloomyPct: 44,
+          desc: {
+            en: "Rare all-day blue sky. ~30% bright (≥6 h sun), ~26% mixed clouds, ~44% overcast/gloomy (<2 h sun)—often gray even when rain is only drizzle; ~15% are dry but overcast. Soft, flat light for photos.",
+            zh: "少见整天大晴天：日照较好约 30%，多云间晴约 26%，阴天/全天灰蒙约 44%——常阴而不必大雨（约 15% 为干阴天）；拍照光线偏柔和。",
+          },
+        },
+        rainTiming: {
+          en: "Classic basin pattern: ~59% of rain falls 7 pm–7 am. Still, ~60% of rainy days also have rain 9 am–5 pm—mornings are often overcast and damp; keep an umbrella for sightseeing.",
+          zh: "盆地夜雨常见：约 59% 降水在 19:00–07:00。同时约 60% 的雨天在 9:00–17:00 也有降水，上午常阴湿，游览时仍需带伞。",
+        },
+        rainPrecip: {
+          en: "~32 mm over 16 days (~2 mm/day avg). Rain on ~73% of days.",
+          zh: "16 天合计约 32 mm（日均约 2 mm）；约 73% 的日子有雨。",
+        },
+        rainLevels: [
+          { id: "drizzle", freq: "main" },
+          { id: "light", freq: "occasional" },
+        ],
+      },
+      {
+        id: "chongqing",
+        name: { en: "Chongqing", zh: "重庆" },
+        ref: false,
+        high: { c: 22, feelC: 23, f: 71, feelF: 73 },
+        low: { c: 16, feelC: 16, f: 60, feelF: 61 },
+        mean: { c: 18, feelC: 19, f: 65, feelF: 67 },
+        sky: {
+          brightPct: 41,
+          mixedPct: 21,
+          gloomyPct: 38,
+          desc: {
+            en: "Slightly sunnier than Chengdu. ~41% bright, ~21% mixed, ~38% overcast/gloomy—the “Fog City” nickname fits, but ~4 in 10 days still see good sunshine.",
+            zh: "比成都略晴：日照较好约 41%，多云间晴约 21%，阴天约 38%；雾都名不虚传，但仍有约四成日子能见到较多阳光。",
+          },
+        },
+        rainTiming: {
+          en: "Rain falls fairly evenly day and night. ~75% of rainy days have rain 9 am–5 pm—daytime drizzle is more common than in Chengdu; keep rain gear handy while sightseeing.",
+          zh: "昼夜降水时段大致各半；约 75% 的雨天在 9:00–17:00 有雨，白天淋雨概率高于成都，游览时请备好雨具。",
+        },
+        rainPrecip: {
+          en: "~66 mm over 16 days (~4 mm/day avg). Rain on ~59% of days (~7 mm on rainy days).",
+          zh: "16 天合计约 66 mm（日均约 4 mm）；约 59% 的日子有雨（雨日平均约 7 mm）。",
+        },
+        rainLevels: [
+          { id: "drizzle", freq: "main" },
+          { id: "light", freq: "common" },
+          { id: "moderate", freq: "occasional" },
+          { id: "heavy", freq: "rare" },
+        ],
+      },
+      {
+        id: "jiuzhaigou",
+        name: { en: "Jiuzhaigou", zh: "九寨沟" },
+        ref: false,
+        high: { c: 13, feelC: 11, f: 54, feelF: 52 },
+        low: { c: 5, feelC: 3, f: 41, feelF: 37 },
+        mean: { c: 8, feelC: 7, f: 47, feelF: 44 },
+        sky: {
+          brightPct: 53,
+          mixedPct: 19,
+          gloomyPct: 29,
+          desc: {
+            en: "Sunniest stop on the trip. ~53% bright, ~19% mixed, ~29% overcast/misty—sun and drizzle often coexist; lake colors pop when breaks appear.",
+            zh: "三者中日照最好：日照较好约 53%，多云间晴约 19%，阴天雾蒙约 29%——可与毛毛雨并存，出太阳时海子颜色极美。",
+          },
+        },
+        rainTiming: {
+          en: "One of the wettest windows (~89% of days with precipitation). Expect all-day mist and intermittent drizzle; ~61% of rainy days also see rain 9 am–5 pm—plan for rain on nearly every valley day.",
+          zh: "10 月中下旬极湿，约 89% 样本日有降水。常见全天雾雨、间歇毛毛雨；约 61% 的雨天白天也有降水，沟内游览几乎天天需防雨。",
+        },
+        rainPrecip: {
+          en: "~34 mm over 16 days (~2 mm/day avg). Rain on ~89% of days—almost daily.",
+          zh: "16 天合计约 34 mm（日均约 2 mm）；约 89% 的日子有降水，几乎天天有。",
+        },
+        rainLevels: [
+          { id: "mist", freq: "main" },
+          { id: "drizzle", freq: "common" },
+          { id: "light", freq: "occasional" },
+        ],
+      },
+      {
+        id: "chicago",
+        name: { en: "Chicago (reference)", zh: "芝加哥（参照）" },
+        ref: true,
+        high: { c: 16, feelC: 12, f: 60, feelF: 54 },
+        low: { c: 8, feelC: 4, f: 46, feelF: 40 },
+        mean: { c: 12, feelC: 8, f: 54, feelF: 46 },
+        sky: {
+          brightPct: 73,
+          mixedPct: 15,
+          gloomyPct: 13,
+          desc: {
+            en: "(Reference) ~73% bright, ~15% mixed, only ~13% gloomy—much sunnier than Sichuan/Chongqing in the same window.",
+            zh: "（参照）日照较好约 73%，多云间晴约 15%，仅约 13% 全天阴沉——明显比川渝晴朗。",
+          },
+        },
+        rainTiming: {
+          en: "For comparison only—you will not be in Chicago during this trip. Wind lowers feels-like more than Sichuan humidity in this season.",
+          zh: "仅供对照——行程不含芝加哥。此期间芝加哥风大，体感低于温度计读数较明显。",
+        },
+        rainPrecip: {
+          en: "~55 mm over 16 days (~3.4 mm/day avg). Rain on ~43% of days (~8 mm when it rains).",
+          zh: "16 天合计约 55 mm（日均约 3.4 mm）；约 43% 的日子有雨（雨日平均约 8 mm）。",
+        },
+        rainLevels: [
+          { id: "light", freq: "common" },
+          { id: "moderate", freq: "occasional" },
+          { id: "heavy", freq: "rare" },
+        ],
+      },
+    ],
+    packing: [
+      {
+        title: { en: "Chengdu & Chongqing (D1–D3, D6–D10)", zh: "成都 & 重庆（D1–D3、D6–D10）" },
+        items: [
+          {
+            en: "Daytime: breathable long-sleeve tee or light knit; pack a layer you can add/remove",
+            zh: "白天：透气长袖或薄针织，备一件可随时穿脱的外层",
+          },
+          {
+            en: "Evenings & AC indoors: light windbreaker or fleece—on overcast/drizzle days, dress ~3–5°C (5–9°F) lower than the table (damp-air guide above)",
+            zh: "夜间 / 室内空调：轻便防风夹克或薄抓绒——阴天/毛毛雨日按比表格低 3–5°C 备衣（见上方阴湿穿衣参考）",
+          },
+          {
+            en: "Rain gear: compact umbrella for drizzle (1–5 mm); light rain jacket if Chongqing shows moderate rain in the forecast",
+            zh: "雨具：微雨、毛毛雨（1–5 mm）带折叠伞即可；重庆预报有中雨时备轻便雨衣",
+          },
+          {
+            en: "Footwear: grippy walking shoes; Chongqing has many stairs—avoid stiff new soles",
+            zh: "鞋：防滑步行鞋；重庆台阶多，避免硬底新鞋",
+          },
+        ],
+      },
+      {
+        title: { en: "Jiuzhaigou (D4–D6)", zh: "九寨沟（D4–D6）" },
+        items: [
+          {
+            en: "Daytime in the valley: base layer + fleece/sweater + windproof shell from the met feels-like row (~11°C / 52°F)—add another layer when mist/drizzle wets your shell (~2–4°C colder in practice)",
+            zh: "沟内白天：按表格气象体感（约 11°C）穿打底 + 抓绒/毛衣 + 防风外套；雾雨打湿外层时再加一层（实际再低约 2–4°C）",
+          },
+          {
+            en: "Early mornings & evenings (06:45 train): light down or heavy fleece from met feels-like (~3°C / 37°F)—scarf, thin gloves; altitude + damp air bites harder than the number",
+            zh: "清晨 / 晚间（06:45 高铁）：按气象体感约 3°C 备薄羽绒或厚抓绒；围巾、薄手套——高海拔+湿冷比数字更刺骨",
+          },
+          {
+            en: "Waterproof hiking shoes—persistent drizzle and mist; boardwalks get slick",
+            zh: "防水防滑徒步鞋——持续性毛毛雨、雾雨，木栈道易滑",
+          },
+          {
+            en: "Sunglasses & sunscreen—strong UV at altitude even when it feels cold",
+            zh: "墨镜与防晒——高海拔紫外线强，阴冷天也需防护",
+          },
+        ],
+      },
+      {
+        title: { en: "General", zh: "通用" },
+        items: [
+          {
+            en: "Quick-dry base layers beat cotton when you sweat or get caught in drizzle",
+            zh: "速干打底优于纯棉——出汗或淋雨后更舒服",
+          },
+          {
+            en: "1–2 sets of wash-and-dry-fast clothes; small zip bags for damp items",
+            zh: "1–2 套易洗易干换洗衣物；小密封袋装潮湿物品",
+          },
+          {
+            en: "No heavy winter coat needed for Chengdu/Chongqing cities; save bulk for Jiuzhaigou layers",
+            zh: "成都市内无需厚羽绒服；把行李空间留给九寨沟分层衣物",
+          },
+        ],
+      },
+    ],
+  },
+
   preDeparture48h: {
     title: { en: "48 Hours Before Departure", zh: "行前 48 小时" },
     subtitle: {
@@ -507,6 +793,16 @@ const ITINERARY = {
           zh: "本行程 10 月 15–30 日已避开国庆黄金周（10/1–7），但九寨沟仍为旺季，门票与酒店建议提前预订。该时段落在签证指南「出发前 4–8 周申请」窗口内，若尚未办签请尽快办理。",
         },
         tipTarget: "visa",
+      },
+      {
+        id: "oct-weather",
+        icon: "🌡️",
+        title: { en: "Oct weather & clothing", zh: "10 月天气与穿衣" },
+        desc: {
+          en: "Chengdu sees more rain at night; Chongqing and Jiuzhaigou often drizzle during daytime sightseeing—pack rain gear for all three. See the weather & clothing section below for five-year averages and layer suggestions.",
+          zh: "成都夜间降水较多，重庆、九寨沟白天也常下雨——三地都建议携带雨具。详见下方「10 月 15–30 日天气与穿衣」区块。",
+        },
+        sectionTarget: "oct-weather-section",
       },
       {
         id: "visa",
@@ -1016,8 +1312,8 @@ const ITINERARY = {
           type: "transport",
           title: { en: "Return Shuttle to Chunxi Road", zh: "直通车返程春熙路" },
           desc: {
-            en: "16:30 shuttle bus return to Chunxi Road. Free evening to buy souvenirs; hotel free luggage storage, pack for Jiuzhaigou trip.",
-            zh: "16:30 直通车返程春熙路。晚间自由采购伴手礼，酒店免费寄存大件行李，整理九寨沟出行物资。",
+            en: "16:30 shuttle bus return to Chunxi Road. Free evening to buy souvenirs; hotel free luggage storage, pack for Jiuzhaigou (see Weather & Clothing—layers + waterproof shoes).",
+            zh: "16:30 直通车返程春熙路。晚间自由采购伴手礼，酒店免费寄存大件行李，整理九寨沟出行物资（详见「10 月天气与穿衣」— 分层保暖 + 防水鞋）。",
           },
           cost: null,
           image: "images/shuttle-bus.svg",
@@ -1027,8 +1323,8 @@ const ITINERARY = {
           type: "hotel",
           title: { en: "Panda Hotel", zh: "熊猫很困酒店住宿" },
           desc: {
-            en: "Evening at Panda Hotel — free luggage storage, pack for Jiuzhaigou.",
-            zh: "晚间回熊猫很困酒店，免费寄存大件行李、整理九寨沟出行物资",
+            en: "Evening at Panda Hotel — free luggage storage, pack for Jiuzhaigou (see Weather & Clothing guide).",
+            zh: "晚间回熊猫很困酒店，免费寄存大件行李、整理九寨沟出行物资（见「10 月天气与穿衣」）",
           },
           cost: { cny: 300, usd: 44.31, note: { en: "nightly share", zh: "单日分摊" } },
           image: "https://ak-d.tripcdn.com/images/1mc2x12000iqcute15938_R_960_660_R5_D.jpg",
@@ -1700,7 +1996,15 @@ const ITINERARY = {
       tipsHint: "Tap a section to expand",
       preDepartureTitle: "48 Hours Before Departure",
       preDepartureHint: "Tap to expand the checklist",
+      octWeatherHint: "Tap to expand weather & clothing guide",
       preDepartureMore: "Full guide",
+      preDepartureSectionMore: "View guide",
+      octWeatherConditionsLabel: "Sun, cloud & rain (Oct 15–30, 2021–2025)",
+      octWeatherSkyLabel: "Sunshine / cloud",
+      octWeatherRainLabel: "Rain timing & amount (Oct 15–30, 2021–2025)",
+      octWeatherRainTiming: "When",
+      octWeatherRainAmount: "Rainfall",
+      octWeatherPackingLabel: "What to pack",
       intensityLabels: {
         relaxed: "Relaxed pace",
         standard: "Standard",
@@ -1789,7 +2093,15 @@ const ITINERARY = {
       tipsHint: "点击标题展开详情",
       preDepartureTitle: "行前 48 小时",
       preDepartureHint: "点击标题展开核对清单",
+      octWeatherHint: "点击标题展开天气与穿衣指南",
       preDepartureMore: "查看完整指南",
+      preDepartureSectionMore: "查看指南",
+      octWeatherConditionsLabel: "阴晴与降雨（2021–2025，10/15–30）",
+      octWeatherSkyLabel: "阴晴",
+      octWeatherRainLabel: "降雨时段与雨量（2021–2025，10/15–30）",
+      octWeatherRainTiming: "时段",
+      octWeatherRainAmount: "雨量",
+      octWeatherPackingLabel: "建议携带",
       intensityLabels: {
         relaxed: "轻松",
         standard: "标准",

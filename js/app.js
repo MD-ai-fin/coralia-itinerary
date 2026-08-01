@@ -7,6 +7,7 @@
   let expandedBudgetPanel = null;
   let expandedTipSection = null;
   let expandedPreDeparture = false;
+  let expandedOctWeather = false;
   let expandedPrimerId = null;
   let spotNavOpen = false;
   let sectionNavOpen = false;
@@ -30,6 +31,7 @@
     renderHeader();
     renderHero();
     renderPreDeparture48h();
+    renderOctWeather();
     renderInstallQr();
     renderDestinationPrimer();
     renderHighlights();
@@ -316,6 +318,11 @@
                           ? `<button type="button" class="predeparture-tip-link" data-tip-target="${item.tipTarget}">${u.preDepartureMore} ↗</button>`
                           : ""
                       }
+                      ${
+                        item.sectionTarget
+                          ? `<button type="button" class="predeparture-tip-link" data-section-target="${item.sectionTarget}">${u.preDepartureSectionMore} ↗</button>`
+                          : ""
+                      }
                     </div>
                   </div>
                 </li>
@@ -324,6 +331,169 @@
                 .join("")}
             </ul>
           </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function tempPairCell(city, kind) {
+    const v = city[kind];
+    const same = Math.abs(v.c - v.feelC) < 1;
+    if (lang === "zh") {
+      return same ? `${v.c} / ≈${v.c}°C` : `${v.c} / ${v.feelC}°C`;
+    }
+    return same ? `${v.f} / ≈${v.f}°F` : `${v.f} / ${v.feelF}°F`;
+  }
+
+  function rainScaleItem(w, scale) {
+    return `<span class="oct-weather-rain-scale-item" title="${t(scale.gear)}"><span class="oct-weather-rain-scale-emoji" aria-hidden="true">${scale.emoji}</span><span class="oct-weather-rain-scale-label">${t(scale.label)}</span><span class="oct-weather-rain-scale-range">${t(scale.range)}</span></span>`;
+  }
+
+  function rainLevelPills(w, city) {
+    if (!city.rainLevels?.length) return "";
+    const scaleById = Object.fromEntries((w.rainScale || []).map((s) => [s.id, s]));
+    return city.rainLevels
+      .map((rl) => {
+        const scale = scaleById[rl.id];
+        if (!scale) return "";
+        const freq = t(w.rainFreq[rl.freq] || w.rainFreq.main);
+        return `<span class="oct-weather-rain-pill oct-weather-rain-pill-${rl.id}" title="${t(scale.range)} · ${t(scale.gear)}"><span class="oct-weather-rain-pill-emoji" aria-hidden="true">${scale.emoji}</span>${t(scale.label)}·${freq}</span>`;
+      })
+      .join("");
+  }
+
+  function renderOctWeather() {
+    const w = ITINERARY.octWeather;
+    const card = document.getElementById("oct-weather-card");
+    if (!w || !card) return;
+
+    const hintEl = document.getElementById("oct-weather-hint");
+    if (hintEl) hintEl.textContent = ui().octWeatherHint;
+
+    const h = w.tableHeaders;
+    const u = ui();
+    const isExpanded = expandedOctWeather;
+    const unitNote =
+      lang === "zh"
+        ? "表格「气象体感」含风湿公式。成都/重庆常≈实况；九寨沟风寒已计入，但阴湿需再加一层（见黄底提示）。"
+        : "“Met. feels” includes wind/humidity. Chengdu/Chongqing often ≈ actual; Jiuzhaigou wind is in the table—add a layer for damp mist (see yellow box).";
+
+    const dampDressHtml = w.dampDressTips
+      ? `<div class="oct-weather-damp-dress">
+          <div class="oct-weather-damp-dress-title">${t(w.dampDressTitle)}</div>
+          <ul class="oct-weather-damp-dress-list">
+            ${w.dampDressTips
+              .map(
+                (tip) => `
+              <li><strong>${t(tip.title)}:</strong> ${t(tip.desc)}</li>
+            `
+              )
+              .join("")}
+          </ul>
+        </div>`
+      : "";
+
+    const bodyHtml = `
+            <p class="oct-weather-subtitle">${t(w.subtitle)}</p>
+            <p class="oct-weather-note">${t(w.source)}</p>
+            <p class="oct-weather-note oct-weather-humidity">${t(w.humidityNote)}</p>
+            ${dampDressHtml}
+            <p class="oct-weather-note oct-weather-rain-overview">${t(w.rainOverview)}</p>
+            <p class="oct-weather-note">${t(w.skyOverview)}</p>
+            <p class="oct-weather-unit-note">${unitNote}</p>
+            <div class="oct-weather-table-wrap">
+              <table class="oct-weather-table">
+                <thead>
+                  <tr>
+                    <th scope="col">${t(h.city)}</th>
+                    <th scope="col">${t(h.high)}</th>
+                    <th scope="col">${t(h.low)}</th>
+                    <th scope="col">${t(h.mean)}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${w.cities
+                    .map(
+                      (city) => `
+                    <tr class="${city.ref ? "oct-weather-row-ref" : ""}">
+                      <th scope="row">${t(city.name)}</th>
+                      <td>${tempPairCell(city, "high")}</td>
+                      <td>${tempPairCell(city, "low")}</td>
+                      <td>${tempPairCell(city, "mean")}</td>
+                    </tr>
+                  `
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+            <div class="oct-weather-rain-block">
+              <h3 class="oct-weather-subheading">${u.octWeatherConditionsLabel}</h3>
+              ${
+                w.rainScale?.length
+                  ? `<div class="oct-weather-rain-scale">
+                      <div class="oct-weather-rain-scale-title">${t(w.rainScaleTitle)}</div>
+                      <div class="oct-weather-rain-scale-items">${w.rainScale.map((s) => rainScaleItem(w, s)).join("")}</div>
+                    </div>`
+                  : ""
+              }
+              <ul class="oct-weather-rain-list">
+                ${w.cities
+                  .map(
+                    (city) => `
+                  <li class="${city.ref ? "oct-weather-rain-ref" : ""}">
+                    <div class="oct-weather-city-header">
+                      <strong class="oct-weather-city-name">${t(city.name)}</strong>
+                      <div class="oct-weather-sky-pills">
+                        <span class="oct-weather-sky-pill oct-weather-sky-pill-bright" title="${lang === "zh" ? "≥6 小时日照" : "≥6 h sunshine"}">${t(w.skyLabels.bright)} ${city.sky.brightPct}%</span>
+                        <span class="oct-weather-sky-pill oct-weather-sky-pill-mixed" title="${lang === "zh" ? "2–6 小时日照" : "2–6 h sunshine"}">${t(w.skyLabels.mixed)} ${city.sky.mixedPct}%</span>
+                        <span class="oct-weather-sky-pill oct-weather-sky-pill-gloomy" title="${lang === "zh" ? "<2 小时日照" : "<2 h sunshine"}">${t(w.skyLabels.gloomy)} ${city.sky.gloomyPct}%</span>
+                      </div>
+                    </div>
+                    <div class="oct-weather-rain-detail">
+                      <span class="oct-weather-rain-tag">${u.octWeatherSkyLabel}</span>
+                      ${t(city.sky.desc)}
+                    </div>
+                    <div class="oct-weather-rain-detail">
+                      <span class="oct-weather-rain-tag">${u.octWeatherRainTiming}</span>
+                      ${t(city.rainTiming)}
+                    </div>
+                    <div class="oct-weather-rain-detail oct-weather-rain-detail-amount">
+                      <span class="oct-weather-rain-tag">${u.octWeatherRainAmount}</span>
+                      <div class="oct-weather-rain-pills">${rainLevelPills(w, city)}</div>
+                      <span class="oct-weather-rain-summary">${t(city.rainPrecip)}</span>
+                    </div>
+                  </li>
+                `
+                  )
+                  .join("")}
+              </ul>
+            </div>
+            <div class="oct-weather-packing">
+              <h3 class="oct-weather-subheading">${u.octWeatherPackingLabel}</h3>
+              ${w.packing
+                .map(
+                  (group) => `
+                <div class="oct-weather-pack-group">
+                  <h4 class="oct-weather-pack-title">${t(group.title)}</h4>
+                  <ul class="oct-weather-pack-list">
+                    ${group.items.map((item) => `<li>${t(item)}</li>`).join("")}
+                  </ul>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+    `;
+
+    card.innerHTML = `
+      <article class="oct-weather-card card tip-collapsible ${isExpanded ? "expanded" : ""}" id="oct-weather-collapsible">
+        <div class="tip-header" role="button" tabindex="0" aria-expanded="${isExpanded}">
+          <h3>${t(w.title)}</h3>
+          <span class="day-chevron">▼</span>
+        </div>
+        <div class="tip-body">
+          <div class="tip-body-inner">${bodyHtml}</div>
         </div>
       </article>
     `;
@@ -733,6 +903,7 @@
     return [
       { sectionId: "hero-section", label: u.sectionNavWelcome, iconImg: "images/panda-wave.png" },
       { sectionId: "predeparture-section", label: u.preDepartureTitle, icon: "⏰" },
+      { sectionId: "oct-weather-section", label: t(ITINERARY.octWeather.title), icon: "🌡️" },
       { sectionId: "primer-section", label: u.primerTitle, icon: "🗺️" },
       { sectionId: "highlights-section", label: u.highlightsTitle, icon: "✨" },
       { sectionId: "hotels-section", label: u.hotelsTitle, icon: "🏨" },
@@ -833,6 +1004,11 @@
     if (budgetPanel) {
       expandedBudgetPanel = budgetPanel;
       renderBudgetBreakdown();
+    }
+
+    if (sectionId === "oct-weather-section") {
+      expandedOctWeather = true;
+      renderOctWeather();
     }
 
     const runScroll = () => {
@@ -1500,9 +1676,15 @@
 
     document.getElementById("predeparture-section")?.addEventListener("click", (e) => {
       const header = e.target.closest("#predeparture-section .tip-header");
-      if (header && !e.target.closest("[data-tip-target], .predeparture-link")) {
+      if (header && !e.target.closest("[data-tip-target], [data-section-target], .predeparture-link")) {
         expandedPreDeparture = !expandedPreDeparture;
         renderPreDeparture48h();
+        return;
+      }
+      const sectionBtn = e.target.closest("[data-section-target]");
+      if (sectionBtn) {
+        e.preventDefault();
+        jumpToSection(sectionBtn.dataset.sectionTarget);
         return;
       }
       const btn = e.target.closest("[data-tip-target]");
@@ -1517,6 +1699,21 @@
       e.preventDefault();
       expandedPreDeparture = !expandedPreDeparture;
       renderPreDeparture48h();
+    });
+
+    document.getElementById("oct-weather-section")?.addEventListener("click", (e) => {
+      const header = e.target.closest("#oct-weather-section .tip-header");
+      if (!header) return;
+      expandedOctWeather = !expandedOctWeather;
+      renderOctWeather();
+    });
+
+    document.getElementById("oct-weather-section")?.addEventListener("keydown", (e) => {
+      const header = e.target.closest("#oct-weather-section .tip-header");
+      if (!header || (e.key !== "Enter" && e.key !== " ")) return;
+      e.preventDefault();
+      expandedOctWeather = !expandedOctWeather;
+      renderOctWeather();
     });
 
     document.getElementById("spot-nav-list")?.addEventListener("click", (e) => {
