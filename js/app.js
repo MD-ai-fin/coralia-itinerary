@@ -598,10 +598,10 @@
       .map(
         (h) => `
       <article class="hotel-card card">
-        <a class="hotel-image-link" href="${h.website}" target="_blank" rel="noopener" aria-label="${t(h.name)}">
+        <div class="hotel-image-wrap">
           <img class="hotel-image" src="${h.image}" alt="${t(h.name)}" loading="lazy"
                onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80'">
-        </a>
+        </div>
         <div class="hotel-body">
           <div class="hotel-city">🏨 ${t(h.city)}</div>
           <div class="hotel-name">

@@ -1074,21 +1074,16 @@ body[lang="en"] .hero-greeting-rest {
   transform: translateY(-4px);
 }
 
-.hotel-image-link {
+.hotel-image-wrap {
   display: block;
   line-height: 0;
   overflow: hidden;
-}
-
-.hotel-image-link:hover .hotel-image {
-  transform: scale(1.03);
 }
 
 .hotel-image {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  transition: transform 0.25s ease;
 }
 
 .hotel-body {
