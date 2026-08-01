@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-08-01s",
+    build: "2026-08-01t",
     budget: {
       total: { cny: 7825, usd: 1155.65 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -498,7 +498,7 @@ const ITINERARY = {
       zh: "近五年（2021–2025）均值 · 实际温度与体感温度 · 含芝加哥参照",
     },
     source: {
-      en: "Source: Open-Meteo historical archive, Oct 15–30 averaged across 2021–2025 (80 sample days per city). “Meteorological feels-like” = apparent temperature (wind + humidity formula)—not the same as damp-clothes chill.",
+      en: "Source: Open-Meteo historical archive, Oct 15–30 averaged across 2021–2025 (80 sample days per city). “Feels-like” is the usual weather-app number (wind + humidity)—not the same as damp-clothes chill on a gray day.",
       zh: "数据来源：Open-Meteo 历史档案，2021–2025 年每年 10 月 15–30 日共 80 个样本日。「气象体感」= apparent temperature（风速+湿度公式），≠ 湿衣、无日照带来的阴冷感。",
     },
     humidityNote: {
@@ -510,21 +510,21 @@ const ITINERARY = {
       {
         title: { en: "Chengdu & Chongqing", zh: "成都 & 重庆" },
         desc: {
-          en: "Dress as if ~3–5°C (5–9°F) lower than the table on overcast or drizzly days—especially evenings. The table’s met feels-like undercounts damp air here.",
+          en: "Dress as if ~3–5°C (5–9°F) lower than the table on overcast or drizzly days—especially evenings. The feels-like column understates damp air here.",
           zh: "阴天/毛毛雨日，尤其夜间，按比表格低 3–5°C 备衣。表格「气象体感」未充分体现盆地阴湿。",
         },
       },
       {
         title: { en: "Jiuzhaigou", zh: "九寨沟" },
         desc: {
-          en: "Start from the met feels-like column (wind already counted: ~11°C / 52°F day highs, ~3°C / 37°F mornings)—then add one extra layer for mist/drizzle and wet shoes. On gloomy days, treat it as another ~2–4°C (4–7°F) colder than that met feels-like. Most humid stop on the trip (~89% days with precipitation).",
+          en: "Start from the feels-like column (wind already counted: ~11°C / 52°F day highs, ~3°C / 37°F mornings)—then add one extra layer for mist/drizzle and wet shoes. On gloomy days, treat it as another ~2–4°C (4–7°F) colder than that feels-like number. Most humid stop on the trip (~89% days with precipitation).",
           zh: "以表格「气象体感」为底（风寒已计入：白天约 11°C、清晨约 3°C），再因雾雨、鞋袜潮多加一层；阴天/毛毛雨日另按气象体感再低 2–4°C 备衣。全程最湿（约 89% 日子有降水），不能按芝加哥方式只盯表格。",
         },
       },
       {
         title: { en: "Chicago (reference)", zh: "芝加哥（参照）" },
         desc: {
-          en: "Met feels-like is enough—wind is the main factor; fewer drizzly days (~43%) and lower humidity (~71%). You will not be there on this trip.",
+          en: "Feels-like is enough here—wind is the main factor; fewer drizzly days (~43%) and lower humidity (~71%). You will not be there on this trip.",
           zh: "按「气象体感」即可——以风寒为主；雨日较少（约 43%）、湿度较低（约 71%）。本行程不含芝加哥。",
         },
       },
@@ -588,9 +588,9 @@ const ITINERARY = {
     },
     tableHeaders: {
       city: { en: "City", zh: "城市" },
-      high: { en: "Avg high (actual / met. feels)", zh: "日均最高（实际 / 气象体感）" },
-      low: { en: "Avg low (actual / met. feels)", zh: "日均最低（实际 / 气象体感）" },
-      mean: { en: "Daily mean (actual / met. feels)", zh: "日平均（实际 / 气象体感）" },
+      high: { en: "Avg high (actual / feels-like)", zh: "日均最高（实际 / 气象体感）" },
+      low: { en: "Avg low (actual / feels-like)", zh: "日均最低（实际 / 气象体感）" },
+      mean: { en: "Daily mean (actual / feels-like)", zh: "日平均（实际 / 气象体感）" },
     },
     cities: [
       {
@@ -740,11 +740,11 @@ const ITINERARY = {
         title: { en: "Jiuzhaigou (D4–D6)", zh: "九寨沟（D4–D6）" },
         items: [
           {
-            en: "Daytime in the valley: base layer + fleece/sweater + windproof shell from the met feels-like row (~11°C / 52°F)—add another layer when mist/drizzle wets your shell (~2–4°C colder in practice)",
+            en: "Daytime in the valley: base layer + fleece/sweater + windproof shell using the feels-like row (~11°C / 52°F)—add another layer when mist/drizzle wets your shell (~2–4°C colder in practice)",
             zh: "沟内白天：按表格气象体感（约 11°C）穿打底 + 抓绒/毛衣 + 防风外套；雾雨打湿外层时再加一层（实际再低约 2–4°C）",
           },
           {
-            en: "Early mornings & evenings (06:45 train): light down or heavy fleece from met feels-like (~3°C / 37°F)—scarf, thin gloves; altitude + damp air bites harder than the number",
+            en: "Early mornings & evenings (06:45 train): light down or heavy fleece for feels-like ~3°C / 37°F—scarf, thin gloves; altitude + damp air bites harder than the number",
             zh: "清晨 / 晚间（06:45 高铁）：按气象体感约 3°C 备薄羽绒或厚抓绒；围巾、薄手套——高海拔+湿冷比数字更刺骨",
           },
           {

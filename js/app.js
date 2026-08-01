@@ -376,7 +376,7 @@
     const unitNote =
       lang === "zh"
         ? "表格「气象体感」含风湿公式。成都/重庆常≈实况；九寨沟风寒已计入，但阴湿需再加一层（见黄底提示）。"
-        : "“Met. feels” includes wind/humidity. Chengdu/Chongqing often ≈ actual; Jiuzhaigou wind is in the table—add a layer for damp mist (see yellow box).";
+        : "Feels-like temps include wind and humidity. Chengdu/Chongqing often match the actual reading; Jiuzhaigou wind is already in the table—add a layer for damp mist (see yellow box).";
 
     const dampDressHtml = w.dampDressTips
       ? `<div class="oct-weather-damp-dress">
