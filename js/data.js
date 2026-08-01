@@ -22,7 +22,7 @@ const ITINERARY = {
     },
     exchangeRate: "1 CNY = 0.1477 USD",
     siteUrl: "https://md-ai-fin.github.io/coralia-itinerary/",
-    build: "2026-08-01t",
+    build: "2026-08-01u",
     budget: {
       total: { cny: 7825, usd: 1155.65 },
       cap: { cny: 9820, usd: 1449.41 },
@@ -510,14 +510,14 @@ const ITINERARY = {
       {
         title: { en: "Chengdu & Chongqing", zh: "成都 & 重庆" },
         desc: {
-          en: "Dress as if ~3–5°C (5–9°F) lower than the table on overcast or drizzly days—especially evenings. The feels-like column understates damp air here.",
+          en: "Dress as if ~3–5°C (5–9°F) lower than the table on cloudy or drizzly days—especially evenings. The feels-like column understates damp air here.",
           zh: "阴天/毛毛雨日，尤其夜间，按比表格低 3–5°C 备衣。表格「气象体感」未充分体现盆地阴湿。",
         },
       },
       {
         title: { en: "Jiuzhaigou", zh: "九寨沟" },
         desc: {
-          en: "Start from the feels-like column (wind already counted: ~11°C / 52°F day highs, ~3°C / 37°F mornings)—then add one extra layer for mist/drizzle and wet shoes. On gloomy days, treat it as another ~2–4°C (4–7°F) colder than that feels-like number. Most humid stop on the trip (~89% days with precipitation).",
+          en: "Start from the feels-like column (wind already counted: ~11°C / 52°F day highs, ~3°C / 37°F mornings)—then add one extra layer for mist/drizzle and wet shoes. On cloudy days, treat it as another ~2–4°C (4–7°F) colder than that feels-like number. Most humid stop on the trip (~89% days with precipitation).",
           zh: "以表格「气象体感」为底（风寒已计入：白天约 11°C、清晨约 3°C），再因雾雨、鞋袜潮多加一层；阴天/毛毛雨日另按气象体感再低 2–4°C 备衣。全程最湿（约 89% 日子有降水），不能按芝加哥方式只盯表格。",
         },
       },
@@ -583,7 +583,7 @@ const ITINERARY = {
       gloomy: { en: "Cloudy", zh: "阴天" },
     },
     skyOverview: {
-      en: "Grouped by daily sunshine: bright (≥6 h), mixed (2–6 h), or overcast/gloomy (<2 h). True all-day blue sky is rare in Chengdu and Chongqing; Jiuzhaigou sees more sun breaks despite frequent drizzle.",
+      en: "Grouped by daily sunshine: bright (≥6 h), mixed (2–6 h), or cloudy (<2 h). True all-day blue sky is rare in Chengdu and Chongqing; Jiuzhaigou sees more sun breaks despite frequent drizzle.",
       zh: "按每日日照划分：日照较好（≥6 小时）、多云间晴（2–6 小时）、阴天/全天灰蒙（<2 小时）。成都、重庆少见整天大晴天；九寨沟虽常毛毛雨，但出太阳时海子更亮。",
     },
     tableHeaders: {
@@ -605,12 +605,12 @@ const ITINERARY = {
           mixedPct: 26,
           gloomyPct: 44,
           desc: {
-            en: "Rare all-day blue sky. ~30% bright (≥6 h sun), ~26% mixed clouds, ~44% overcast/gloomy (<2 h sun)—often gray even when rain is only drizzle; ~15% are dry but overcast. Soft, flat light for photos.",
+            en: "Rare all-day blue sky. ~30% bright (≥6 h sun), ~26% mixed clouds, ~44% cloudy (<2 h sun)—often gray even when rain is only drizzle; ~15% are dry but cloudy. Soft, flat light for photos.",
             zh: "少见整天大晴天：日照较好约 30%，多云间晴约 26%，阴天/全天灰蒙约 44%——常阴而不必大雨（约 15% 为干阴天）；拍照光线偏柔和。",
           },
         },
         rainTiming: {
-          en: "Classic basin pattern: ~59% of rain falls 7 pm–7 am. Still, ~60% of rainy days also have rain 9 am–5 pm—mornings are often overcast and damp; keep an umbrella for sightseeing.",
+          en: "Classic basin pattern: ~59% of rain falls 7 pm–7 am. Still, ~60% of rainy days also have rain 9 am–5 pm—mornings are often cloudy and damp; keep an umbrella for sightseeing.",
           zh: "盆地夜雨常见：约 59% 降水在 19:00–07:00。同时约 60% 的雨天在 9:00–17:00 也有降水，上午常阴湿，游览时仍需带伞。",
         },
         rainPrecip: {
@@ -634,7 +634,7 @@ const ITINERARY = {
           mixedPct: 21,
           gloomyPct: 38,
           desc: {
-            en: "Slightly sunnier than Chengdu. ~41% bright, ~21% mixed, ~38% overcast/gloomy—the “Fog City” nickname fits, but ~4 in 10 days still see good sunshine.",
+            en: "Slightly sunnier than Chengdu. ~41% bright, ~21% mixed, ~38% cloudy—the “Fog City” nickname fits, but ~4 in 10 days still see good sunshine.",
             zh: "比成都略晴：日照较好约 41%，多云间晴约 21%，阴天约 38%；雾都名不虚传，但仍有约四成日子能见到较多阳光。",
           },
         },
@@ -665,7 +665,7 @@ const ITINERARY = {
           mixedPct: 19,
           gloomyPct: 29,
           desc: {
-            en: "Sunniest stop on the trip. ~53% bright, ~19% mixed, ~29% overcast/misty—sun and drizzle often coexist; lake colors pop when breaks appear.",
+            en: "Sunniest stop on the trip. ~53% bright, ~19% mixed, ~29% cloudy and misty—sun and drizzle often coexist; lake colors pop when breaks appear.",
             zh: "三者中日照最好：日照较好约 53%，多云间晴约 19%，阴天雾蒙约 29%——可与毛毛雨并存，出太阳时海子颜色极美。",
           },
         },
@@ -695,7 +695,7 @@ const ITINERARY = {
           mixedPct: 15,
           gloomyPct: 13,
           desc: {
-            en: "(Reference) ~73% bright, ~15% mixed, only ~13% gloomy—much sunnier than Sichuan/Chongqing in the same window.",
+            en: "(Reference) ~73% bright, ~15% mixed, only ~13% cloudy—much sunnier than Sichuan/Chongqing in the same window.",
             zh: "（参照）日照较好约 73%，多云间晴约 15%，仅约 13% 全天阴沉——明显比川渝晴朗。",
           },
         },
@@ -723,7 +723,7 @@ const ITINERARY = {
             zh: "白天：透气长袖或薄针织，备一件可随时穿脱的外层",
           },
           {
-            en: "Evenings & AC indoors: light windbreaker or fleece—on overcast/drizzle days, dress ~3–5°C (5–9°F) lower than the table (damp-air guide above)",
+            en: "Evenings & AC indoors: light windbreaker or fleece—on cloudy/drizzle days, dress ~3–5°C (5–9°F) lower than the table (damp-air guide above)",
             zh: "夜间 / 室内空调：轻便防风夹克或薄抓绒——阴天/毛毛雨日按比表格低 3–5°C 备衣（见上方阴湿穿衣参考）",
           },
           {
