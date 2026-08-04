@@ -48,14 +48,13 @@
   }
 
   function updatePwaManifest() {
-    const fullName = t(ITINERARY.meta.title);
     const shortName = t(ITINERARY.meta.iconShortName || ITINERARY.meta.title);
     const appleTitle = document.querySelector('meta[name="apple-mobile-web-app-title"]');
     if (appleTitle) appleTitle.setAttribute("content", shortName);
     document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
 
     const manifest = {
-      name: fullName,
+      name: shortName,
       short_name: shortName,
       description: t(ITINERARY.meta.description),
       start_url: "./",
