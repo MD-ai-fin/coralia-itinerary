@@ -524,7 +524,7 @@ const ITINERARY = {
       {
         title: { en: "Chicago (reference)", zh: "芝加哥（参照）" },
         desc: {
-          en: "Feels-like is enough here—wind is the main factor; fewer drizzly days (~43%) and lower humidity (~71%). You will not be there on this trip.",
+          en: "Feels-like is enough here—wind is the main factor; fewer drizzly days (~43%) and lower humidity (~71%). Not a stop on this itinerary.",
           zh: "按「气象体感」即可——以风寒为主；雨日较少（约 43%）、湿度较低（约 71%）。本行程不含芝加哥。",
         },
       },
@@ -700,7 +700,7 @@ const ITINERARY = {
           },
         },
         rainTiming: {
-          en: "For comparison only—you will not be in Chicago during this trip. Wind lowers feels-like more than Sichuan humidity in this season.",
+          en: "For comparison only—Chicago is not a stop on this itinerary. Wind lowers feels-like more than Sichuan humidity in this season.",
           zh: "仅供对照——行程不含芝加哥。此期间芝加哥风大，体感低于温度计读数较明显。",
         },
         rainPrecip: {
