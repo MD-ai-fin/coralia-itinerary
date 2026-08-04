@@ -14,6 +14,7 @@
   let spotlightTimer = null;
   let manifestBlobUrl = null;
   let downloadToastTimer = null;
+  let downloadToastCleanup = null;
 
   const SECTION_NAV_DRAWER_MQ = "(max-width: 1279px)";
   const SPOT_NAV_DRAWER_MQ = "(max-width: 1279px)";
@@ -1606,16 +1607,42 @@
     document.body.appendChild(toast);
   }
 
-  function showAppToast(message) {
+  function positionAppToast(toast, anchorEl) {
+    const rect = anchorEl.getBoundingClientRect();
+    toast.style.setProperty("--toast-x", `${rect.left + rect.width / 2}px`);
+    toast.style.setProperty("--toast-y", `${rect.top - 8}px`);
+    toast.style.maxWidth = `${Math.min(Math.max(rect.width + 48, 220), 420)}px`;
+  }
+
+  function bindAppToastReposition(toast, anchorEl) {
+    const reposition = () => positionAppToast(toast, anchorEl);
+    window.addEventListener("scroll", reposition, { passive: true, capture: true });
+    window.addEventListener("resize", reposition, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", reposition, { capture: true });
+      window.removeEventListener("resize", reposition);
+    };
+  }
+
+  function showAppToast(message, anchorEl) {
     ensureAppToast();
     const toast = document.getElementById("app-toast");
     document.getElementById("app-toast-text").textContent = message;
+    if (anchorEl) {
+      positionAppToast(toast, anchorEl);
+      if (downloadToastCleanup) downloadToastCleanup();
+      downloadToastCleanup = bindAppToastReposition(toast, anchorEl);
+    }
     toast.classList.remove("hidden");
     toast.classList.add("visible");
     clearTimeout(downloadToastTimer);
     downloadToastTimer = setTimeout(() => {
       toast.classList.remove("visible");
       toast.classList.add("hidden");
+      if (downloadToastCleanup) {
+        downloadToastCleanup();
+        downloadToastCleanup = null;
+      }
     }, 3500);
   }
 
@@ -1642,7 +1669,7 @@
       anchor.click();
       anchor.remove();
       URL.revokeObjectURL(blobUrl);
-      showAppToast(ui().downloadSuccess);
+      showAppToast(ui().downloadSuccess, linkEl);
     } catch {
       const anchor = document.createElement("a");
       anchor.href = url;
@@ -1650,7 +1677,7 @@
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();
-      showAppToast(ui().downloadSuccess);
+      showAppToast(ui().downloadSuccess, linkEl);
     }
 
     const remaining = minBusyMs - (Date.now() - started);

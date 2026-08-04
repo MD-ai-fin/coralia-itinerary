@@ -895,10 +895,15 @@ body[lang="en"] .hero-greeting-rest {
   white-space: nowrap;
 }
 
+.install-qr-frame-wrap {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .install-qr-frame {
   display: block;
   width: fit-content;
-  margin: 0 auto;
   padding: 8px;
   background: var(--white);
   border-radius: 12px;
@@ -3133,30 +3138,45 @@ body[lang="en"] .hero-greeting-rest {
 
 .pwa-install-success,
 .app-toast {
-  position: fixed;
-  top: calc(12px + env(safe-area-inset-top, 0px));
-  left: 50%;
   z-index: 300;
-  max-width: min(92vw, 420px);
-  padding: 12px 18px;
+  padding: 10px 14px;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--mint-dark), var(--bamboo));
   color: var(--white);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 700;
   line-height: 1.4;
   text-align: center;
   box-shadow: var(--shadow-hover);
   opacity: 0;
-  transform: translate(-50%, -12px);
   transition: opacity 0.25s ease, transform 0.25s ease;
   pointer-events: none;
 }
 
-.pwa-install-success.visible,
-.app-toast.visible {
+.pwa-install-success {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  width: max-content;
+  max-width: min(92vw, 320px);
+  transform: translate(-50%, 4px);
+}
+
+.pwa-install-success.visible {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+.app-toast {
+  position: fixed;
+  left: var(--toast-x, 50%);
+  top: var(--toast-y, 0px);
+  max-width: min(92vw, 420px);
+  transform: translate(-50%, -100%);
+}
+
+.app-toast.visible {
+  opacity: 1;
 }
 
 .pwa-install-success.hidden,

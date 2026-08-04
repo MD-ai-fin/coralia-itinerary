@@ -39,24 +39,14 @@
     return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
   }
 
-  function ensureSuccessToast() {
-    if (document.getElementById("pwa-install-success")) return;
-    const toast = document.createElement("div");
-    toast.id = "pwa-install-success";
-    toast.className = "pwa-install-success hidden";
-    toast.setAttribute("role", "status");
-    toast.setAttribute("aria-live", "polite");
-    toast.innerHTML = `<span id="pwa-install-success-text"></span>`;
-    document.body.appendChild(toast);
-  }
-
   function showInstallSuccess() {
     const now = Date.now();
     if (now - lastSuccessAt < 1500) return;
     lastSuccessAt = now;
-    ensureSuccessToast();
     const toast = document.getElementById("pwa-install-success");
-    document.getElementById("pwa-install-success-text").textContent = strings().pwaInstallSuccess;
+    const successText = document.getElementById("pwa-install-success-text");
+    if (!toast || !successText) return;
+    successText.textContent = strings().pwaInstallSuccess;
     toast.classList.remove("hidden");
     toast.classList.add("visible");
     clearTimeout(successTimer);
@@ -118,7 +108,6 @@
 
   function bindInstallPrompt() {
     createInstallBanner();
-    ensureSuccessToast();
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       deferredPrompt = event;

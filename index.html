@@ -164,8 +164,13 @@
       <div class="install-qr-compact card">
         <h2 id="install-qr-title" class="install-qr-title"></h2>
         <p id="install-qr-hint" class="install-qr-hint"></p>
-        <div class="install-qr-frame">
-          <img id="install-qr-image" src="images/install-qr.png" width="132" height="132" alt="">
+        <div class="install-qr-frame-wrap">
+          <div id="pwa-install-success" class="pwa-install-success hidden" role="status" aria-live="polite">
+            <span id="pwa-install-success-text"></span>
+          </div>
+          <div class="install-qr-frame">
+            <img id="install-qr-image" src="images/install-qr.png" width="132" height="132" alt="">
+          </div>
         </div>
         <a id="install-qr-url" class="install-qr-url" href="" target="_blank" rel="noopener noreferrer"></a>
       </div>
